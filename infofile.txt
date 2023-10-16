@@ -1,0 +1,19 @@
+Proceso para iniciar el proyecto con node:
+1º npm init (crea el pckage json): 
+2º npm i picocolors (para ponerle colores al terminal)
+Hay dependencias de producción y de desarrollo
+3º npm i standard -D (-D la instala como dependencia de desarrollo): 
+    Esta extensión es para que nos informe de los errores. Hay que añadir en devDependencies "eslintConfig": {"extends": "standard" } e instalar la extension eslint.
+    Tambien hay que tener lo siguiente en las >preferencias (json)
+        "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint":true 
+    },
+
+Montar servidor http.
+Para ejecutar un archivo y no tener que estar ejecutandolo de nuevo para cada cambio que hagas:
+node --watch ./rutaarchivo.js (esta en experimental)
+Alternativa a watch nodemon -> npm install nodemon -D

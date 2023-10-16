@@ -1,0 +1,26 @@
+{
+  "name": "elrastro-node",
+  "version": "1.0.0",
+  "description": "proyecto de ingeniería web 23/24",
+  "main": "index.js",
+  "scripts": {
+    "dev": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rastro",
+    "subastas",
+    "nodejs",
+    "react",
+    "mongodb"
+  ],
+  "author": "Juan José Torres Palomo, Jose Manuel Sánchez Navarro, Antonio Navajas Ortega, Juan Sánchez, Fernando López",
+  "license": "ISC",
+  "dependencies": {
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0",
+    "nodemon": "^3.0.1"
+  }
+}
