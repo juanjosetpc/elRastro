@@ -17,3 +17,5 @@ Montar servidor http.
 Para ejecutar un archivo y no tener que estar ejecutandolo de nuevo para cada cambio que hagas:
 node --watch ./rutaarchivo.js (esta en experimental)
 Alternativa a watch nodemon -> npm install nodemon -D
+
+Hacer npm install para tener todas las dependencias
