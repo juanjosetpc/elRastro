@@ -2,19 +2,19 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-    res.send('Prueba');
-});
+const routes = require('./routes/index');
+
+app.use('/', routes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
-/*const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/tu-base-de-datos', {
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://josemanuelsannav:BbqxLuDliivgxWR1@cluster0.bqymwmt.mongodb.net/', {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}); */
+}); 
 
 
 
