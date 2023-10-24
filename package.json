@@ -14,7 +14,7 @@
     "react",
     "mongodb"
   ],
-  "author": "Juan José Torres Palomo, Jose Manuel Sánchez Navarro, Antonio Navajas Ortega, Juan Sánchez, Fernando López",
+  "author": "Juan José Torres Palomo, Jose Manuel Sánchez Navarro, Antonio Navajas Ortega, Juan Fco Sánchez, Fernando López",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.5.1",
