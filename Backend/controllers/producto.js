@@ -6,12 +6,12 @@ const getAllProducts = async (req, res) => {
 };
 
 const createProduct = async (req, res) => {
-  const { producto, precio, email } = req.body;
-  if (!producto || !precio || !email) {
+  const { titulo, precio, email } = req.body;
+  if (!titulo || !precio || !email) {
     return res.status(400).json({ message: "Missing required fields" });
   }
   const newProduct = await Producto.create({
-    producto,
+    titulo,
     precio,
     email,
   });

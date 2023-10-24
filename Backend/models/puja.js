@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const pujaSchema = new mongoose.Schema({
-    precio: {
-        type: Number,
-        required: true,
-    },
+    precio :  Number ,
+    emailPujador : String, 
+    idProducto: Number 
 });
 
 const pujaModel = mongoose.model("Pujas",pujaSchema);
