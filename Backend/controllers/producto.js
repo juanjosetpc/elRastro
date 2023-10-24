@@ -1,24 +1,21 @@
+const Producto = require("../models/producto");
 
-const producto = require('../models/producto');
+const getAllProducts = async (req, res) => {
+  const products = await Producto.find();
+  res.json(products);
+};
 
-async function listProducto(req, res) {
-  try {
-    const productos = await producto.find();
-    res.json(productos);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+const createProduct = async (req, res) => {
+  const { producto, precio, email } = req.body;
+  if (!producto || !precio || !email) {
+    return res.status(400).json({ message: "Missing required fields" });
   }
-}
+  const newProduct = await Producto.create({
+    producto,
+    precio,
+    email,
+  });
+  res.status(201).json(newProduct);
+};
 
-async function createProducto(req, res) {
-  try {
-    const nuevoProducto = new producto(req.body);
-    await nuevoProducto.save();
-    res.json(nuevoProducto);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-}
-
-
-  module.exports = {listProducto, createProducto};
+module.exports = { getAllProducts, createProduct };

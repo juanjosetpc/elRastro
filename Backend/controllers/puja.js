@@ -1,6 +1,16 @@
+const puja = require("../models/puja");
 
-const puja = require('../models/puja');
+const getAllPujas = async (req, res) => {
+  //const products = await producto.find({});
+  //res.json(products);
+  res.send(`Get all pujas`);
+};
 
+const createPuja = async (req, res) => {
+  res.send(`Create new puja ${req.params.pujaId}`);
+};
+
+/*
 async function listPuja(req, res) {
     try {
       const pujas = await puja.find();
@@ -21,4 +31,6 @@ async function createPuja(req, res) {
   }
   
 
-module.exports = {listPuja, createPuja};
+module.exports = {listPuja, createPuja};*/
+
+module.exports = { getAllPujas, createPuja };

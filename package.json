@@ -4,7 +4,7 @@
   "description": "proyecto de ingeniería web 23/24",
   "main": "index.js",
   "scripts": {
-    "dev": "",
+    "dev": "nodemon Backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
