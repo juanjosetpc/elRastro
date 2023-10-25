@@ -1,11 +1,10 @@
 const express = require("express");
 const v1ProductRouter = require("./v1/routes/productRoutes");
 const v1PujaRouter = require("./v1/routes/pujaRoutes");
-const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.use("/api/v1/productos", v1ProductRouter);
 app.use("/api/v1/pujas", v1PujaRouter);
