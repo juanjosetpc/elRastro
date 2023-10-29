@@ -1,6 +1,8 @@
 const express = require("express");
 const v1ProductRouter = require("./v1/routes/productRoutes");
 const v1PujaRouter = require("./v1/routes/pujaRoutes");
+const v1ExternosRouter = require("./v1/routes/externosRoutes");
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -8,6 +10,7 @@ app.use(express.json());
 
 app.use("/api/v1/productos", v1ProductRouter);
 app.use("/api/v1/pujas", v1PujaRouter);
+app.use("/api/v1/externos", v1ExternosRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
