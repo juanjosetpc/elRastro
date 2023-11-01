@@ -11,12 +11,6 @@ const productoSchema = new mongoose.Schema({
   pujaMayor: { type: Number, default: 0 },
   precioInicio: Number,
   fotos: [],
-  pujas: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Puja",
-    },
-  ],
   emailComprador: { type: String, default: null },
 });
 

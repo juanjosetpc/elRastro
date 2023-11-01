@@ -1,4 +1,5 @@
 const Puja = require("../models/puja");
+const Producto = require("../models/producto");
 
 const getAllPujas = async (req, res) => {
   try {
@@ -80,9 +81,50 @@ const deletePuja = async (req, res) => {
   }
 };
 
+/*
+  Dado el email del pujador obtiene el email del vendedor del producto donde el pujador ha realizado la puja mas alta
+  y con ese email busca todos los objetos que esta vendiendo actualmente ese vendedor.
+*/
+const getPujasByVendedorDescByPrice = async (req, res) => {
+    const pujador = req.params.email;
+    try {
+      const producto = await Puja.findOne({ emailPujador: pujador }).sort({
+        cantidad: "desc",
+      });
+      const productos = await getProductsByVendedor(producto);
+      res.status(200).json(productos);
+    } catch (error) {
+      res.status(500).json({
+        error:
+          "Error al obtener los productos. Mensaje de error: " + error.message,
+      });
+    }
+};
+
+const getProductsByVendedor = async (producto) => {
+  const vendedor = producto.emailVendedor;
+
+  try {
+    if(producto){
+      // Realiza una consulta para encontrar productos del vendedor dado
+      const productos = await Producto.find({
+        enSubasta: true, // Solo productos en subasta
+        emailVendedor: vendedor, 
+      });
+
+      return productos;
+    } else {
+      return [];
+    }
+    
+  } catch (error) {
+    res.status(500).json({
+      error:
+        "Error al buscar productos en subasta. Mensaje de error: " +
+        error.message,
+    });
+  }
+};
 
 
-
-
-
-module.exports = { getAllPujas, createPuja, updatePuja, deletePuja };
+module.exports = { getAllPujas, createPuja, updatePuja, deletePuja, getPujasByVendedorDescByPrice };
