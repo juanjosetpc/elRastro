@@ -126,5 +126,17 @@ const getProductsByVendedor = async (producto) => {
   }
 };
 
+const getTodasPujasAMisProductos = async (req, res) => {
+  const idUsuario = req.params.idUsuario;
+  try {
+    const pujas = await Puja.find({emailVendedor : idUsuario});
+    if (!pujas || pujas.length === 0) {
+      return res.status(404).json({ error: "No se encontraron pujas" });
+    }
+    res.json(pujas);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener los pujas" });
+  }
+};
 
-module.exports = { getAllPujas, createPuja, updatePuja, deletePuja, getPujasByVendedorDescByPrice };
+module.exports = { getAllPujas, createPuja, updatePuja, deletePuja, getPujasByVendedorDescByPrice , getTodasPujasAMisProductos};
