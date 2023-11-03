@@ -151,6 +151,31 @@ const getTodasPujasAMisProductos = async (req, res) => {
   }
 };
 
+const getpujasMayoresQueUnValor = async (req, res) => {
+  const valor = req.params.valor;
+  try {
+    const pujas = await Puja.find({ cantidad: { $gt: valor } });
+    if (!pujas || pujas.length === 0) {
+      return res.status(404).json({ error: "No se encontraron pujas" });
+    }
+    res.json(pujas);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener los pujas" });
+  }
+};
+
+const getpujasEnOrdenAlfabeticoDelUsuario = async (req, res) => {
+  try {
+    const pujasS = await Puja.find().sort({emailPujador: 1});
+    if (!pujasS || pujasS.length === 0) {
+      return res.status(404).json({ error: "No se encontraron pujas" });
+    }
+    res.json(pujasS);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener los pujas en orden" });
+  }
+};
+
 module.exports = {
   getAllPujas,
   createPuja,
@@ -159,4 +184,6 @@ module.exports = {
   getPujasByVendedorDescByPrice,
   getTodasPujasAMisProductos,
   getPuja,
+  getpujasMayoresQueUnValor,
+  getpujasEnOrdenAlfabeticoDelUsuario
 };
