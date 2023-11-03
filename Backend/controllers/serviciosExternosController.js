@@ -1,5 +1,6 @@
 const { fakerES, faker } = require("@faker-js/faker"); //Importamos solo el módulo en español
 const axios = require("axios");
+const colors = require("picocolors");
 
 let cachedData = null;
 
@@ -35,31 +36,7 @@ const getAllProducts = async (req, res) => {
   } catch (error) {}
 };
 
-/*
-const createProducts = async (req, res) => {
-  try {
-    if (cachedData != null) {
-      axios.get("http://localhost:5000/api/v1/externos/productos");
-    }
 
-    const ProductosAdaptados = cachedData.map((producto) => {
-      return {
-        emailVendedor: fakerES.internet.email(),
-        direccion: fakerES.location.streetAddress(),
-        titulo: producto.title,
-        descripcion: producto.description,
-        precioInicio: producto.price,
-        fotos: [producto.image],
-      };
-    });
-
-    const endPointProductos = "http://localhost:5000/api/v1/productos";
-    const response = await axios.post(endPointProductos, ProductosAdaptados);
-    res.status(201).json(response.data);
-  } catch (error) {
-    console.error("Error al crear el producto: ", error + ": " + error.message);
-  }
-};*/
 
 const calcularHuellaCarbono = async (req, res) => {
   try {
@@ -100,7 +77,7 @@ const calcularHuellaCarbono = async (req, res) => {
 
 const obtenerCoordenadas = async (req, res) => {
   try {
-    const { lugar1, lugar2 } = req.params; // Obtener los parámetros de las ubicaciones de la URL
+    const { lugar1, lugar2 } = req.query; // Obtener los parámetros de las ubicaciones de la URL
     const apiUrl1 = `https://nominatim.openstreetmap.org/search?q=${lugar1}&format=json&limit=1`;
     const apiUrl2 = `https://nominatim.openstreetmap.org/search?q=${lugar2}&format=json&limit=1`;
 
@@ -130,6 +107,62 @@ const obtenerCoordenadas = async (req, res) => {
   }
 }
 
+const cambioDivisa = async (req, res) => {
+  try {
+    const idProducto = req.params.idProducto; // Obtener el parámetro de idProducto de la URL
+    const apiKey = '103162e981c65a2f4b7fdd55e0a117fd';
+
+    let nuevaDivisa =  req.query.nuevaDivisa; // Reemplaza con la divisa a la que deseas convertir
+    nuevaDivisa = nuevaDivisa.toUpperCase();
+
+    const apiUrl = `http://api.currencylayer.com/live?access_key=${apiKey}&currency=${nuevaDivisa}&source=EUR&format=1}`;
+
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        const cambio = response.data.quotes["EUR"+nuevaDivisa];
+        console.log(`La tasa de cambio de 1 EURO a ${nuevaDivisa} es: ${cambio}`);
+
+       
+        axios
+          .get(`http://localhost:5000/api/v1/productos/${idProducto}`)
+          .then((response) => {
+            const product = response.data;
+            const fee = 0.01; // 1% de comisión por aplicarles la conversión del cambio de divisa
+            const precio = product.precioInicio * cambio;
+
+            res.status(200).json({
+              producto: product,
+              cambioDeEUR: { a: nuevaDivisa, cambio: cambio },
+              precio: {
+                precioConvertido: precio,
+                precioConFee: precio* fee+ precio,
+              },
+            });
+
+          })
+          .catch((error) => {
+            console.error(
+              colors.red("Error al obtener el producto:" + error.message)
+            );
+          });
+
+       
+
+      })
+      .catch((error) => {
+        console.error(colors.red("Error al obtener la tasa de cambio:", error));
+      });
+
+      
+
+
+  } catch (error) {
+    console.error(colors.red("Error:", error.message));
+    res.status(500).send("Error: " + error.message);
+  }
+};
+
 
 // Función para calcular la distancia entre dos puntos geográficos con Haversine
 function calcularDistancia(lat1, lon1, lat2, lon2) {
@@ -153,4 +186,4 @@ function deg2rad(deg) {
 }
 
 
-module.exports = { getAllProducts, obtenerCoordenadas, calcularHuellaCarbono };
+module.exports = { getAllProducts, obtenerCoordenadas, calcularHuellaCarbono, cambioDivisa };

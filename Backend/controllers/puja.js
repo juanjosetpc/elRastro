@@ -13,6 +13,19 @@ const getAllPujas = async (req, res) => {
   }
 };
 
+const getPuja = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const puja = await Puja.findById(id);
+    if (!puja) {
+      return res.status(404).json({ error: "Puja no encontrado" });
+    }
+    res.json(puja);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener la puja" });
+  }
+};
+
 const createPuja = async (req, res) => {
   try {
     const pujas = req.body;
@@ -23,7 +36,7 @@ const createPuja = async (req, res) => {
       const pujaExistente = await Puja.findOne({
         producto: puja.producto,
         cantidad: puja.cantidad,
-        emailPujador: puja.emailPujador
+        emailPujador: puja.emailPujador,
       });
 
       if (pujaExistente) {
@@ -86,37 +99,36 @@ const deletePuja = async (req, res) => {
   y con ese email busca todos los objetos que esta vendiendo actualmente ese vendedor.
 */
 const getPujasByVendedorDescByPrice = async (req, res) => {
-    const pujador = req.params.email;
-    try {
-      const producto = await Puja.findOne({ emailPujador: pujador }).sort({
-        cantidad: "desc",
-      });
-      const productos = await getProductsByVendedor(producto);
-      res.status(200).json(productos);
-    } catch (error) {
-      res.status(500).json({
-        error:
-          "Error al obtener los productos. Mensaje de error: " + error.message,
-      });
-    }
+  const pujador = req.params.email;
+  try {
+    const producto = await Puja.findOne({ emailPujador: pujador }).sort({
+      cantidad: "desc",
+    });
+    const productos = await getProductsByVendedor(producto);
+    res.status(200).json(productos);
+  } catch (error) {
+    res.status(500).json({
+      error:
+        "Error al obtener los productos. Mensaje de error: " + error.message,
+    });
+  }
 };
 
 const getProductsByVendedor = async (producto) => {
   const vendedor = producto.emailVendedor;
 
   try {
-    if(producto){
+    if (producto) {
       // Realiza una consulta para encontrar productos del vendedor dado
       const productos = await Producto.find({
         enSubasta: true, // Solo productos en subasta
-        emailVendedor: vendedor, 
+        emailVendedor: vendedor,
       });
 
       return productos;
     } else {
       return [];
     }
-    
   } catch (error) {
     res.status(500).json({
       error:
@@ -129,7 +141,7 @@ const getProductsByVendedor = async (producto) => {
 const getTodasPujasAMisProductos = async (req, res) => {
   const idUsuario = req.params.idUsuario;
   try {
-    const pujas = await Puja.find({emailVendedor : idUsuario});
+    const pujas = await Puja.find({ emailVendedor: idUsuario });
     if (!pujas || pujas.length === 0) {
       return res.status(404).json({ error: "No se encontraron pujas" });
     }
@@ -139,4 +151,12 @@ const getTodasPujasAMisProductos = async (req, res) => {
   }
 };
 
-module.exports = { getAllPujas, createPuja, updatePuja, deletePuja, getPujasByVendedorDescByPrice , getTodasPujasAMisProductos};
+module.exports = {
+  getAllPujas,
+  createPuja,
+  updatePuja,
+  deletePuja,
+  getPujasByVendedorDescByPrice,
+  getTodasPujasAMisProductos,
+  getPuja,
+};

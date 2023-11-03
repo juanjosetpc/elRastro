@@ -1,4 +1,5 @@
 const Producto = require("../models/producto");
+const colors = require("picocolors");
 
 const getAllProducts = async (req, res) => {
   try {
@@ -9,6 +10,19 @@ const getAllProducts = async (req, res) => {
     res.json(products);
   } catch (error) {
     res.status(500).json({ error: "Error al obtener los productos" });
+  }
+};
+
+const getProduct = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const product = await Producto.findById(id);
+    if (!product) {
+      return res.status(404).json({ error: "No se encontró el producto" });
+    }
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener el producto" });
   }
 };
 
@@ -86,7 +100,7 @@ const getProductsByUserDescByDate = async (req, res) => {
   const vendedor = req.params.email;
   try {
     const productos = await Producto.find({ emailVendedor: vendedor }).sort({
-      fechaInicio: "desc",
+      fechaInicio: -1,
     });
     res.json(productos);
   } catch (error) {
@@ -99,14 +113,15 @@ const getProductsByUserDescByDate = async (req, res) => {
 
 //Producto en subasta a partir de (parte de) su descripción
 const getProductsByDescription = async (req, res) => {
-  const descripcion = req.params.descripcion;
-
+  const descripcion = req.query.descripcion;
   try {
     // Realiza una consulta para encontrar productos en subasta que contengan la descripción parcial
     const productos = await Producto.find({
       enSubasta: true, // Solo productos en subasta
       descripcion: { $regex: descripcion, $options: "i" }, // Búsqueda con expresión regular, sin distinción entre mayúsculas y minúsculas
     });
+
+    console.log(colors.blue("Buscando productos en subasta con descripción: " + descripcion));
 
     res.status(200).json(productos);
   } catch (error) {
@@ -125,4 +140,5 @@ module.exports = {
   deleteProduct,
   getProductsByUserDescByDate,
   getProductsByDescription,
+  getProduct,
 };
