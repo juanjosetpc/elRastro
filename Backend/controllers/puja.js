@@ -1,5 +1,6 @@
 const Puja = require("../models/puja");
 const Producto = require("../models/producto");
+const color = require("picocolors");
 
 const getAllPujas = async (req, res) => {
   try {
@@ -28,33 +29,37 @@ const getPuja = async (req, res) => {
 
 const createPuja = async (req, res) => {
   try {
-    const pujas = req.body;
-    const nuevasPujas = [];
+      let puja = req.body;
 
-    for (const puja of pujas) {
-      // Comprobar si ya existe una puja con los mismos datos
-      const pujaExistente = await Puja.findOne({
-        producto: puja.producto,
-        cantidad: puja.cantidad,
-        emailPujador: puja.emailPujador,
-      });
+      const pujaMayor = await Puja.find({ producto: puja.producto }).sort({ cantidad: "desc" }).limit(1);
+      const producto = await Producto.findById(puja.producto);
 
-      if (pujaExistente) {
-        // Si la puja ya existe, puedes omitirla o manejarla según tus necesidades
-        console.log(`La puja ya existe: ${pujaExistente.titulo}`);
+      if (puja.cantidad > pujaMayor[0].cantidad) {
+        // Comprobar si ya existe una puja con los mismos datos
+        const pujaExistente = await Puja.findOne({
+          producto: puja.producto,
+          cantidad: puja.cantidad,
+          emailPujador: puja.emailPujador,
+        });
+
+        if (pujaExistente) {
+          // Si la puja ya existe, puedes omitirla o manejarla según tus necesidades
+          console.log(color.blue(`La puja ya existe: ${pujaExistente.titulo}`));
+        } else {
+          // Si la puja no existe, créala y agrégala a la lista de nuevas pujas
+          puja.emailVendedor = producto.emailVendedor;
+          const nuevaPuja = await Puja.create(puja);
+
+          console.log(color.blue(`Nueva puja creada: ${nuevaPuja}`));
+          res.status(201).json({ nuevaPuja});
+        }
       } else {
-        // Si la puja no existe, créala y agrégala a la lista de nuevas pujas
-        const nuevaPuja = await Puja.create(puja);
-        nuevasPujas.push(nuevaPuja);
+        console.log(color.yellow("No se ha podido crear la puja, ya habia una mayor"));
+        return res.status(400).json({error: `La puja ha de ser más alta que la actual: ${pujaMayor[0].cantidad}`});
       }
-    }
 
-    if (nuevasPujas.length == 0) {
-      res.status(201).send("Las pujas ya estaban en la base de datos");
-    } else {
-      res.status(201).json({ nuevasPujas });
-    }
   } catch (error) {
+    console.log(color.red("Error al crear las pujas " + error.message));
     res.status(500).json({ error: "Error al crear las pujas" });
   }
 };
