@@ -30,11 +30,10 @@ const getPuja = async (req, res) => {
 const createPuja = async (req, res) => {
   try {
       let puja = req.body;
-
-      const pujaMayor = await Puja.find({ producto: puja.producto }).sort({ cantidad: "desc" }).limit(1);
+      const pujaMayor = await Puja.find({ producto: puja.producto }).sort({ cantidad: "desc" }).limit(1).exec();
       const producto = await Producto.findById(puja.producto);
 
-      if (puja.cantidad > pujaMayor[0].cantidad) {
+      if ( (pujaMayor.length == 0 && (puja.cantidad >= producto.precioInicio)) || (pujaMayor.length > 0 && puja.cantidad > pujaMayor[0].cantidad) ){
         // Comprobar si ya existe una puja con los mismos datos
         const pujaExistente = await Puja.findOne({
           producto: puja.producto,
@@ -54,8 +53,14 @@ const createPuja = async (req, res) => {
           res.status(201).json({ nuevaPuja});
         }
       } else {
-        console.log(color.yellow("No se ha podido crear la puja, ya habia una mayor"));
-        return res.status(400).json({error: `La puja ha de ser más alta que la actual: ${pujaMayor[0].cantidad}`});
+        if(puja.cantidad < producto.precioInicio){
+          console.log(color.yellow("No se ha podido crear la puja, la puja ha de ser más alta que el precio de inicio"));
+          return res.status(400).json({error: `La puja ha de ser más alta que el precio de inicio: ${producto.precioInicio}`});
+        }
+        if(pujaMayor.length > 0 && puja.cantidad <= pujaMayor[0].cantidad){
+          console.log(color.yellow("No se ha podido crear la puja, ya habia una mayor"));
+          return res.status(400).json({error: `La puja ha de ser más alta que la actual: ${pujaMayor[0].cantidad}`});
+        }
       }
 
   } catch (error) {

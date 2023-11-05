@@ -2,8 +2,10 @@
 	"info": {
 		"_postman_id": "02d48f7e-800c-4993-a784-303c358b5b46",
 		"name": "IngWeb (elRastro api)",
+		"description": "Documentación de la api rest desarrollada por el grupoA3.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27030576"
+		"_exporter_id": "27030576",
+		"_collection_link": "https://universal-shuttle-991657.postman.co/workspace/New-Team-Workspace~789f0279-905e-4c0e-9d34-cbe578a67f33/collection/27030576-02d48f7e-800c-4993-a784-303c358b5b46?action=share&source=collection_link&creator=27030576"
 	},
 	"item": [
 		{
@@ -43,7 +45,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "6538f9d9fc0bb399d480426e"
+							"value": "6547b7e54b545046b26d6fef"
 						}
 					]
 				}
@@ -57,7 +59,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n  {\r\n    \"emailVendedor\": \"vendedor1@example.com\",\r\n    \"direccion\": \"Calle Gran Vía, 123, Madrid, España\",\r\n    \"titulo\": \"Mesa de Comedor de Madera\",\r\n    \"descripcion\": \"Mesa de comedor de roble macizo hecha a mano\",\r\n    \"precioInicio\": 350.00\r\n  },\r\n  {\r\n    \"emailVendedor\": \"vendedor1@example.com\",\r\n    \"direccion\": \"Calle Gran Vía, 123, Madrid, España\",\r\n    \"titulo\": \"Mueble de salón\",\r\n    \"descripcion\": \"Mueble amplio para guardar toda la vajilla y cosas del salón\",\r\n    \"fechaInicio\":\"2023-9-20\",\r\n    \"precioInicio\": 410.00\r\n  },\r\n  {\r\n    \"emailVendedor\": \"vendedor1@example.com\",\r\n    \"direccion\": \"Calle Gran Vía, 123, Madrid, España\",\r\n    \"titulo\": \"Mesita de noche\",\r\n    \"descripcion\": \"Mesita de noche moderna con 2 cajones\",\r\n    \"fechaInicio\": \"2023-10-20\",\r\n    \"precioInicio\": 100.00\r\n  },\r\n  {\r\n    \"emailVendedor\": \"vendedor2@example.com\",\r\n    \"direccion\": \"Avenida Diagonal, 45, Barcelona, España\",\r\n    \"titulo\": \"Silla de Oficina Ergonómica\",\r\n    \"descripcion\": \"Silla de oficina con soporte lumbar ajustable\",\r\n    \"precioInicio\": 199.99\r\n  },\r\n  {\r\n    \"emailVendedor\": \"vendedor3@example.com\",\r\n    \"direccion\": \"Calle Sevilla, 8, Valencia, España\",\r\n    \"titulo\": \"Silla de cocina\",\r\n    \"descripcion\": \"Silla comoda y con una estética moderna adaptada a cualquier tipo de cocina\",\r\n    \"precioInicio\": 25.00,\r\n    \"enSubasta\":true,\r\n    \"fechaInicio\":\"2023-10-1\"\r\n  },\r\n  {\r\n    \"emailVendedor\": \"vendedor3@example.com\",\r\n    \"direccion\": \"Calle Sevilla, 8, Valencia, España\",\r\n    \"titulo\": \"Lamparita de noche\",\r\n    \"descripcion\": \"Alumbra lo justo y necesario para que puedas dormir con ella encendida\",\r\n    \"precioInicio\": 25.30,\r\n    \"enSubasta\":true,\r\n    \"fechaInicio\":\"2023-10-24\"\r\n  },\r\n   {\r\n    \"emailVendedor\": \"vendedor2@example.com\",\r\n    \"direccion\": \"Avenida Diagonal, 45, Barcelona, España\",\r\n    \"titulo\": \"Silla gaming\",\r\n    \"descripcion\": \"Silla gaming, perfecta para pasar muchas horas sentado\",\r\n    \"precioInicio\": 199.99,\r\n    \"enSubasta\": true,\r\n    \"fechaInicio\":\"2023-8-1\"\r\n  }\r\n\r\n]\r\n",
+					"raw": "\r\n  {\r\n    \"emailVendedor\": \"vendedor1@example.com\",\r\n    \"direccion\": \"Calle Gran Vía, 123, Madrid, España\",\r\n    \"titulo\": \"Mesa de Comedor de Madera\",\r\n    \"descripcion\": \"Mesa de comedor de roble macizo hecha a mano\",\r\n    \"precioInicio\": 350.00\r\n  }\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -104,7 +106,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "6538f9d9fc0bb399d480426e"
+							"value": "6547b7e54b545046b26d6fee"
 						}
 					]
 				}
@@ -129,7 +131,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "6538f9820c440cc15d7d2b34"
+							"value": ""
 						}
 					]
 				}
@@ -157,7 +159,8 @@
 							"value": "sil"
 						}
 					]
-				}
+				},
+				"description": "Obtiene los productos que están en subasta y que contienen en la descripción"
 			},
 			"response": []
 		},
@@ -183,7 +186,8 @@
 							"value": "vendedor1@example.com"
 						}
 					]
-				}
+				},
+				"description": "Obtiene los productos ofertados por el usuario con correo \"email\" y los ordena descendentemente según su fecha de inicio."
 			},
 			"response": []
 		},
@@ -223,7 +227,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "653e96085aa77f21aad144bd"
+							"value": "6547bc472ce1b436cb20c7b7"
 						}
 					]
 				}
@@ -237,7 +241,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n  \"producto\": \"6538f9d9fc0bb399d480426e\",\r\n  \"cantidad\": 30,\r\n  \"emailPujador\": \"example@uma.es\"\r\n    },\r\n    {\r\n    \"producto\": \"6538f9d9fc0bb399d480426f\",\r\n  \"cantidad\": 20,\r\n  \"emailPujador\": \"falso@uma.es\"\r\n}\r\n\r\n]",
+					"raw": "{\r\n  \"producto\": \"6547b7e54b545046b26d6ff1\",\r\n  \"cantidad\": 210,\r\n  \"emailPujador\": \"example8@uma.es\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -264,7 +268,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n{\r\n  \"producto\": \"6538f9d9fc0bb399d480426e\",\r\n  \"cantidad\": 34,\r\n  \"emailPujador\": \"cambio4@uma.es\",\r\n  \"fechaYHora\": \"2023-10-25\"\r\n}\r\n",
+					"raw": "\r\n{\r\n  \"producto\": \"6547b7e54b545046b26d6fef\",\r\n  \"cantidad\": 505\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -284,7 +288,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "653e96085aa77f21aad144bd"
+							"value": "6547bc472ce1b436cb20c7b7"
 						}
 					]
 				}
@@ -309,7 +313,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "653e92c0c9fe792a615b454f"
+							"value": "6547b7e54b545046b26d6ff1"
 						}
 					]
 				}
@@ -372,7 +376,8 @@
 							"value": "100"
 						}
 					]
-				}
+				},
+				"description": "Calcula un coste adiccional en base a la huella de carbono generada para la distancia \"distancia_value\""
 			},
 			"response": []
 		},
@@ -401,10 +406,11 @@
 					"variable": [
 						{
 							"key": "idProducto",
-							"value": "6538f9d9fc0bb399d480426e"
+							"value": "6547b7e54b545046b26d6ff1"
 						}
 					]
-				}
+				},
+				"description": "Obtiene el precio del producto convertido a la divisa \"acronimo divisa\" y le aplica una tasa de 1% al hacer el cambio."
 			},
 			"response": []
 		}
@@ -432,7 +438,7 @@
 	"variable": [
 		{
 			"key": "url_base",
-			"value": "localhost:5000/api\n",
+			"value": "localhost:5000/api",
 			"type": "string"
 		}
 	]
