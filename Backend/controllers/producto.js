@@ -62,16 +62,21 @@ const updateProduct = async (req, res) => {
   const datosActualizar = req.body;
 
   try {
-    const producto = await Producto.findByIdAndUpdate(id, datosActualizar, {
-      new: true,
-    });
-
-    if (!producto) {
+    const product = await Producto.findById(id);
+    if(!product){
       console.log(colors.yellow("No se encontró el producto para actualizarlo"));
       return res.status(404).json({ error: "Producto no encontrado" });
+    }else if(product.enSubasta){
+      console.log(colors.yellow("No se puede actualizar un producto en subasta"));
+      return res.status(400).json({ error: "No se puede actualizar un producto en subasta" });
+    }else{
+      const producto = await Producto.findByIdAndUpdate(id, datosActualizar, {
+        new: true,
+      });
+      console.log(colors.blue("Producto actualizado" + producto.titulo));
+      res.status(200).json({ mensaje: "Producto actualizado", producto });
     }
-    console.log(colors.blue("Producto actualizado" + producto.titulo));
-    res.status(200).json({ mensaje: "Producto actualizado", producto });
+  
   } catch (error) {
     res.status(500).json({
       error: "Error al actualizar el producto. Error msg: " + error.message,

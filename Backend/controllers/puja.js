@@ -45,7 +45,9 @@ const createPuja = async (req, res) => {
           // Si la puja ya existe, puedes omitirla o manejarla según tus necesidades
           console.log(color.blue(`La puja ya existe: ${pujaExistente.titulo}`));
         } else {
+          
           // Si la puja no existe, créala y agrégala a la lista de nuevas pujas
+          producto.enSubasta = true;
           puja.emailVendedor = producto.emailVendedor;
           const nuevaPuja = await Puja.create(puja);
 
