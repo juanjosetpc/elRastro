@@ -1,0 +1,560 @@
+{
+	"info": {
+		"_postman_id": "e2909403-26d5-48f5-9a2a-ff89418be287",
+		"name": "IngWeb (elRastro api)",
+		"description": "Documentación de la api rest desarrollada por el grupoA3.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30882119"
+	},
+	"item": [
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "/v1/productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/productos/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"productos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/productos/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/productos/:id",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"productos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6547b7e54b545046b26d6fef"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/productos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n  {\r\n    \"emailVendedor\": \"vendedor1@example.com\",\r\n    \"direccion\": \"Calle Gran Vía, 123, Madrid, España\",\r\n    \"titulo\": \"Mesa de Comedor de Madera\",\r\n    \"descripcion\": \"Mesa de comedor de roble macizo hecha a mano\",\r\n    \"precioInicio\": 350.00\r\n  }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/v1/productos",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/productos/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"direccion\": \"Calle Gran Vía, 128, Madrid, España\",\r\n        \"titulo\": \"Mesa de Comedor de Madera de roble\",\r\n        \"descripcion\": \"Mesa de comedor de roble macizo hecha a mano en 2021\",\r\n        \"fechaInicio\": \"2023-10-25\",\r\n        \"fechaFin\": null,\r\n        \"enSubasta\": true,\r\n        \"precioInicio\": 350\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/v1/productos/:id",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"productos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6547b7e54b545046b26d6fee"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/productos/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/productos/:id",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"productos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/productos/ensubasta?descripcion=<parte de la descripción>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/productos/ensubasta?descripcion=sil",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"productos",
+								"ensubasta"
+							],
+							"query": [
+								{
+									"key": "descripcion",
+									"value": "sil"
+								}
+							]
+						},
+						"description": "Obtiene los productos que están en subasta y que contienen en la descripción"
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/productos/ofertados/{email}?sort=-fechaInicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/productos/ofertados/:email",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"productos",
+								"ofertados",
+								":email"
+							],
+							"variable": [
+								{
+									"key": "email",
+									"value": "vendedor1@example.com"
+								}
+							]
+						},
+						"description": "Obtiene los productos ofertados por el usuario con correo \"email\" y los ordena descendentemente según su fecha de inicio."
+					},
+					"response": []
+				}
+			],
+			"description": "Todas las consultas del controlador productos"
+		},
+		{
+			"name": "Pujas",
+			"item": [
+				{
+					"name": "/v1/pujas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/pujas",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"pujas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/pujas/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/pujas/:id",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"pujas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6547bc472ce1b436cb20c7b7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/pujas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"producto\": \"6547b7e54b545046b26d6ff1\",\r\n  \"cantidad\": 210,\r\n  \"emailPujador\": \"example8@uma.es\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/v1/pujas",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"pujas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/pujas/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"producto\": \"6547b7e54b545046b26d6fef\",\r\n  \"cantidad\": 505\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/v1/pujas/:id",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"pujas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6547bc472ce1b436cb20c7b7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/pujas/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/pujas/:id",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"pujas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6547b7e54b545046b26d6ff1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/pujas/productosVendedorPujaMasAlta/{email}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/pujas/productosVendedorPujaMasAlta/:email",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"pujas",
+								"productosVendedorPujaMasAlta",
+								":email"
+							],
+							"variable": [
+								{
+									"key": "email",
+									"value": "example@uma.es"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/pujas/todasLasPujasAMisProductos/{idUsuario}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/pujas/todasLasPujasAMisProductos/:idUsuario",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"pujas",
+								"todasLasPujasAMisProductos",
+								":idUsuario"
+							],
+							"variable": [
+								{
+									"key": "idUsuario",
+									"value": "vendedor1@example.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/pujas/pujasMayoresQueUnValor/{valor}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/pujas/pujasMayoresQueUnValor/:valor",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"pujas",
+								"pujasMayoresQueUnValor",
+								":valor"
+							],
+							"variable": [
+								{
+									"key": "valor",
+									"value": "75"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/pujas/pujasEnOrdenAlfabeticoDelPujador/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/pujas/pujasEnOrdenAlfabeticoDelPujador/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"pujas",
+								"pujasEnOrdenAlfabeticoDelPujador",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Todas las consultas del controlador pujas"
+		},
+		{
+			"name": "Servicios externos",
+			"item": [
+				{
+					"name": "/v1/externos/calcular-distancia?lugar1=<dir lugar1>&{lugar2=<dir lugar2>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/externos/calcular-distancia?lugar1=Vialia Malaga&lugar2=Madrid Atocha",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"externos",
+								"calcular-distancia"
+							],
+							"query": [
+								{
+									"key": "lugar1",
+									"value": "Vialia Malaga"
+								},
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "lugar2",
+									"value": "Madrid Atocha"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/externos/huella-carbono/{distance_value}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/externos/huella-carbono/:distance_value",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"externos",
+								"huella-carbono",
+								":distance_value"
+							],
+							"variable": [
+								{
+									"key": "distance_value",
+									"value": "100"
+								}
+							]
+						},
+						"description": "Calcula un coste adiccional en base a la huella de carbono generada para la distancia \"distancia_value\""
+					},
+					"response": []
+				},
+				{
+					"name": "/v1/externos/cambio-divisa?nuevaDivisa=<acronimo divisa>",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/v1/externos/cambio-divisa/:idProducto?nuevaDivisa=usd",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"v1",
+								"externos",
+								"cambio-divisa",
+								":idProducto"
+							],
+							"query": [
+								{
+									"key": "nuevaDivisa",
+									"value": "usd"
+								}
+							],
+							"variable": [
+								{
+									"key": "idProducto",
+									"value": "6547b7e54b545046b26d6ff1"
+								}
+							]
+						},
+						"description": "Obtiene el precio del producto convertido a la divisa \"acronimo divisa\" y le aplica una tasa de 1% al hacer el cambio."
+					},
+					"response": []
+				}
+			],
+			"description": "Todas las consultas del controlador servicios externos"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_base",
+			"value": "localhost:5000/api",
+			"type": "string"
+		}
+	]
+}

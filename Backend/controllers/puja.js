@@ -51,6 +51,8 @@ const createPuja = async (req, res) => {
           puja.emailVendedor = producto.emailVendedor;
           const nuevaPuja = await Puja.create(puja);
 
+          await producto.save();
+
           console.log(color.blue(`Nueva puja creada: ${nuevaPuja}`));
           res.status(201).json({ nuevaPuja});
         }
