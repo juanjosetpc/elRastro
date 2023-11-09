@@ -2,47 +2,11 @@ const { fakerES, faker } = require("@faker-js/faker"); //Importamos solo el mód
 const axios = require("axios");
 const colors = require("picocolors");
 
-let cachedData = null;
-
-const getAllProducts = async (req, res) => {
-  if (cachedData == null) {
-    try {
-      const response = await axios.get("https://fakestoreapi.com/products");
-      const productos = response.data;
-
-      const ProductosAdaptados = productos.map((producto) => {
-        return {
-          emailVendedor: fakerES.internet.email(),
-          direccion: fakerES.location.streetAddress(),
-          titulo: producto.title,
-          descripcion: producto.description,
-          precioInicio: producto.price,
-          fotos: [producto.image],
-        };
-      });
-
-      cachedData = ProductosAdaptados;
-      // Almacena los datos transformados en caché
-    } catch (error) {
-      console.error("Error al obtener datos de la API", error.message);
-      res.status(500).json({ error: "Error al obtener datos de la API" });
-    }
-  }
-
-  try {
-    const endPointProductos = "http://localhost:5000/api/v1/productos";
-    const response = await axios.post(endPointProductos, cachedData);
-    res.status(201).json(response.data);
-  } catch (error) {}
-};
-
-
-
 const calcularHuellaCarbono = async (req, res) => {
   try {
     const { distance_value } = req.params; // Obtener el parámetro de distancia_value de la URL
     const apiUrl = 'https://www.carboninterface.com/api/v1/estimates';
-    const apiKey = 'qRmdCDb9W2axwvKvq9g'; // Reemplaza 'API_KEY' con tu clave de API real
+    const apiKey = process.env.API_KEY_CARBONO; // Reemplaza 'API_KEY' con tu clave de API real
 
     // Datos para la solicitud POST, incluyendo distance_value del parámetro
     const postData = {
@@ -110,7 +74,7 @@ const obtenerCoordenadas = async (req, res) => {
 const cambioDivisa = async (req, res) => {
   try {
     const idProducto = req.params.idProducto; // Obtener el parámetro de idProducto de la URL
-    const apiKey = '103162e981c65a2f4b7fdd55e0a117fd';
+    const apiKey = process.env.API_KEY_DIVISAS;
 
     let nuevaDivisa =  req.query.nuevaDivisa; // Reemplaza con la divisa a la que deseas convertir
     nuevaDivisa = nuevaDivisa.toUpperCase();
@@ -186,4 +150,4 @@ function deg2rad(deg) {
 }
 
 
-module.exports = { getAllProducts, obtenerCoordenadas, calcularHuellaCarbono, cambioDivisa };
+module.exports = { obtenerCoordenadas, calcularHuellaCarbono, cambioDivisa };
