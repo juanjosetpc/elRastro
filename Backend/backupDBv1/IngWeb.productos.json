@@ -1,0 +1,980 @@
+[{
+  "_id": {
+    "$oid": "6547b7e54b545046b26d6ff3"
+  },
+  "emailVendedor": "vendedor3@example.com",
+  "direccion": "Calle Sevilla, 8, Valencia, España",
+  "titulo": "Lamparita de noche",
+  "descripcion": "Alumbra lo justo y necesario para que puedas dormir con ella encendida",
+  "fechaInicio": {
+    "$date": "2023-10-24T00:00:00.000Z"
+  },
+  "fechaFin": null,
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 25.3,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6547b7e54b545046b26d6fef"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Gran Vía, 128, Madrid, España",
+  "titulo": "Mesa de Comedor de Madera de roble",
+  "descripcion": "Mesa de comedor de roble macizo hecha a mano en 2021",
+  "fechaInicio": {
+    "$date": "2023-10-25T00:00:00.000Z"
+  },
+  "fechaFin": null,
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 350,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6547b7e54b545046b26d6fee"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Gran Vía, 128, Madrid, España",
+  "titulo": "Moto roja",
+  "descripcion": "Moto roja con 3 ruedas que tiene 80.000km ",
+  "fechaInicio": {
+    "$date": "2023-11-05T23:00:00.000Z"
+  },
+  "fechaFin": {
+    "$date": "2024-03-11T23:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 2250,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6547b7e54b545046b26d6ff0"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Gran Vía, 123, Madrid, España",
+  "titulo": "Mesita de noche",
+  "descripcion": "Mesita de noche moderna con 2 cajones",
+  "fechaInicio": {
+    "$date": "2023-10-20T00:00:00.000Z"
+  },
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 100,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6547b7e54b545046b26d6ff1"
+  },
+  "emailVendedor": "vendedor2@example.com",
+  "direccion": "Avenida Diagonal, 45, Barcelona, España",
+  "titulo": "Silla de Oficina Ergonómica",
+  "descripcion": "Silla de oficina con soporte lumbar ajustable",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 199.99,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6547b7e54b545046b26d6ff2"
+  },
+  "emailVendedor": "vendedor3@example.com",
+  "direccion": "Calle Sevilla, 8, Valencia, España",
+  "titulo": "Silla de cocina",
+  "descripcion": "Silla comoda y con una estética moderna adaptada a cualquier tipo de cocina",
+  "fechaInicio": {
+    "$date": "2023-09-30T22:00:00.000Z"
+  },
+  "fechaFin": null,
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 25,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6547b7e54b545046b26d6ff4"
+  },
+  "emailVendedor": "vendedor2@example.com",
+  "direccion": "Avenida Diagonal, 45, Barcelona, España",
+  "titulo": "Silla gaming",
+  "descripcion": "Silla gaming, perfecta para pasar muchas horas sentado",
+  "fechaInicio": {
+    "$date": "2023-07-31T22:00:00.000Z"
+  },
+  "fechaFin": null,
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 199.99,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6547b89f4b545046b26d7000"
+  },
+  "emailVendedor": "prueba@example.com",
+  "direccion": "Calle carretería, Malaga España",
+  "titulo": "Sillón de piel",
+  "descripcion": "Sillón marrón de piel marron, como nuevo y super cómodo para tenerlo en el salón",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 123,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6547b8d14b545046b26d7004"
+  },
+  "emailVendedor": "example@uma.es",
+  "direccion": "Calle carretería, Malaga España",
+  "titulo": "Sillón de tela verde",
+  "descripcion": "Sillón de tela verde, con uso. Super cómodo para tenerlo en el salón",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 80,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc1"
+  },
+  "emailVendedor": "Carlota94@gmail.com",
+  "direccion": "Bloque Agustín Aguilar 78",
+  "titulo": "Mens Casual Premium Slim Fit T-Shirts ",
+  "descripcion": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 22.3,
+  "fotos": [
+    "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc0"
+  },
+  "emailVendedor": "Lorena_MenaNunez84@yahoo.com",
+  "direccion": "Municipio Cristóbal Lugo s/n.",
+  "titulo": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+  "descripcion": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 109.95,
+  "fotos": [
+    "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc5"
+  },
+  "emailVendedor": "Graciela42@hotmail.com",
+  "direccion": "Conjunto Pablo, 3",
+  "titulo": "Solid Gold Petite Micropave ",
+  "descripcion": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 168,
+  "fotos": [
+    "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc4"
+  },
+  "emailVendedor": "Irene3@hotmail.com",
+  "direccion": "Gran Subida Daniela Candelaria 52",
+  "titulo": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+  "descripcion": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 695,
+  "fotos": [
+    "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc6"
+  },
+  "emailVendedor": "Adan.VerduzcoVillanueva@gmail.com",
+  "direccion": "Chalet María Luisa 37",
+  "titulo": "White Gold Plated Princess",
+  "descripcion": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 9.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc7"
+  },
+  "emailVendedor": "MariaSoledad.BurgosElizondo@gmail.com",
+  "direccion": "Poblado Alfonso Marrero, 3",
+  "titulo": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+  "descripcion": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 10.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc8"
+  },
+  "emailVendedor": "Diego.ChaconJaramillo17@hotmail.com",
+  "direccion": "Calle Mónica Posada 28",
+  "titulo": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+  "descripcion": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 64,
+  "fotos": [
+    "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc9"
+  },
+  "emailVendedor": "Carlota51@hotmail.com",
+  "direccion": "Rua Lilia Bustamante 65",
+  "titulo": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+  "descripcion": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 109,
+  "fotos": [
+    "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc2"
+  },
+  "emailVendedor": "Anita80@gmail.com",
+  "direccion": "Monte Ester 86",
+  "titulo": "Mens Cotton Jacket",
+  "descripcion": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 55.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bc3"
+  },
+  "emailVendedor": "Mario_PatinoCarrera@hotmail.com",
+  "direccion": "Avenida Julio César 79",
+  "titulo": "Mens Casual Slim Fit",
+  "descripcion": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 15.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bcc"
+  },
+  "emailVendedor": "JulioCesar.BaezAbrego@gmail.com",
+  "direccion": "Parcela Ramón, 74",
+  "titulo": "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
+  "descripcion": "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 599,
+  "fotos": [
+    "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bcf"
+  },
+  "emailVendedor": "Benito.DelafuenteCarbajal52@gmail.com",
+  "direccion": "Huerta Guillermina, 6",
+  "titulo": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+  "descripcion": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 29.95,
+  "fotos": [
+    "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bcd"
+  },
+  "emailVendedor": "Micaela_PartidaCarrasco@hotmail.com",
+  "direccion": "Vía Ester Rico s/n.",
+  "titulo": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
+  "descripcion": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 999.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bce"
+  },
+  "emailVendedor": "Ines.QuintanaArguello@hotmail.com",
+  "direccion": "Pasaje José María s/n.",
+  "titulo": "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
+  "descripcion": "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 56.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bd1"
+  },
+  "emailVendedor": "Rafael.OliveraCovarrubias47@gmail.com",
+  "direccion": "Poblado Beatriz, 1",
+  "titulo": "MBJ Women's Solid Short Sleeve Boat Neck V ",
+  "descripcion": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 9.85,
+  "fotos": [
+    "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bd2"
+  },
+  "emailVendedor": "Mercedes_MenendezBanda26@yahoo.com",
+  "direccion": "Subida Rubén Téllez, 32",
+  "titulo": "Opna Women's Short Sleeve Moisture",
+  "descripcion": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 7.95,
+  "fotos": [
+    "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bd3"
+  },
+  "emailVendedor": "Ruben_OsorioBlanco@gmail.com",
+  "direccion": "Barrio Patricia Martínez 18",
+  "titulo": "DANVOUY Womens T Shirt Casual Cotton Short",
+  "descripcion": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 12.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bd0"
+  },
+  "emailVendedor": "Alfredo_GuillenRobledo@gmail.com",
+  "direccion": "Ramal Sara 46",
+  "titulo": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
+  "descripcion": "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 39.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bcb"
+  },
+  "emailVendedor": "Horacio37@gmail.com",
+  "direccion": "Monte Sancho Terán 47",
+  "titulo": "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+  "descripcion": "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 114,
+  "fotos": [
+    "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6549f5d4e79a8df3f18b5bca"
+  },
+  "emailVendedor": "Dolores24@gmail.com",
+  "direccion": "Sección Jerónimo Carrión s/n.",
+  "titulo": "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
+  "descripcion": "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 109,
+  "fotos": [
+    "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3651"
+  },
+  "emailVendedor": "Jeronimo_RosarioToledo89@gmail.com",
+  "direccion": "Terrenos Amalia 85",
+  "titulo": "Mens Casual Premium Slim Fit T-Shirts ",
+  "descripcion": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 22.3,
+  "fotos": [
+    "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3650"
+  },
+  "emailVendedor": "Ignacio55@yahoo.com",
+  "direccion": "Sección Ramón Valdivia, 8",
+  "titulo": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+  "descripcion": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 109.95,
+  "fotos": [
+    "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3655"
+  },
+  "emailVendedor": "Luisa24@yahoo.com",
+  "direccion": "Edificio Salvador 11",
+  "titulo": "Solid Gold Petite Micropave ",
+  "descripcion": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 168,
+  "fotos": [
+    "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3654"
+  },
+  "emailVendedor": "Daniela.BuenoPantoja57@hotmail.com",
+  "direccion": "Arrabal Francisca 2",
+  "titulo": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+  "descripcion": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 695,
+  "fotos": [
+    "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3657"
+  },
+  "emailVendedor": "Salvador.HuertaCaban91@yahoo.com",
+  "direccion": "Ramal María Luisa Haro, 95",
+  "titulo": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+  "descripcion": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 10.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3656"
+  },
+  "emailVendedor": "Isabela18@gmail.com",
+  "direccion": "Conjunto Estela, 89",
+  "titulo": "White Gold Plated Princess",
+  "descripcion": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 9.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3659"
+  },
+  "emailVendedor": "Joaquin.LongoriaMuniz@yahoo.com",
+  "direccion": "Sector María, 46",
+  "titulo": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+  "descripcion": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 109,
+  "fotos": [
+    "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3658"
+  },
+  "emailVendedor": "Pablo.MendezOzuna@gmail.com",
+  "direccion": "Plaza Isabel 7",
+  "titulo": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+  "descripcion": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 64,
+  "fotos": [
+    "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f365a"
+  },
+  "emailVendedor": "Debora.PaganPerez35@gmail.com",
+  "direccion": "Bloque Magdalena, 89",
+  "titulo": "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
+  "descripcion": "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 109,
+  "fotos": [
+    "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f365b"
+  },
+  "emailVendedor": "Gabriel24@yahoo.com",
+  "direccion": "Masía Cristián Huerta, 88",
+  "titulo": "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+  "descripcion": "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 114,
+  "fotos": [
+    "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f365c"
+  },
+  "emailVendedor": "Estela.BarretoZavala@gmail.com",
+  "direccion": "Sector María Teresa Casares s/n.",
+  "titulo": "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
+  "descripcion": "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 599,
+  "fotos": [
+    "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f365d"
+  },
+  "emailVendedor": "Debora.SoteloPedroza62@yahoo.com",
+  "direccion": "Gran Subida Marcos Quesada 50",
+  "titulo": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
+  "descripcion": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 999.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3652"
+  },
+  "emailVendedor": "Homero.VazquezGodinez@hotmail.com",
+  "direccion": "Vía Pública Miguel Ángel 28",
+  "titulo": "Mens Cotton Jacket",
+  "descripcion": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 55.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3653"
+  },
+  "emailVendedor": "Concepcion.QuesadaMeza@yahoo.com",
+  "direccion": "Explanada Benito Noriega, 47",
+  "titulo": "Mens Casual Slim Fit",
+  "descripcion": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 15.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3661"
+  },
+  "emailVendedor": "Elisa.MontesRubio32@yahoo.com",
+  "direccion": "Solar José Eduardo 2",
+  "titulo": "MBJ Women's Solid Short Sleeve Boat Neck V ",
+  "descripcion": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 9.85,
+  "fotos": [
+    "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3660"
+  },
+  "emailVendedor": "Anita93@gmail.com",
+  "direccion": "Arrabal Ana Luisa Mota, 4",
+  "titulo": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
+  "descripcion": "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 39.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3662"
+  },
+  "emailVendedor": "MariadelosAngeles_VillaLucio31@hotmail.com",
+  "direccion": "Pasaje Julio Leal s/n.",
+  "titulo": "Opna Women's Short Sleeve Moisture",
+  "descripcion": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 7.95,
+  "fotos": [
+    "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f3663"
+  },
+  "emailVendedor": "MariaElena8@hotmail.com",
+  "direccion": "Rincón Ester 73",
+  "titulo": "DANVOUY Womens T Shirt Casual Cotton Short",
+  "descripcion": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 12.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f365e"
+  },
+  "emailVendedor": "JuanCarlos3@gmail.com",
+  "direccion": "Explanada Benjamín 61",
+  "titulo": "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
+  "descripcion": "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 56.99,
+  "fotos": [
+    "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a00e716018479800f365f"
+  },
+  "emailVendedor": "Yolanda_MadrigalMojica50@yahoo.com",
+  "direccion": "Glorieta Patricio Rosado 94",
+  "titulo": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+  "descripcion": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 29.95,
+  "fotos": [
+    "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg"
+  ],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a0325addb03e94356c159"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Gran Vía, 123, Madrid, España",
+  "titulo": "Mesa de Comedor de Madera",
+  "descripcion": "Mesa de comedor de roble macizo hecha a mano",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 350,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a03a6addb03e94356c15d"
+  },
+  "emailVendedor": "dfsdfsdfe2@uma.es",
+  "direccion": "Calle Palacios, 43, Burgos, España",
+  "titulo": "Abanico",
+  "descripcion": "Abanico de madera pintado con flores",
+  "fechaInicio": null,
+  "fechaFin": null,
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 5,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "654a098c2bbe630cdac317d7"
+  },
+  "emailVendedor": "example2@uma.es",
+  "direccion": "Calle Lorca, 3, Toledo, España",
+  "titulo": "Cuadro",
+  "descripcion": "Cuadro al oleo de patos de colores en una fuente del parque del retiro",
+  "fechaInicio": {
+    "$date": "2023-12-12T12:00:00.000Z"
+  },
+  "fechaFin": null,
+  "enSubasta": false,
+  "pujaMayor": 0,
+  "precioInicio": 25,
+  "fotos": [],
+  "emailComprador": null,
+  "__v": 0
+}]
