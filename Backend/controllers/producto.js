@@ -98,7 +98,7 @@ const deleteProduct = async (req, res) => {
     }else{
       await Producto.findByIdAndDelete(id);
       console.log(colors.blue("Producto borrado" + producto.titulo));
-      res.status(204); // Respuesta exitosa sin contenido
+      res.status(204).send(); // Respuesta exitosa sin contenido
     }
   } catch (error) {
     res.status(500).json({ error: "Error al intentar borrar el producto" });

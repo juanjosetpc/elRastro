@@ -162,4 +162,19 @@
     "$date": "2023-11-07T09:42:07.507Z"
   },
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6550f26b243203115c28cf58"
+  },
+  "producto": {
+    "$oid": "6547b7e54b545046b26d6ff1"
+  },
+  "emailVendedor": "vendedor2@example.com",
+  "cantidad": 210,
+  "emailPujador": "example8@uma.es",
+  "fechaYHora": {
+    "$date": "2023-11-12T15:42:35.729Z"
+  },
+  "__v": 0
 }]

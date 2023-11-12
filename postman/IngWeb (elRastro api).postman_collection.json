@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "e2909403-26d5-48f5-9a2a-ff89418be287",
-		"name": "IngWeb (elRastro api)",
+		"_postman_id": "f0418314-7fee-457c-8369-6b30066a8f10",
+		"name": "IngWeb (elRastro api) Copy",
 		"description": "Documentación de la api rest desarrollada por el grupoA3.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30882119"
+		"_exporter_id": "27030576"
 	},
 	"item": [
 		{
@@ -61,7 +61,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n  {\r\n    \"emailVendedor\": \"vendedor1@example.com\",\r\n    \"direccion\": \"Calle Gran Vía, 123, Madrid, España\",\r\n    \"titulo\": \"Mesa de Comedor de Madera\",\r\n    \"descripcion\": \"Mesa de comedor de roble macizo hecha a mano\",\r\n    \"precioInicio\": 350.00\r\n  }\r\n",
+							"raw": "\r\n  {\r\n    \"emailVendedor\": \"vendedor1@example.com\",\r\n    \"direccion\": \"Calle Gran Vía, 123, Madrid, España\",\r\n    \"titulo\": \"Mesa de Comedor de Cristal\",\r\n    \"descripcion\": \"Mesa muy moderna\",\r\n    \"precioInicio\": 380.00\r\n  }\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -88,7 +88,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"direccion\": \"Calle Gran Vía, 128, Madrid, España\",\r\n        \"titulo\": \"Mesa de Comedor de Madera de roble\",\r\n        \"descripcion\": \"Mesa de comedor de roble macizo hecha a mano en 2021\",\r\n        \"fechaInicio\": \"2023-10-25\",\r\n        \"fechaFin\": null,\r\n        \"enSubasta\": true,\r\n        \"precioInicio\": 350\r\n}",
+							"raw": "  {\r\n        \"titulo\": \"Mesita de noche\",\r\n        \"descripcion\": \"Mesita de noche moderna con 3 cajones\",\r\n        \"fechaInicio\": \"2023-10-20T00:00:00.000Z\",\r\n        \"fechaFin\": \"2023-12-30\",\r\n        \"enSubasta\": true,\r\n        \"pujaMayor\": 0,\r\n        \"precioInicio\": 150\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,7 +108,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "6547b7e54b545046b26d6fee"
+									"value": "6547b7e54b545046b26d6ff0"
 								}
 							]
 						}
@@ -133,7 +133,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "6549f5d4e79a8df3f18b5bc1"
 								}
 							]
 						}
@@ -249,7 +249,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"producto\": \"6547b7e54b545046b26d6ff1\",\r\n  \"cantidad\": 210,\r\n  \"emailPujador\": \"example8@uma.es\"\r\n}",
+							"raw": "{\r\n  \"producto\": \"6547b7e54b545046b26d6ff1\",\r\n  \"cantidad\": 215,\r\n  \"emailPujador\": \"example8@uma.es\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -276,7 +276,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n  \"producto\": \"6547b7e54b545046b26d6fef\",\r\n  \"cantidad\": 505\r\n}\r\n",
+							"raw": "\r\n{\r\n  \"producto\": \"6547b7e54b545046b26d6fef\",\r\n  \"cantidad\": 504\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -321,7 +321,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "6547b7e54b545046b26d6ff1"
+									"value": "6550f26b243203115c28cf58"
 								}
 							]
 						}

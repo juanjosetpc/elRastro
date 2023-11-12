@@ -1,0 +1,74 @@
+.card{
+    box-shadow: 0px 4.01838px 8.03675px 4.01838px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: .2rem .7rem;
+    background-color: var(--white);
+    height: 17rem;
+    width: 14rem;
+    
+}
+
+.card .card-img{
+    height: 10.7rem;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+
+}
+
+.card > .card-title{
+    font-size: var(--text-sm);
+    margin: auto;
+    width: 90%;
+    height: 2.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card > .card-bottom{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+.card > .card-bottom > .price{
+    font-size: var(--text-lg);
+    color: var(--secondary);
+}
+
+.card > .card-bottom > .add-button{
+    display: flex;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--white);
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: .1rem .5rem;
+    border-radius: 15px;
+    position: relative;
+}
+
+.card > .card-bottom > .add-button > .add-button-text{
+    font-size: var(--text-sm);
+}
+
+.card > .card-bottom > .add-button > .cart-icon{
+    width: 1.5rem;
+    height: 1.938rem;
+}
+
+.card > .card-bottom > .add-button > .arrow-icon{
+    width: 0.625rem;
+    height: 0.875rem;
+}
+
+.card > .card-bottom > .remove-button{
+    text-align: center;
+    background-color: var(--gray);
+    cursor: pointer;
+    border: none;
+    font-size: var(--text-sm);
+    border-radius: 15px;
+    padding: .4rem 1rem;
+}
