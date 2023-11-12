@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const colors = require("picocolors");
 const v1ProductRouter = require("./v1/routes/productRoutes");
 const v1PujaRouter = require("./v1/routes/pujaRoutes");
@@ -7,6 +8,7 @@ const v1ExternosRouter = require("./v1/routes/externosRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/productos", v1ProductRouter);
