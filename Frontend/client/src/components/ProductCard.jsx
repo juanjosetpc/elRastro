@@ -7,30 +7,31 @@ import 'slick-carousel/slick/slick-theme.css';
 const ProductCard = ({ producto }) => {
   const { titulo, fotos, precioInicio, fechaFinSubasta } = producto;
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  // };
 
   return (
     <div className="card">
+            
       <p className='card-title'>{titulo}</p>
       <div className="image-carousel">
-        <Slider {...settings}>
+        {/* <Slider {...settings}> */}
           {fotos.map((imagen, index) => (
             <div key={index}>
               <img className='card-img' src={imagen} alt={`Imagen ${index + 1}`} />
             </div>
           ))}
-        </Slider>
+        {/* </Slider> */}
       </div>
       <div className='card-bottom'>
 
       <p className='price'>Precio: {precioInicio}€</p>
-      <p>Fecha de Fin de Subasta: {formatFecha(fechaFinSubasta)}</p>
+      <p className='close-date'>Fecha fin: {formatFecha(fechaFinSubasta)}</p>
       </div>
     </div>
   );
@@ -40,7 +41,7 @@ const ProductCard = ({ producto }) => {
 const formatFecha = (fecha) => {
   if (!fecha) return 'No especificada';
   
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
   return new Date(fecha).toLocaleDateString(undefined, options);
 };
 
