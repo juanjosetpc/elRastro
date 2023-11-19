@@ -1,13 +1,110 @@
-import React from 'react';
-import ProductList from '../components/ProductList';
-import Navbar from '../components/Navbar';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import "../styles/Home.css"
+import ProductCard from '../components/ProductCard';
+import api2 from '../services/api2';
+
 const Home = () => {
+    //Aqui lo que se hace es almacenar en productos el estado actual. Inicialmente []
+  //y setProductos será la función que se utiliza para actualizar el estado de la variable productos.
+  //useState es un hook de react que se utiliza para agregar estado a un componente funcional. 
+  //La función useState toma un argumento que representa el valor inicial del estado ([] en este caso)
+  // y devuelve un array con dos elementos: la variable de estado (productos) y la función para actualizar el estado (setProductos).
+  const [productos, setProductos] = useState([]);
+  const [searchDescr, setSearchDescr] = useState('');
+  const [searchVendedor, setSearchVendedor] = useState('');
+  const [fechaFinOrd, setFechaFinOrd] = useState('');
+
+  const fetchProductos = async () => {
+    try {
+      let endpoint = '/productos/ensubasta';
+
+      const queryParams = [];
+  
+      if (searchDescr) {
+        queryParams.push(`descripcion=${searchDescr}`);
+      }
+      if (searchVendedor) {
+        queryParams.push(`email=${searchVendedor}`);
+      }
+      if (fechaFinOrd) {
+        queryParams.push(`fechaFin=${fechaFinOrd}`);
+      }
+  
+      if (queryParams.length > 0) {
+        endpoint += `?${queryParams.join('&')}`;
+      }
+  
+      console.log(endpoint);
+      const { data } = await api2.get(endpoint);
+  
+      setProductos(data);
+    } catch (error) {
+      console.error('Error fetching productos:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProductos();
+  }, [searchDescr, searchVendedor, fechaFinOrd]);
+
+  //Ese [] como segundo parámetro de useEffect es un array de dependencias. 
+  //Cuando este array está vacío ([]), el efecto se ejecuta solo después del primer renderizado del componente. 
+  //Como tiene la variable searchDescr en dependencia, el efecto se ejecutaría cada vez que search cambie.
+
   return (
-    <div>
-      <Navbar/>
-      <h1>Productos</h1>
-      <ProductList />
-    </div>
+    <>
+      <div className="content-wrapper">
+        <h1>Productos</h1>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            fetchProductos();
+          }}
+        >
+          <label htmlFor="search-desc">Busca por descripción:</label>
+          <input
+            id="search-desc"
+            type="text"
+            placeholder="descripcion"
+            value={searchDescr}
+            onChange={(e) => setSearchDescr(e.target.value)}
+          />
+          <label htmlFor="search-seller">Busca por vendedor:</label>
+          <input
+            id="search-seller"
+            type="text"
+            placeholder="vendedor"
+            value={searchVendedor}
+            onChange={(e) => setSearchVendedor(e.target.value)}
+          />
+          <label htmlFor="sort-date">Orden fecha fin:</label>
+          <select
+            id="sort-date"
+            value={fechaFinOrd}
+            onChange={(e) => setFechaFinOrd(e.target.value)}
+          >
+            <option value=""></option>
+            <option value="1">Ascendente</option>
+            <option value="-1">Descendente</option>
+          </select>
+        </form>
+        <span className="divisor"></span>
+        <div className="products">
+          <div className="product-grid">
+            {productos.map((producto) => (
+              <Link
+                className="no-underline"
+                to={`/product/${producto._id}`}
+                key={producto._id}
+              >
+                <ProductCard producto={producto} />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
