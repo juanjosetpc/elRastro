@@ -47,6 +47,7 @@ const createPuja = async (req, res) => {
         } else {
           
           // Si la puja no existe, créala y agrégala a la lista de nuevas pujas
+          producto.pujaMayor = puja.cantidad;
           producto.enSubasta = true;
           puja.emailVendedor = producto.emailVendedor;
           const nuevaPuja = await Puja.create(puja);
@@ -199,5 +200,5 @@ module.exports = {
   getTodasPujasAMisProductos,
   getPuja,
   getpujasMayoresQueUnValor,
-  getpujasEnOrdenAlfabeticoDelUsuario
+  getpujasEnOrdenAlfabeticoDelUsuario,
 };

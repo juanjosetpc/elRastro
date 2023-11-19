@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const ProductCard = ({ producto }) => {
-  const { titulo, fotos, precioInicio, fechaFinSubasta } = producto;
+  const { titulo, fotos, precioInicio, fechaFin } = producto;
 
   // const settings = {
   //   dots: true,
@@ -31,7 +31,7 @@ const ProductCard = ({ producto }) => {
       <div className='card-bottom'>
 
       <p className='price'>Precio: {precioInicio}€</p>
-      <p className='close-date'>Fecha fin: {formatFecha(fechaFinSubasta)}</p>
+      <p className='close-date'>Fecha fin: {formatFecha(fechaFin)}</p>
       </div>
     </div>
   );

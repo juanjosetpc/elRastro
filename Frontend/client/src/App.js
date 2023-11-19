@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/Home';
 import Login from './pages/Login';
@@ -13,6 +13,7 @@ import Mapa from './mapa/mapa';
 // // setIsAuthenticated es una función que se utiliza para actualizar el estado de isAuthenticated.
 //  Cuando se llama, React re-renderizará el componente con el nuevo valor de isAuthenticated.
 const App = () => {
+  const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
   const [userEmail, setUserEmail] = React.useState('');
 
@@ -29,6 +30,7 @@ const App = () => {
   const handleLogout = () => {
     setIsAuthenticated(false);
     setUserEmail('');
+    navigate('/');
   };
 
   return (

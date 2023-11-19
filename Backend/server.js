@@ -5,6 +5,7 @@ const colors = require("picocolors");
 const v1ProductRouter = require("./v1/routes/productRoutes");
 const v1PujaRouter = require("./v1/routes/pujaRoutes");
 const v1ExternosRouter = require("./v1/routes/externosRoutes");
+const v2ProductRouter = require("./v2/routes/productRoutes2");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/productos", v1ProductRouter);
+app.use("/api/v2/productos", v2ProductRouter);
 app.use("/api/v1/pujas", v1PujaRouter);
 app.use("/api/v1/externos", v1ExternosRouter);
 
