@@ -1,5 +1,6 @@
 const Producto = require("../models/producto");
 const colors = require("picocolors");
+const Puja = require("../models/puja");
 
 const getAllProducts = async (req, res) => {
   try {
@@ -89,9 +90,9 @@ const deleteProduct = async (req, res) => {
     if (!producto) {
       console.log(colors.yellow("No se encontró el producto para borrarlo"));
       return res.status(404).json({ error: "Producto no encontrado" });
-    }else if(producto.enSubasta){
-      console.log(colors.yellow("No se puede borrar un producto en subasta"));
-      return res.status(400).json({ error: "No se puede borrar un producto en subasta" });
+    }else if(producto.pujaMayor > 0){
+      console.log(colors.yellow("No se puede borrar el producto, ya hay alguna puja"));
+      return res.status(400).json({ error: "No se puede borrar el producto ya hay alguna puja" });
     }else{
       await Producto.findByIdAndDelete(id);
       console.log(colors.blue("Producto borrado" + producto.titulo));
@@ -168,6 +169,96 @@ const addfoto = async (req, res) => {
 };
 
 
+const getProductsOfSeller = async (req, res) => {
+  const email = req.params.email;
+  const activo = req.query.activo;
+  try {
+    const productos = await Producto.find({
+      emailVendedor: email,
+      enSubasta: activo,
+      fechaFin: { $gt: new Date() },
+    });
+    res.json(productos);
+  } catch (error) {
+    res.status(500).json({
+      error:
+        "Error al obtener los productos. Mensaje de error: " + error.message,
+    });
+  }
+}
+
+const activateProduct = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const producto = await Producto.findById(id);
+    if (!producto) {
+      console.log(colors.yellow("No se encontró el producto para activarlo"));
+      return res.status(404).json({ error: "Producto no encontrado" });
+    }
+    producto.enSubasta = true;
+    producto.fechaInicio = new Date();
+    await producto.save();
+    res.status(200).json({ mensaje: "Producto activado", producto });
+  } catch (error) {
+    res.status(500).json({
+      error: "Error al activar el producto. Mensaje de error: " + error.message,
+    });
+  }
+}
+
+const getProductsBuying = async (req, res) => {
+  const email = req.params.email;
+  try {
+    const idsProductos = await Puja.distinct("producto", { emailPujador: email });
+    const productosPujados = await Producto.find({ _id: { $in: idsProductos } });
+    
+    res.json(productosPujados);
+    
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener los productos" });
+  }
+};
+
+const getProductsFilter = async (req, res) => {
+  try {
+    const descripcion = req.query.descripcion;
+    const email = req.query.email;
+    const fechaFinOrd = req.query.fechaFin;
+    const distancia = req.query.distancia;
+    const precio = req.query.precio;
+
+    let query = { enSubasta: true }; 
+
+    if (descripcion) {
+      query.descripcion = { $regex: descripcion, $options: "i" };
+    }
+    if (email) {
+      query.emailVendedor = { $regex: email, $options: "i" };
+    }
+    // if (distancia) {
+    //   query.distancia = { $lte: distancia };
+    // }
+    if (precio) {
+      query.$or = [
+        { pujaMayor: { $lte: precio, $ne: 0} },
+        { precioInicio: { $lte: precio } }
+      ];
+    }
+    
+    let sortQuery = {};
+    if (fechaFinOrd == 1 || fechaFinOrd == -1) {
+      sortQuery.fechaFin = parseInt(fechaFinOrd);
+    }
+
+    const productos = await Producto.find(query).sort(sortQuery);
+
+    res.json(productos);
+
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener los productos. " + error.message });
+  }
+}
+
 
 
 module.exports = {
@@ -179,4 +270,8 @@ module.exports = {
   getProductsByDescription,
   getProduct,
   addfoto,
+  getProductsOfSeller,
+  activateProduct,
+  getProductsBuying,
+  getProductsFilter
 };
