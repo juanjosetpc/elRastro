@@ -1,37 +1,28 @@
 import React from 'react';
-import Slider from 'react-slick';
 import '../styles/Card.css'
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
+
 
 const ProductCard = ({ producto }) => {
   const { titulo, fotos, precioInicio, fechaFin } = producto;
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // };
-
   return (
     <div className="card">
-            
-      <p className='card-title'>{titulo}</p>
+      <p className="card-title">{titulo}</p>
       <div className="image-carousel">
-        {/* <Slider {...settings}> */}
-          {fotos.map((imagen, index) => (
-            <div key={index}>
-              <img className='card-img' src={imagen} alt={`Imagen ${index + 1}`} />
-            </div>
-          ))}
-        {/* </Slider> */}
+        {/* {fotos.map((imagen, index) => ( */}
+          {/* <div key={index}> */}
+            <img
+              className="card-img"
+              src={fotos[0]}
+              alt={titulo}
+            />
+          {/* </div> */}
+        {/* ))} */}
       </div>
-      <div className='card-bottom'>
-
-      <p className='price'>Precio: {precioInicio}€</p>
-      <p className='close-date'>Fecha fin: {formatFecha(fechaFin)}</p>
+      <div className="card-bottom">
+        <p className="price">Precio: {precioInicio}€</p>
+        <p className="close-date">Fecha fin: {formatFecha(fechaFin)}</p>
       </div>
     </div>
   );

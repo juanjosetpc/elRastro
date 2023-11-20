@@ -1,6 +1,15 @@
 const Producto = require("../models/producto");
 const colors = require("picocolors");
 const Puja = require("../models/puja");
+const cloudinary = require("cloudinary");
+
+// Configuración de Cloudinary
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY_CLOUDINARY,
+  api_secret: process.env.API_SECRET_CLOUDINARY,
+  secure: true,
+});
 
 const getAllProducts = async (req, res) => {
   try {
@@ -33,6 +42,7 @@ const getProduct = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
+
     const producto = req.body;
 
       // Comprobar si ya existe un producto con los mismos datos
@@ -237,6 +247,47 @@ const getProductsFilter = async (req, res) => {
 
 
 
+const actualizarSubastasExito = async () => {
+  try {
+    const subastas = await Producto.find({ enSubasta: true, fechaFin: { $lte: new Date() } });
+
+    for (const subasta of subastas) {
+      if (subasta.pujaMayor > 0) {
+        subasta.enSubasta = false;
+        const ganador = subasta.emailComprador;
+        const vendedor = subasta.emailVendedor;
+
+        // adjudicarSubasta(subasta, ganador, vendedor); //Hacer proximamente la notificacion a vendedor y comprador
+      }
+    }
+  } catch (error) {
+    console.error('Error al actualizar subastas:', error);
+  }
+};
+
+
+//Control periódico de las subastas que han terminado sin pujas y se consideran desiertas.
+// En ese caso, se iniciará automáticamente una nueva subasta, con la misma duración, y con un precio salida un 10%
+// inferior al inicial
+const actualizaDesiertas = async () => {
+  try {
+    const productos = await Producto.find({ enSubasta: true, fechaFin: { $lt: new Date() }, pujaMayor: 0 });
+    for (const producto of productos) {
+      producto.fechaFin = new Date(producto.fechaFin.getTime() + producto.fechaFin.getTime() - producto.fechaInicio.getTime());
+      producto.fechaInicio = new Date();
+      producto.precioInicio = producto.precioInicio * 0.9;
+      await producto.save();
+    }
+    
+  } catch (error) {
+    console.log(colors.red("Error al actualizar las subastas desiertas. " + error.message));
+  }}
+ 
+
+
+
+
+
 module.exports = {
   getAllProducts,
   createProduct,
@@ -248,5 +299,7 @@ module.exports = {
   getProductsOfSeller,
   activateProduct,
   getProductsBuying,
-  getProductsFilter
+  getProductsFilter,
+  actualizaDesiertas,
+  actualizarSubastasExito
 };

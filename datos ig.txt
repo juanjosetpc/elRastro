@@ -1,0 +1,12 @@
+
+//tocken cliente e088096432400ffefb49ba63b05ddbe4
+//secreto app b7ba55b70a1ef4e519a129d535fd3556
+//id app 1794332877656679
+//user id 122116584260072882
+
+
+// foto mar : https://www.istockphoto.com/es/foto/pintura-al-%C3%B3leo-de-mar-paisaje-marino-turquesa-abstracto-gm1383467905-443374357
+
+POST https://graph.facebook.com/v18.0/122116584260072882/media
+
+C:\Users\juanj\Downloads\cuadro_mar1.jpg
