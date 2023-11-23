@@ -9,6 +9,7 @@ const v2ProductRouter = require("./v2/routes/productRoutes2");
 const v2ExternosRouter = require("./v2/routes/externosRoutes2");
 const cron = require("node-cron");
 const { actualizaDesiertas, actualizarSubastasExito } = require("./controllers/producto");
+const v2UsuarioRouter = require("./v2/routes/usuarioRoutes2");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,7 @@ app.use("/api/v2/productos", v2ProductRouter);
 app.use("/api/v1/pujas", v1PujaRouter);
 app.use("/api/v1/externos", v1ExternosRouter);
 app.use("/api/v2/externos", v2ExternosRouter);
+app.use("/api/v2/usuarios", v2UsuarioRouter);
 
 app.listen(PORT, () => {
   console.log(colors.bgGreen(`Server is running on port ${PORT}`));
