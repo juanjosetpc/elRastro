@@ -8,9 +8,10 @@ import Mapa from '../components/Mapa.jsx';
  import axios from 'axios';
 
 
-const ProductDetail = () => {
+const ProductDetail = ({ propEmail }) => {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
+  const [pujaRealizada, setPujaRealizada] = useState(false);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -25,11 +26,14 @@ const ProductDetail = () => {
     };
 
     fetchProductDetails();
-  }, [id]);
+  }, [id,producto,pujaRealizada]);
   //Al poner el id como dependencia, nos aseguramos que se ejecute este useEffect cada vez
   //que cambie el id, es decir aseguramos que cada vez que cambiamos de producto
   //se hace la búsqueda de este con su id correspondiente.
-
+  const handlePujaRealizada = () => {
+      // Puedes realizar acciones adicionales aquí si es necesario
+       setPujaRealizada(true);
+       };
   return (
     <>
       {producto && (
@@ -66,9 +70,11 @@ const ProductDetail = () => {
             <h2>Pujas</h2>
             <p>Precio de inicio: {producto.precioInicio}</p>
             <p>Precio actual de la puja : {producto.pujaMayor}</p>
-            <div className="botonPuja">
-              <BotonPujar  producto = {producto}/>
-            </div>
+            {producto.emailVendedor === propEmail ?( <p></p>) : (
+                <div className="botonPuja">
+                <BotonPujar producto={producto} emailPujador={propEmail} onPujaRealizada={handlePujaRealizada} />                 </div>
+            ) }
+            
           </div>
         </div>
       )}
@@ -78,6 +84,8 @@ const ProductDetail = () => {
 
 export default ProductDetail;
 
+
+// // ProductDetail.jsx
 // import React, { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
 // import api from '../services/api';
@@ -85,50 +93,48 @@ export default ProductDetail;
 // import 'react-responsive-carousel/lib/styles/carousel.min.css';
 // import BotonPujar from '../components/BotonPujar.jsx';
 // import Mapa from '../components/Mapa.jsx';
+// import axios from 'axios';
 
-// const ProductDetail = () => {
+// const ProductDetail = ({ propEmail }) => {
 //   const { id } = useParams();
 //   const [producto, setProducto] = useState(null);
-//   const [coordinates, setCoordinates] = useState(null);
-//   const [loading, setLoading] = useState(true);
+//   const [pujaRealizada, setPujaRealizada] = useState(false);
 
 //   useEffect(() => {
 //     const fetchProductDetails = async () => {
 //       try {
 //         const response = await api.get(`/productos/${id}`);
 //         setProducto(response.data);
-
-//         if (response.data.direccion) {
-//           const apiUrl = `https://nominatim.openstreetmap.org/search?q=${response.data.direccion}&format=json&limit=1`;
-//           const [responseCoord] = await Promise.all([axios.get(apiUrl)]);
-//           const results = responseCoord.data[0];
-
-//           // Update coordinates state with the obtained values
-//           setCoordinates([results.lat, results.lon]);
-//           setLoading(false); // Set loading to false once coordinates are fetched
-//         }
 //       } catch (error) {
 //         console.error('Error fetching product details:', error);
 //       }
 //     };
 
 //     fetchProductDetails();
-//   }, [id]);
+//   }, [id, producto, pujaRealizada]);
+
+//   const handlePujaRealizada = () => {
+//     // Puedes realizar acciones adicionales aquí si es necesario
+//     setPujaRealizada(true);
+//   };
 
 //   return (
 //     <>
-//       {loading ? (
-//         <p>Loading...</p>
-//       ) : (
-//         producto && (
-//           <div style={{ textAlign: 'center', maxWidth: '600px', margin: 'auto', padding: '20px' }}>
-//             {/* ... (other renderings) */}
-//             <div className='Mapa'>
-//               {/* Pass coordinates directly to Mapa component */}
-//               <Mapa coordinates={[-40,-3]} />
+//       {producto && (
+//         <div style={{ textAlign: 'center', maxWidth: '600px', margin: 'auto', padding: '20px' }}>
+//           <p>ID: {producto._id}</p>
+//           <h1>{producto.titulo}</h1>
+//           <h1>{producto.pujaMayor}</h1>
+//           {/* Resto de tu código para mostrar detalles de producto */}
+
+//           {producto.emailVendedor === propEmail ? (
+//             <p></p>
+//           ) : (
+//             <div className="botonPuja">
+//               <BotonPujar producto={producto} emailPujador={propEmail} onPujaRealizada={handlePujaRealizada} />
 //             </div>
-//           </div>
-//         )
+//           )}
+//         </div>
 //       )}
 //     </>
 //   );
