@@ -28,6 +28,7 @@ const crearResena = async (req, res) => {
         }
 
         usuario.resenas.push({ nota, descripcion });
+        await calcularValoracion(usuario);
         await usuario.save();
         res.status(201).json({ mensaje: 'Reseña añadida correctamente' });
     } catch (error) {
@@ -35,6 +36,11 @@ const crearResena = async (req, res) => {
       res.status(500).json({ error: 'Error al añadir reseña' });
     }
 };
+
+const calcularValoracion = async (usuario) => {
+    
+};
+
 
 module.exports = {
     getResenas,
