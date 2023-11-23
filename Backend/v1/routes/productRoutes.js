@@ -13,6 +13,7 @@ router.get("/:id", productoController.getProduct); // obtener un producto
 router.post("/", productoController.createProduct); // crear nuevo producto
 router.put("/:id", productoController.updateProduct); // actualizar producto
 router.delete("/:id", productoController.deleteProduct); // eliminar producto
+router.post("/:id/addfoto", productoController.addfoto); // eliminar producto
 
 
 module.exports = router;

@@ -67,9 +67,6 @@ const updateProduct = async (req, res) => {
     if(!product){
       console.log(colors.yellow("No se encontró el producto para actualizarlo"));
       return res.status(404).json({ error: "Producto no encontrado" });
-    }else if(product.pujaMayor > 0){
-      console.log(colors.yellow("No se puede actualizar el producto, ya hay alguna puja"));
-      return res.status(400).json({ error: "No se puede actualizar el producto, ya hay alguna puja" });
     }else{
       const producto = await Producto.findByIdAndUpdate(id, datosActualizar, {
         new: true,
@@ -141,6 +138,33 @@ const getProductsByDescription = async (req, res) => {
         "Error al buscar productos en subasta. Mensaje de error: " +
         error.message,
     });
+  }
+};
+
+const addfoto = async (req, res) => {
+  const productId = req.params.id;
+  const fotoUrl = req.body.fotoUrl; // Asume que se envía el enlace a la imagen en el cuerpo de la solicitud
+
+  try {
+    // Verifica si el ID es válido
+    
+    // Busca el producto por su ID
+    const producto = await Producto.findById(productId);
+    // Verifica si el producto existe
+    if (!producto) {
+      return res.status(404).json({ message: 'Producto no encontrado' });
+    }
+
+    // Añade la foto al array de fotos del producto
+    producto.fotos.push(fotoUrl);
+    // Guarda los cambios en la base de datos
+    await producto.save();
+
+    // Responde con el producto actualizado
+    res.status(200).json(producto);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error interno del servidor' });
   }
 };
 
@@ -245,6 +269,7 @@ module.exports = {
   getProductsByUserDescByDate,
   getProductsByDescription,
   getProduct,
+  addfoto,
   getProductsOfSeller,
   activateProduct,
   getProductsBuying,
