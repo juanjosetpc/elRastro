@@ -13,7 +13,6 @@ const BotonPujar = ({producto}) => {
         }else{
             console.log("ERROR : la puja es menor");
         }
-        window.location.reload();
     
     };
 

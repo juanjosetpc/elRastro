@@ -4,6 +4,9 @@ import api from '../services/api';
 import { Carousel } from 'react-responsive-carousel'; // Asegúrate de tener esta línea de importación
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import BotonPujar from '../components/BotonPujar.jsx';
+import Mapa from '../components/Mapa.jsx';
+ import axios from 'axios';
+
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -14,6 +17,8 @@ const ProductDetail = () => {
       try {
         const response = await api.get(`/productos/${id}`);
         setProducto(response.data);
+        
+
       } catch (error) {
         console.error('Error fetching product details:', error);
       }
@@ -53,7 +58,9 @@ const ProductDetail = () => {
           <div>
             <h2>Localizacion</h2>
             <p>{producto.direccion}</p>
-            <p>--------------Mapa--------------</p>
+            <div className='Mapa'>
+                <Mapa direccion = {producto.direccion}/>
+            </div>
           </div>
           <div>
             <h2>Pujas</h2>
@@ -70,3 +77,61 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
+// import React, { useEffect, useState } from 'react';
+// import { useParams } from 'react-router-dom';
+// import api from '../services/api';
+// import { Carousel } from 'react-responsive-carousel';
+// import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// import BotonPujar from '../components/BotonPujar.jsx';
+// import Mapa from '../components/Mapa.jsx';
+
+// const ProductDetail = () => {
+//   const { id } = useParams();
+//   const [producto, setProducto] = useState(null);
+//   const [coordinates, setCoordinates] = useState(null);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     const fetchProductDetails = async () => {
+//       try {
+//         const response = await api.get(`/productos/${id}`);
+//         setProducto(response.data);
+
+//         if (response.data.direccion) {
+//           const apiUrl = `https://nominatim.openstreetmap.org/search?q=${response.data.direccion}&format=json&limit=1`;
+//           const [responseCoord] = await Promise.all([axios.get(apiUrl)]);
+//           const results = responseCoord.data[0];
+
+//           // Update coordinates state with the obtained values
+//           setCoordinates([results.lat, results.lon]);
+//           setLoading(false); // Set loading to false once coordinates are fetched
+//         }
+//       } catch (error) {
+//         console.error('Error fetching product details:', error);
+//       }
+//     };
+
+//     fetchProductDetails();
+//   }, [id]);
+
+//   return (
+//     <>
+//       {loading ? (
+//         <p>Loading...</p>
+//       ) : (
+//         producto && (
+//           <div style={{ textAlign: 'center', maxWidth: '600px', margin: 'auto', padding: '20px' }}>
+//             {/* ... (other renderings) */}
+//             <div className='Mapa'>
+//               {/* Pass coordinates directly to Mapa component */}
+//               <Mapa coordinates={[-40,-3]} />
+//             </div>
+//           </div>
+//         )
+//       )}
+//     </>
+//   );
+// };
+
+// export default ProductDetail;
