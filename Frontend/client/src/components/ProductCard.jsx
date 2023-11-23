@@ -10,15 +10,7 @@ const ProductCard = ({ producto }) => {
     <div className="card">
       <p className="card-title">{titulo}</p>
       <div className="image-carousel">
-        {/* {fotos.map((imagen, index) => ( */}
-          {/* <div key={index}> */}
-            <img
-              className="card-img"
-              src={fotos[0]}
-              alt={titulo}
-            />
-          {/* </div> */}
-        {/* ))} */}
+        <img className="card-img" src={fotos[0]} alt={titulo} />
       </div>
       <div className="card-bottom">
         <p className="price">Precio: {precioInicio}€</p>

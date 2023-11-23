@@ -28,7 +28,6 @@ app.listen(PORT, () => {
  //Se ejecuta cada 15 min
 //  cron.schedule("*/15 * * * *", async () => {
 //   console.log(colors.orange("Actualizando subastas desiertas, si las hay..."));
-//   await actualizarSubastasExito();
 //   await actualizaDesiertas();
 // });
 

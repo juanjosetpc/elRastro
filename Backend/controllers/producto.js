@@ -3,14 +3,6 @@ const colors = require("picocolors");
 const Puja = require("../models/puja");
 const cloudinary = require("cloudinary");
 
-// Configuración de Cloudinary
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY_CLOUDINARY,
-  api_secret: process.env.API_SECRET_CLOUDINARY,
-  secure: true,
-});
-
 const getAllProducts = async (req, res) => {
   try {
     const products = await Producto.find();
@@ -77,6 +69,9 @@ const updateProduct = async (req, res) => {
     if(!product){
       console.log(colors.yellow("No se encontró el producto para actualizarlo"));
       return res.status(404).json({ error: "Producto no encontrado" });
+    }else if(product.pujaMayor > 0){
+      console.log(colors.yellow("No se puede actualizar el producto, ya hay alguna puja"));
+      return res.status(400).json({ error: "No se puede actualizar el producto ya hay alguna puja" });
     }else{
       const producto = await Producto.findByIdAndUpdate(id, datosActualizar, {
         new: true,
@@ -234,7 +229,6 @@ const getProductsFilter = async (req, res) => {
     const descripcion = req.query.descripcion;
     const email = req.query.email;
     const fechaFinOrd = req.query.fechaFin;
-    const distancia = req.query.distancia;
     const precio = req.query.precio;
 
     let query = { enSubasta: true }; 
@@ -245,9 +239,7 @@ const getProductsFilter = async (req, res) => {
     if (email) {
       query.emailVendedor = { $regex: email, $options: "i" };
     }
-    // if (distancia) {
-    //   query.distancia = { $lte: distancia };
-    // }
+
     if (precio) {
       query.$or = [
         { pujaMayor: { $lte: precio, $ne: 0} },
@@ -270,26 +262,6 @@ const getProductsFilter = async (req, res) => {
 }
 
 
-
-const actualizarSubastasExito = async () => {
-  try {
-    const subastas = await Producto.find({ enSubasta: true, fechaFin: { $lte: new Date() } });
-
-    for (const subasta of subastas) {
-      if (subasta.pujaMayor > 0) {
-        subasta.enSubasta = false;
-        const ganador = subasta.emailComprador;
-        const vendedor = subasta.emailVendedor;
-
-        // adjudicarSubasta(subasta, ganador, vendedor); //Hacer proximamente la notificacion a vendedor y comprador
-      }
-    }
-  } catch (error) {
-    console.error('Error al actualizar subastas:', error);
-  }
-};
-
-
 //Control periódico de las subastas que han terminado sin pujas y se consideran desiertas.
 // En ese caso, se iniciará automáticamente una nueva subasta, con la misma duración, y con un precio salida un 10%
 // inferior al inicial
@@ -308,10 +280,6 @@ const actualizaDesiertas = async () => {
   }}
  
 
-
-
-
-
 module.exports = {
   getAllProducts,
   createProduct,
@@ -326,5 +294,4 @@ module.exports = {
   getProductsBuying,
   getProductsFilter,
   actualizaDesiertas,
-  actualizarSubastasExito
 };

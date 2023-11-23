@@ -27,6 +27,7 @@
     "leaflet": "^1.9.4",
     "mongoose": "^7.6.3",
     "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.7",
     "ol": "^8.1.0",
     "picocolors": "^1.0.0",
     "react-leaflet": "^4.2.1",
