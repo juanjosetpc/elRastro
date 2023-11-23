@@ -6,6 +6,8 @@ const v1ProductRouter = require("./v1/routes/productRoutes");
 const v1PujaRouter = require("./v1/routes/pujaRoutes");
 const v1ExternosRouter = require("./v1/routes/externosRoutes");
 const v2ProductRouter = require("./v2/routes/productRoutes2");
+const cron = require("node-cron");
+const { actualizaDesiertas, actualizarSubastasExito } = require("./controllers/producto");
 const v2UsuarioRouter = require("./v2/routes/usuarioRoutes2");
 
 const app = express();
@@ -22,6 +24,14 @@ app.use("/api/v2/usuarios", v2UsuarioRouter);
 app.listen(PORT, () => {
   console.log(colors.bgGreen(`Server is running on port ${PORT}`));
 });
+
+
+// Actualiza las subastas desiertas y finaliza y notifica a los usuarios de las subastas terminadas con exito.
+ //Se ejecuta cada 15 min
+//  cron.schedule("*/15 * * * *", async () => {
+//   console.log(colors.orange("Actualizando subastas desiertas, si las hay..."));
+//   await actualizaDesiertas();
+// });
 
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URI);

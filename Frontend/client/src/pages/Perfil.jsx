@@ -95,7 +95,7 @@ const Perfil = ({ propEmail }) => {
           show={showToast}
           delay={3000}
           autohide
-          bg={operacionExitosa ? 'success' : 'danger'} 
+          bg={operacionExitosa ? "success" : "danger"}
         >
           <Toast.Header>
             <img
@@ -104,8 +104,7 @@ const Perfil = ({ propEmail }) => {
               alt=""
             />
           </Toast.Header>
-          <Toast.Body  className={'text-white'}>
-            {mensajeToast}</Toast.Body>
+          <Toast.Body className={"text-white"}>{mensajeToast}</Toast.Body>
         </Toast>
       </ToastContainer>
       <div className="row">
@@ -171,9 +170,12 @@ const Perfil = ({ propEmail }) => {
                         </Link>
                       </td>
                       <td>
-                        {producto.pujaMayor === 0
-                          ? producto.precioInicio
-                          : producto.pujaMayor}
+                        <p>
+                          {producto.pujaMayor === 0
+                            ? producto.precioInicio
+                            : producto.pujaMayor}
+                          €
+                        </p>
                       </td>
                       <td>
                         <Button
@@ -222,9 +224,12 @@ const Perfil = ({ propEmail }) => {
                         </Link>
                       </td>
                       <td>
-                        {producto.pujaMayor === 0
-                          ? producto.precioInicio
-                          : producto.pujaMayor}
+                        <p>
+                          {producto.pujaMayor === 0
+                            ? producto.precioInicio
+                            : producto.pujaMayor}
+                          €
+                        </p>
                       </td>
                       <td>
                         <Button
@@ -271,7 +276,7 @@ const Perfil = ({ propEmail }) => {
                           {producto.titulo}
                         </Link>
                       </td>
-                      <td>{producto.pujaMayor}</td>
+                      <td><p>{producto.pujaMayor}€</p></td>
                       <td>{producto.fechaFin}</td>
                     </tr>
                   ))}
