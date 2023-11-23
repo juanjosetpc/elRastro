@@ -21,8 +21,8 @@ const getResenas = async (req, res) => {
 
 const crearResena = async (req, res) => {
     try {
-        const { propEmail, nota, descripcion } = req.body;
-        const usuario = await Usuario.findOne({ email: propEmail });
+        const { emailVendedor, nota, descripcion } = req.body;
+        const usuario = await Usuario.findOne({ email: emailVendedor });
         if (!usuario) {
             return res.status(404).json({ error: 'Usuario no encontrado' });
         }
@@ -38,11 +38,29 @@ const crearResena = async (req, res) => {
 };
 
 const calcularValoracion = async (usuario) => {
-    
+    const sumaNotas = usuario.resenas.reduce((acumulador, resena) => acumulador + resena.nota, 0);
+    const mediaNotas = sumaNotas / usuario.resenas.length;
+    usuario.valoracion = mediaNotas;
 };
+
+const getValoracion = async (req, res) => {
+    const email = req.params.email;
+    try {
+        const usuario = await Usuario.findOne({ email: email });
+        if (!usuario) {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+        const valoracion = usuario.valoracion;
+        res.json(valoracion);
+    } catch (error) {
+        console.error('Error al obtener la valoracion:', error);
+        res.status(500).json({ error: 'Error al obtener la valoracion' });
+    }
+}
 
 
 module.exports = {
     getResenas,
     crearResena,
+    getValoracion,
 };

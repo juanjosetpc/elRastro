@@ -59,7 +59,7 @@ const App = () => {
           element={isAuthenticated ? <ProductDetail propEmail={userEmail} /> : <Navigate to="/login" />}
         />
         <Route 
-          path="/valorarPerfil" 
+          path="/valorarPerfil/:emailVendedor" 
           element={isAuthenticated ? <ValorarPerfil propEmail={userEmail}/> : <Navigate to="/login" />}
         />
         <Route path='/mapa' element={<Mapa/>}> </Route>
