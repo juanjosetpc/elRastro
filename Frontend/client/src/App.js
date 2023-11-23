@@ -14,12 +14,14 @@ import Mapa from './mapa/mapa';
 //  Cuando se llama, React re-renderizará el componente con el nuevo valor de isAuthenticated.
 const App = () => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-  const [userEmail, setUserEmail] = React.useState('');
+  const [isAuthenticated, setIsAuthenticated] = React.useState( localStorage.getItem('isAuthenticated') === 'true');
+  const [userEmail, setUserEmail] = React.useState(localStorage.getItem('userEmail') || '');
 
   const handleLogin = (email) => {
     setIsAuthenticated(true);
     setUserEmail(email);
+    localStorage.setItem('isAuthenticated', 'true');
+    localStorage.setItem('userEmail', email);
   };
 
 // // handleLogout es una función que se llama cuando se quiere realizar la acción de cerrar sesión.
@@ -31,6 +33,8 @@ const App = () => {
     setIsAuthenticated(false);
     setUserEmail('');
     navigate('/');
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('userEmail');
   };
 
   return (
@@ -55,9 +59,8 @@ const App = () => {
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route 
           path="/product/:id" 
-          element={isAuthenticated ? <ProductDetail /> : <Navigate to="/login" />}
+          element={isAuthenticated ? <ProductDetail userEmail={userEmail}/> : <Navigate to="/login" />}
         />
-        <Route path='/mapa' element={<Mapa/>}> </Route>
       </Routes>
 
     </div>
@@ -66,4 +69,3 @@ const App = () => {
 
 export default App;
 
-// Prueba Juan Escritorio Remoto
