@@ -66,9 +66,8 @@ const App = () => {
           path="/valorarPerfil/:emailVendedor" 
           element={isAuthenticated ? <ValorarPerfil propEmail={userEmail}userEmail={userEmail}/> : <Navigate to="/login" />}
         />
-      </Routes>
         <Route path='/mapa' element={<Mapa/>}> </Route>
-        </Routes>
+      </Routes>
 
     </div>
   );

@@ -126,11 +126,7 @@ const ProductDetail = ({ propEmail }) => {
               <button>Valorar perfil</button>
             </Link>
           </div>
-          <div>
-              <Link to={`/valorarPerfil/${producto.emailVendedor}`}>
-              <button>Valorar perfil</button>
-            </Link>
-          </div>
+          
         </div>
       )}
     </>
