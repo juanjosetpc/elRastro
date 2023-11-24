@@ -17,9 +17,6 @@ const Navbar = ({ isAuthenticated, userEmail, logout }) => {
             <Nav.Link as={Link} to="/crear-producto">
               Crear Anuncio
             </Nav.Link>
-            <Nav.Link as={Link} to="/valorarPerfil">
-              valorarPerfil
-            </Nav.Link>
             <Nav.Link as={Link} to="/perfil">
               <img
                 src=""
