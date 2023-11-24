@@ -7,6 +7,7 @@ import CreateProduct from './pages/CreateProduct';
 import Perfil from './pages/Perfil';
 import ProductDetail from './pages/ProductDetail';
 import Mapa from './mapa/mapa';
+import ValorarPerfil from './pages/ValorarPerfil';
 
 // // isAuthenticated es una variable de estado que indica si el usuario está autenticado o no.
 //  Al inicio, se establece en false porque asumimos que el usuario no está autenticado.
@@ -14,12 +15,14 @@ import Mapa from './mapa/mapa';
 //  Cuando se llama, React re-renderizará el componente con el nuevo valor de isAuthenticated.
 const App = () => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-  const [userEmail, setUserEmail] = React.useState('');
+  const [isAuthenticated, setIsAuthenticated] = React.useState( localStorage.getItem('isAuthenticated') === 'true');
+  const [userEmail, setUserEmail] = React.useState(localStorage.getItem('userEmail') || '');
 
   const handleLogin = (email) => {
     setIsAuthenticated(true);
     setUserEmail(email);
+    localStorage.setItem('isAuthenticated', 'true');
+    localStorage.setItem('userEmail', email);
   };
 
 // // handleLogout es una función que se llama cuando se quiere realizar la acción de cerrar sesión.
@@ -31,6 +34,8 @@ const App = () => {
     setIsAuthenticated(false);
     setUserEmail('');
     navigate('/');
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('userEmail');
   };
 
   return (
@@ -57,8 +62,13 @@ const App = () => {
           path="/product/:id" 
           element={isAuthenticated ? <ProductDetail propEmail={userEmail} /> : <Navigate to="/login" />}
         />
-        <Route path='/mapa' element={<Mapa/>}> </Route>
+        <Route 
+          path="/valorarPerfil/:emailVendedor" 
+          element={isAuthenticated ? <ValorarPerfil propEmail={userEmail}userEmail={userEmail}/> : <Navigate to="/login" />}
+        />
       </Routes>
+        <Route path='/mapa' element={<Mapa/>}> </Route>
+        </Routes>
 
     </div>
   );
@@ -66,4 +76,3 @@ const App = () => {
 
 export default App;
 
-// Prueba Juan Escritorio Remoto

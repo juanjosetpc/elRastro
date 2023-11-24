@@ -6,6 +6,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import BotonPujar from '../components/BotonPujar.jsx';
 import Mapa from '../components/Mapa.jsx';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 
 const ProductDetail = ({ propEmail }) => {
@@ -119,6 +120,16 @@ const ProductDetail = ({ propEmail }) => {
                 <BotonPujar producto={producto} emailPujador={propEmail} onPujaRealizada={handlePujaRealizada} />                 </div>
             )}
 
+          </div>
+          <div>
+              <Link to={`/valorarPerfil/${producto.emailVendedor}`}>
+              <button>Valorar perfil</button>
+            </Link>
+          </div>
+          <div>
+              <Link to={`/valorarPerfil/${producto.emailVendedor}`}>
+              <button>Valorar perfil</button>
+            </Link>
           </div>
         </div>
       )}
