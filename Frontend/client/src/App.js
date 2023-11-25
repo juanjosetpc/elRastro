@@ -46,7 +46,7 @@ const App = () => {
         logout={handleLogout}
       />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage propEmail={userEmail}/>} />
         <Route
           path="/crear-producto"
           element={
@@ -67,9 +67,6 @@ const App = () => {
           element={isAuthenticated ? <ValorarPerfil propEmail={userEmail}userEmail={userEmail}/> : <Navigate to="/login" />}
         />
       </Routes>
-        <Route path='/mapa' element={<Mapa/>}> </Route>
-        </Routes>
-
     </div>
   );
 };

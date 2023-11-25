@@ -226,27 +226,33 @@ const getProductsBuying = async (req, res) => {
 
 const getProductsFilter = async (req, res) => {
   try {
+    const emailVendedor = req.params.email;
     const descripcion = req.query.descripcion;
     const email = req.query.email;
     const fechaFinOrd = req.query.fechaFin;
     const precio = req.query.precio;
 
-    let query = { enSubasta: true }; 
+    let query = { enSubasta: true };
+
+    if (emailVendedor) {
+      query.emailVendedor = { $ne: emailVendedor };
+    }
 
     if (descripcion) {
       query.descripcion = { $regex: descripcion, $options: "i" };
     }
+
     if (email) {
-      query.emailVendedor = { $regex: email, $options: "i" };
+      query.emailVendedor = { $regex: email, $options: "i", $ne: emailVendedor };
     }
 
     if (precio) {
       query.$or = [
-        { pujaMayor: { $lte: precio, $ne: 0} },
+        { pujaMayor: { $lte: precio, $ne: 0 } },
         { precioInicio: { $lte: precio } }
       ];
     }
-    
+
     let sortQuery = {};
     if (fechaFinOrd == 1 || fechaFinOrd == -1) {
       sortQuery.fechaFin = parseInt(fechaFinOrd);
@@ -254,12 +260,12 @@ const getProductsFilter = async (req, res) => {
 
     const productos = await Producto.find(query).sort(sortQuery);
 
+    console.log(colors.blue("Buscando productos en subasta con los filtros: " + JSON.stringify(query)));
     res.json(productos);
-
   } catch (error) {
     res.status(500).json({ error: "Error al obtener los productos. " + error.message });
   }
-}
+};
 
 
 //Control periódico de las subastas que han terminado sin pujas y se consideran desiertas.
@@ -280,6 +286,34 @@ const actualizaDesiertas = async () => {
   }}
  
 
+
+  //Control periódico de las subastas que han terminado con un comprador y se actualizan los datos.
+const actualizarSubastasExito = async () => {
+  try {
+    const subastas = await Producto.find({ enSubasta: true, fechaFin: { $lte: new Date() } });
+
+    for (const subasta of subastas) {
+      if (subasta.pujaMayor > 0) {
+        const puja = await Puja.findOne({ producto: subasta._id, cantidad: subasta.pujaMayor });
+        const ganador = puja.emailPujador;
+        const vendedor = subasta.emailVendedor;
+        subasta.enSubasta = false;
+        subasta.emailComprador = ganador;
+        await subasta.save();
+
+        // Enviar correos electrónicos a vendedor y ganador lo miramos bien para la siguiente entrega.
+        // const mensajeVendedor = `La subasta para el producto "${subasta.titulo}" ha finalizado. El ganador es ${ganador}.`;
+        // await enviarCorreo(vendedor,"Notificación de Subasta",mensajeVendedor);
+
+        // const mensajeGanador = `¡Felicidades! Ganaste la subasta para el producto "${subasta.titulo}". Contacta al vendedor para completar la transacción.`;
+        // await enviarCorreo(ganador,"¡Felicidades! Ganaste la Subasta",mensajeGanador);
+      }
+    }
+  } catch (error) {
+    console.error('Error al actualizar subastas:', error);
+  }
+};
+
 module.exports = {
   getAllProducts,
   createProduct,
@@ -294,4 +328,5 @@ module.exports = {
   getProductsBuying,
   getProductsFilter,
   actualizaDesiertas,
+  actualizarSubastasExito
 };
