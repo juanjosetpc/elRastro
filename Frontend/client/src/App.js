@@ -7,11 +7,15 @@ import CreateProduct from './pages/CreateProduct';
 import Perfil from './pages/Perfil';
 import ProductDetail from './pages/ProductDetail';
 import Mapa from './mapa/mapa';
+import Conversacion from './pages/Conversacion';
+import ListaChats from './pages/listaChats';
+import buscarDireccion from './mapa/MapaApi';
 
 // // isAuthenticated es una variable de estado que indica si el usuario está autenticado o no.
 //  Al inicio, se establece en false porque asumimos que el usuario no está autenticado.
 // // setIsAuthenticated es una función que se utiliza para actualizar el estado de isAuthenticated.
 //  Cuando se llama, React re-renderizará el componente con el nuevo valor de isAuthenticated.
+
 const App = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
@@ -55,9 +59,11 @@ const App = () => {
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route 
           path="/product/:id" 
-          element={isAuthenticated ? <ProductDetail /> : <Navigate to="/login" />}
+          element={isAuthenticated ? <ProductDetail userEmail={userEmail} /> : <Navigate to="/login" />}
         />
-        <Route path='/mapa' element={<Mapa/>}> </Route>
+        <Route path='/mapa' element={<Mapa direccion="Vialia Centro, Málaga"/>}> </Route>
+        <Route path='/conversacion/:comprador/:vendedor/:producto'  element={ isAuthenticated ? <Conversacion userEmail={userEmail} /> : <Navigate to="/login" /> } ></Route>
+        <Route path='/chats/:usuario'  element={ isAuthenticated ? <ListaChats /> : <Navigate to="/login" /> } ></Route>
       </Routes>
 
     </div>

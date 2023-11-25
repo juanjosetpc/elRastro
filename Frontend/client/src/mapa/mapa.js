@@ -1,4 +1,3 @@
-import  buscarDireccion  from './MapaApi';
 import React, {useState, useEffect,useRef } from 'react';
 import 'ol/ol.css';
 import Map from 'ol/Map';
@@ -7,14 +6,8 @@ import TileLayer from 'ol/layer/Tile';
 import { XYZ } from 'ol/source';
 import axios from 'axios';
 import { useGeographic } from 'ol/proj';
+import buscarDireccion from './MapaApi';
 
-
-const direccion = "Vialia Centro, Málaga"
-const coordenadas = await buscarDireccion(direccion)
-
-
-const longitude = coordenadas.lon
-const latitude = coordenadas.lat
 
 export function useGeographicCoordinates(longitude, latitude) {
   useGeographic(); // Call useGeographic inside the hook
@@ -28,9 +21,11 @@ export function useGeographicCoordinates(longitude, latitude) {
   return coordinates;
 }
 
-const MapComponent = () => {
+const MapComponent = (props) => {
 
-  const geographicCoordinates = useGeographicCoordinates(longitude, latitude);
+ const coordenadas = buscarDireccion(props.direccion)
+ 
+ const geographicCoordinates = useGeographicCoordinates(coordenadas.lon,coordenadas.lat)
 
   const isMounted = useRef(true);
 

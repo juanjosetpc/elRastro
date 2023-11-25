@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import api from '../services/api';
 import { Carousel } from 'react-responsive-carousel'; // Asegúrate de tener esta línea de importación
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import BotonPujar from '../components/BotonPujar.jsx';
 import Mapa from '../components/Mapa.jsx';
  import axios from 'axios';
+ import CryptoJS from 'crypto-js';
+
+ function cifrarValor(valor, claveSecreta) {
+  const cifrado = CryptoJS.AES.encrypt(valor, claveSecreta);
+  return encodeURIComponent(cifrado.toString());
+}
 
 
-const ProductDetail = () => {
+const claveSecreta = 'tuClaveSecreta';
+
+const ProductDetail = ({userEmail}) => {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
-
+  
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
@@ -55,6 +63,10 @@ const ProductDetail = () => {
                 </Carousel>
               )}
           </div>
+          <div>
+          {(producto.emailVendedor != userEmail) && (
+    <Link to={`/conversacion/${cifrarValor(userEmail, claveSecreta)}/${cifrarValor(producto.emailVendedor, claveSecreta)}/${producto.titulo}`}><button>Consultar</button></Link>)}
+    </div>
           <div>
             <h2>Localizacion</h2>
             <p>{producto.direccion}</p>

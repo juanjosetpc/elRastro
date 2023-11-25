@@ -17,7 +17,7 @@ const Perfil = ({ propEmail }) => {
   const [showToast, setShowToast] = useState(false);
   const [mensajeToast, setMensajeToast] = useState('');
   const [redirectEditar, setRedirectEditar] = useState(null);
-
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -110,7 +110,7 @@ const Perfil = ({ propEmail }) => {
       <div className="row">
         <div className="col-md-3">
           {/* Enlace para revisar chats */}
-          <Link to="/chats">Revisar Chats</Link>
+          <Link to={`/chats/${propEmail}`}><button class="btn btn-primary">Chats</button></Link>
         </div>
         <div className="col-md-9">
           <ul className="nav nav-tabs">
