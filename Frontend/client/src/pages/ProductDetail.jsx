@@ -79,7 +79,6 @@ const ProductDetail = ({ propEmail }) => {
       {producto && (
         <div style={{ textAlign: 'center', maxWidth: '600px', margin: 'auto', padding: '20px' }}>
           {/* Renderiza los detalles del producto aquí utilizando el estado producto */}
-          <p>ID: {producto._id}</p>
           <h1>{producto.titulo}</h1>
           <h3>{producto.emailVendedor}</h3>
           {/* Agrega más detalles según la estructura de tu objeto producto */}
