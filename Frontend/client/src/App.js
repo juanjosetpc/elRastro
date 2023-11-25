@@ -65,15 +65,15 @@ const App = () => {
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route 
           path="/product/:id" 
-          element={isAuthenticated ? <ProductDetail userEmail={userEmail} propEmail={userEmail} /> : <Navigate to="/login" />}
+          element={isAuthenticated ? <ProductDetail propEmail={userEmail} /> : <Navigate to="/login" />}
         />
         <Route 
           path="/valorarPerfil/:emailVendedor/:idProducto" 
-          element={isAuthenticated ? <ValorarPerfil propEmail={userEmail}userEmail={userEmail}/> : <Navigate to="/login" />}
+          element={isAuthenticated ? <ValorarPerfil propEmail={userEmail}/> : <Navigate to="/login" />}
         />
         <Route 
           path="/perfilOtraPersona/:emailVendedor" 
-          element={isAuthenticated ? <PerfilOtraPersona propEmail={userEmail}userEmail={userEmail}/> : <Navigate to="/login" />}
+          element={isAuthenticated ? <PerfilOtraPersona propEmail={userEmail}/> : <Navigate to="/login" />}
         />
         <Route path='/mapa' element={<Mapa direccion="Vialia Centro, Málaga"/>}> </Route>
         <Route path='/conversacion/:comprador/:vendedor/:producto'  element={ isAuthenticated ? <Conversacion userEmail={userEmail} /> : <Navigate to="/login" /> } ></Route>

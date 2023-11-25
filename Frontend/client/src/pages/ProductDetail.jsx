@@ -5,23 +5,14 @@ import { Carousel } from 'react-responsive-carousel'; // Asegúrate de tener est
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import BotonPujar from '../components/BotonPujar.jsx';
 import Mapa from '../components/Mapa.jsx';
-import {Link} from 'react-router-dom';
+
  import CryptoJS from 'crypto-js';
 
  function cifrarValor(valor, claveSecreta) {
   const cifrado = CryptoJS.AES.encrypt(valor, claveSecreta);
   return encodeURIComponent(cifrado.toString());
 }
-
-
 const claveSecreta = 'tuClaveSecreta';
-
-const ProductDetail = ({ propEmail }{userEmail}) => {
-  const { id } = useParams();
-  const [producto, setProducto] = useState(null);
-  
-import {Link} from 'react-router-dom';
-
 
 const ProductDetail = ({ propEmail }) => {
   const { id } = useParams();
@@ -121,8 +112,8 @@ const ProductDetail = ({ propEmail }) => {
           <br/>
 
           <div>
-          {(producto.emailVendedor != userEmail) && (
-    <Link to={`/conversacion/${cifrarValor(userEmail, claveSecreta)}/${cifrarValor(producto.emailVendedor, claveSecreta)}/${producto.titulo}`}><button>Consultar</button></Link>)}
+          {(producto.emailVendedor != propEmail) && (
+    <Link to={`/conversacion/${cifrarValor(propEmail, claveSecreta)}/${cifrarValor(producto.emailVendedor, claveSecreta)}/${producto.titulo}`}><button>Consultar</button></Link>)}
     </div>
           <div>
             <h2>Localizacion</h2>
@@ -172,5 +163,6 @@ const formatFecha = (fecha) => {
   const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
   return new Date(fecha).toLocaleDateString(undefined, options);
 };
+
 export default ProductDetail;
 
