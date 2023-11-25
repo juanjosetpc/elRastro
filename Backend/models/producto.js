@@ -15,6 +15,8 @@ const productoSchema = new mongoose.Schema({
     default: [],     // Esto establece un valor predeterminado como un array vacío
   }  ,
   emailComprador: { type: String, default: null },
+  valoradoPorComprador: {type: Boolean, default: false},
+  valoradoPorVendedor: {type: Boolean, default: false},
 });
 
 const productoModel = mongoose.model("Producto", productoSchema);

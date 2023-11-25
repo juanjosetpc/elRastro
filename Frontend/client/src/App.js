@@ -10,6 +10,8 @@ import Mapa from './mapa/mapa';
 import Conversacion from './pages/Conversacion';
 import ListaChats from './pages/listaChats';
 import buscarDireccion from './mapa/MapaApi';
+import ValorarPerfil from './pages/ValorarPerfil';
+import PerfilOtraPersona from './pages/PerfilOtraPersona';
 
 // // isAuthenticated es una variable de estado que indica si el usuario está autenticado o no.
 //  Al inicio, se establece en false porque asumimos que el usuario no está autenticado.
@@ -18,12 +20,14 @@ import buscarDireccion from './mapa/MapaApi';
 
 const App = () => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-  const [userEmail, setUserEmail] = React.useState('');
+  const [isAuthenticated, setIsAuthenticated] = React.useState( localStorage.getItem('isAuthenticated') === 'true');
+  const [userEmail, setUserEmail] = React.useState(localStorage.getItem('userEmail') || '');
 
   const handleLogin = (email) => {
     setIsAuthenticated(true);
     setUserEmail(email);
+    localStorage.setItem('isAuthenticated', 'true');
+    localStorage.setItem('userEmail', email);
   };
 
 // // handleLogout es una función que se llama cuando se quiere realizar la acción de cerrar sesión.
@@ -35,6 +39,8 @@ const App = () => {
     setIsAuthenticated(false);
     setUserEmail('');
     navigate('/');
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('userEmail');
   };
 
   return (
@@ -59,7 +65,15 @@ const App = () => {
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route 
           path="/product/:id" 
-          element={isAuthenticated ? <ProductDetail userEmail={userEmail} /> : <Navigate to="/login" />}
+          element={isAuthenticated ? <ProductDetail userEmail={userEmail} propEmail={userEmail} /> : <Navigate to="/login" />}
+        />
+        <Route 
+          path="/valorarPerfil/:emailVendedor/:idProducto" 
+          element={isAuthenticated ? <ValorarPerfil propEmail={userEmail}userEmail={userEmail}/> : <Navigate to="/login" />}
+        />
+        <Route 
+          path="/perfilOtraPersona/:emailVendedor" 
+          element={isAuthenticated ? <PerfilOtraPersona propEmail={userEmail}userEmail={userEmail}/> : <Navigate to="/login" />}
         />
         <Route path='/mapa' element={<Mapa direccion="Vialia Centro, Málaga"/>}> </Route>
         <Route path='/conversacion/:comprador/:vendedor/:producto'  element={ isAuthenticated ? <Conversacion userEmail={userEmail} /> : <Navigate to="/login" /> } ></Route>
@@ -72,4 +86,3 @@ const App = () => {
 
 export default App;
 
-// Prueba Juan Escritorio Remoto

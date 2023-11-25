@@ -12,11 +12,6 @@ const Navbar = ({ isAuthenticated, userEmail, logout }) => {
       </BootstrapNavbar.Brand>
       <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
       <BootstrapNavbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/mapa">
-            Mapa. Esto irá fuera
-          </Nav.Link>
-        </Nav>
         {isAuthenticated ? (
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/crear-producto">

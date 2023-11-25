@@ -1,22 +1,44 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Popup from 'reactjs-popup';
+import '../styles/BotonPujar.css'; // Importa el archivo CSS
 
-const BotonPujar = ({producto}) => {
+const BotonPujar = ({ producto, emailPujador, onPujaRealizada }) => {
   const [precio, setPrecio] = useState(''); //precio es la variable donde se guarda la puja
+  const [mostrarPopup, setMostrarPopup] = useState(false);
+  const [mostrarPopupError, setMostrarPopupError] = useState(false);
 
-  //Lo que ocurre al pulsar el boton
-  const handlePujar = async () => {//Si se ejeculta, para ver el consolelog, en google : inspeccionar y entrar en la pestaña consola
-        if(precio > producto.pujaMayor){
-            const response = await axios.put(`http://localhost:5000/api/v1/productos/${producto._id}`, { "pujaMayor" : precio });
-            console.log('Precio actualizado:', response.data);
-            //De alguna manera, saber que Tu ya has pujado a ese producto.
-        }else{
-            console.log("ERROR : la puja es menor");
-        }
-    
-    };
+  const handlePujar = async () => {
+    if (precio > producto.pujaMayor && precio > producto.precioInicio) {
+      setMostrarPopup(true);
+
+      // Ocultar el popup después de 2 segundos (ajusta según tus necesidades)
+      setTimeout(() => {
+        setMostrarPopup(false);
+      }, 2000);
+
+      // Realizar la llamada a la API
+      const response = await axios.post(`http://localhost:5000/api/v1/pujas/`, {
+        producto: producto._id,
+        cantidad: precio,
+        emailPujador: emailPujador
+      });
+
+      // Llamar a la función proporcionada para indicar que la puja ha sido realizada
+      onPujaRealizada();
+    } else {
+      setMostrarPopupError(true);
+      // Ocultar el popup después de 2 segundos (ajusta según tus necesidades)
+      setTimeout(() => {
+        setMostrarPopupError(false);
+      }, 3000);
+      
+    }
+  };
 
   return (
+    <div>
+    {(mostrarPopup && <div className="overlay"></div>) || (mostrarPopupError && <div className="overlay"></div>) }
     <div style={{ textAlign: 'center', maxWidth: '400px', margin: 'auto', padding: '20px' }}>
       <h2>Pujar</h2>
       <input
@@ -27,8 +49,24 @@ const BotonPujar = ({producto}) => {
         style={{ padding: '10px', marginRight: '10px' }}
       />
       <button onClick={handlePujar} style={{ padding: '10px' }}>
-         Pujar
+        Pujar
       </button>
+
+      {/* Mostrar el popup si mostrarPopup es verdadero */}
+      {mostrarPopup && (
+        
+        <div className="popup">
+          <p>Puja Realizada</p>
+        </div>
+      )  }
+      {/* Mostrar el popupError si mostrarPopup es verdadero */}
+      {mostrarPopupError && (
+        
+        <div className="popup">
+          <p>La puja tiene que ser mayor al precio de inicio y al de la puja mayor</p>
+        </div>
+      )  }
+    </div>
     </div>
   );
 };
@@ -36,3 +74,4 @@ const BotonPujar = ({producto}) => {
 
 
 export default BotonPujar;
+
