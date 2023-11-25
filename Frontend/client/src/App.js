@@ -51,7 +51,7 @@ const App = () => {
         logout={handleLogout}
       />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage propEmail={userEmail}/>} />
         <Route
           path="/crear-producto"
           element={
@@ -79,7 +79,6 @@ const App = () => {
         <Route path='/conversacion/:comprador/:vendedor/:producto'  element={ isAuthenticated ? <Conversacion userEmail={userEmail} /> : <Navigate to="/login" /> } ></Route>
         <Route path='/chats/:usuario'  element={ isAuthenticated ? <ListaChats /> : <Navigate to="/login" /> } ></Route>
       </Routes>
-
     </div>
   );
 };

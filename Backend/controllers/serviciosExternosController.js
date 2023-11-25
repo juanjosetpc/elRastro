@@ -1,4 +1,3 @@
-const { fakerES, faker } = require("@faker-js/faker"); //Importamos solo el módulo en español
 const axios = require("axios");
 const colors = require("picocolors");
 
@@ -205,7 +204,6 @@ const geocache = async (req, res) => {
     res.json(coordinates);
   
   } catch (error) {
-    // Manejar errores y enviar una respuesta de error al cliente
     console.error('Error:', error);
     res.status(500).json({ error: 'Error al obtener coordenadas' });
   }

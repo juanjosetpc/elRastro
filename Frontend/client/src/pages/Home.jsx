@@ -253,7 +253,7 @@ import ProductCard from '../components/ProductCard';
 import api2 from '../services/api2';
 import MapaMultiple from '../components/MapaMultiple';
 
-const Home = () => {
+const Home = ({propEmail}) => {
   const [productos, setProductos] = useState([]);
   const [searchDescr, setSearchDescr] = useState('');
   const [searchVendedor, setSearchVendedor] = useState('');
@@ -263,8 +263,12 @@ const Home = () => {
 
   const fetchProductos = async () => {
     try {
-      let endpoint = "/productos/ensubasta";
+      let endpoint = `/productos/ensubasta/`;
       const queryParams = [];
+
+      if(propEmail){
+        endpoint+=`${propEmail}`;
+      }
 
       if (searchDescr) {
         queryParams.push(`descripcion=${searchDescr}`);
@@ -303,6 +307,7 @@ const Home = () => {
       setFiltrarMapa(true);
       fetchProductos();
     } else {
+      fetchProductos();
       setFiltrarMapa(false);
     }
   };
