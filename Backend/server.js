@@ -11,9 +11,10 @@ const v2Conversaciones = require("./v2/routes/conversacionRoutes");
 const cron = require("node-cron");
 const { actualizaDesiertas, actualizarSubastasExito } = require("./controllers/producto");
 const v2UsuarioRouter = require("./v2/routes/usuarioRoutes2");
+const {closeConversation} = require("./controllers/conversacion");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
@@ -35,10 +36,11 @@ app.listen(PORT, () => {
 //  cron.schedule("*/15 * * * *", async () => {
 //   console.log(colors.orange("Actualizando subastas desiertas, si las hay..."));
 //   await actualizaDesiertas();
+//   await closeConversation();
 // });
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect("mongodb+srv://juanjosetp02:rootrastro@clusterrastro.fbgytqb.mongodb.net/elrastro?retryWrites=true&w=majority");
 
 // Control de errores
 const db = mongoose.connection;

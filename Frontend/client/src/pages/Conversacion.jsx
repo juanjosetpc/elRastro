@@ -94,7 +94,10 @@ const Conversacion = ({userEmail}) => {
         {mensajes.map((mensaje, index) => (
           <div key={index}  className={`mensaje ${mensaje.emisor === vendedorDescifrado ? 'mensaje-derecha' : 'mensaje-izquierda'}`}
           style={{ backgroundColor: mensaje.emisor === vendedorDescifrado ? '#aaf' : '#afa',borderRadius: '10px',padding: '5px' }}>
-            {mensaje.emisor === userEmail ? (<strong>{mensaje.emisor}:</strong>) : (<strong>Usuario Anónimo:</strong>)} {mensaje.contenido}
+            {mensaje.emisor === userEmail ? ( <strong>{mensaje.emisor}:</strong>) : (mensaje.emisor === compradorDescifrado ?
+             (<strong>Usuario Anónimo:</strong>) : (<strong>{mensaje.emisor}:</strong>)
+)} {mensaje.contenido}
+
           </div>
           
         ))}

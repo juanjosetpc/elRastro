@@ -1,5 +1,6 @@
 const Conversacion = require('../models/conversacion');
 const colors = require('picocolors');
+const Producto = require('.,/models/producto');
 
 const getAllConversations = async (req, res) => {
   try {
@@ -77,28 +78,37 @@ const updateConversation = async (req, res) => {
 };
 
 const closeConversation = async (req, res) => {
-    const { vendedor, comprador,producto } = req.params;
-  
-    try {
-      const conversacion = await Conversacion.findOneAndUpdate(
-        { vendedor, comprador, producto },
-        { abierto: false },
-        { new: true }
-      );
-  
-      if (!conversacion) {
-        console.log(colors.yellow('No se encontró la conversación para cerrar'));
-        return res.status(404).json({ error: 'Conversación no encontrada' });
+  try {
+    // Obtener todas las conversaciones abiertas
+    const conversacionesAbiertas = await Conversacion.find({ abierto: true });
+
+    // Obtener la fecha y hora actual
+    const ahora = new Date();
+
+    // Iterar sobre cada conversación y cerrarla si el tiempo de puja ha terminado
+    for (const conversacion of conversacionesAbiertas) {
+      // Buscar el producto asociado a la conversación por su título
+      const producto = await Producto.findOne({ titulo: conversacion.producto });
+
+      if (producto && producto.fechaFinalizacion && producto.fechaFinalizacion < ahora) {
+        // Actualizar la conversación a cerrada
+        await Conversacion.findByIdAndUpdate(
+          conversacion._id,
+          { abierto: false },
+          { new: true }
+        );
+
+        console.log(colors.blue(`Conversación cerrada: ${conversacion._id}`));
       }
-  
-      console.log(colors.blue(`Conversación cerrada entre ${vendedor} y ${comprador}`));
-      res.status(200).json({ mensaje: 'Conversación cerrada', conversacion });
-    } catch (error) {
-      res.status(500).json({
-        error: 'Error al cerrar la conversación. Error msg: ' + error.message,
-      });
     }
-  };
+
+    res.status(200).json({ mensaje: 'Conversaciones cerradas' });
+  } catch (error) {
+    console.error(colors.red('Error al cerrar las conversaciones. Error msg: ' + error.message));
+    res.status(500).json({ error: 'Error al cerrar las conversaciones' });
+  }
+};
+
 
 module.exports = {
   getAllConversations,
