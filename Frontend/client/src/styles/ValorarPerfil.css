@@ -1,0 +1,132 @@
+.valorar-perfil-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .valorar-perfil-container > .profile-container {
+    margin-bottom: 20px;
+  }
+  
+  .valorar-perfil-container > .profile-info {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px;
+  }
+  
+  #nombre-apellido,
+#valoracion {
+  display: inline-block;
+  margin-right: 10px; /* Ajusta el espacio entre el nombre y la valoración según tus preferencias */
+}
+
+#nombre-apellido {
+  font-size: 40px;
+  
+}
+
+#valoracion {
+  font-size: 40px;
+  text-align: right;
+  margin-left: 180px;
+}
+
+#nota {
+    margin-bottom: 10px;
+}
+
+#descripcion {
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+#descripcionInput {
+        margin-left: 10px;
+        width: 520px;
+        height: 100px;
+        text-align: start;
+        white-space: pre-wrap;  /* Permite saltos de línea */
+        overflow-wrap: break-word;  /* Manejo de palabras largas */
+        word-wrap: break-word;  /* Manejo de palabras largas */
+        display: block;
+        margin: 10px auto;  /* Centra el elemento horizontalmente */
+}
+
+#notaInput {
+    margin-left: 10px;
+    
+}
+
+  .valorar-perfil-container > .profile-info label {
+    font-weight: bold;
+  }
+  
+  .valorar-perfil-container > .profile-info p {
+    margin: 0;
+  }
+  
+  .valorar-perfil-container > h1,
+  h2,
+  h3 {
+    color: #333;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .valorar-perfil-container > ul li {
+    margin-bottom: 10px;
+  }
+  
+  .valorar-perfil-container > form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .valorar-perfil-container > button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .valorar-perfil-container > button:hover {
+    background-color: #45a049;
+  }
+
+  .valorar-perfil-container > .resenas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .valorar-perfil-container > .resena {
+    border: 1px solid #848282;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .valorar-perfil-container > .nota {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .valorar-perfil-container > .descripcion {
+    margin-top: 20px;
+    margin-top: 50px;
+  }
+
+  .valorar-perfil-container > table tbody tr td:nth-child(2) {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  

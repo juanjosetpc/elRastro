@@ -1,5 +1,19 @@
 const Usuario = require("../models/usuario");
 
+const getUsuario = async (req, res) => {
+    const email = req.params.email;
+    try {
+        const usuario = await Usuario.findOne({
+            email: email,
+        });
+        if(!usuario){
+            return res.status(404).json({ error: "No se encontro usuario" });
+        }
+        res.json(usuario);
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener el usuario" });
+    }
+};
 
 const getResenas = async (req, res) => {
     const email = req.params.email;
@@ -7,10 +21,8 @@ const getResenas = async (req, res) => {
         const usuario = await Usuario.findOne({
             email:email,
         });
-        if(!usuario || usuario.length === 0){
+        if(!usuario){
             return res.status(404).json({ error: "No se encontro usuario" });
-        } else if(!usuario.resenas){
-            return res.status(404).json({ error: "No se encontraron resenas" });
         }
         const resenas = usuario.resenas;
         res.json(resenas);
@@ -38,6 +50,9 @@ const crearResena = async (req, res) => {
 };
 
 const calcularValoracion = async (usuario) => {
+    if(usuario.resenas.length === 0){
+        usuario.valoracion = 0;
+    }
     const sumaNotas = usuario.resenas.reduce((acumulador, resena) => acumulador + resena.nota, 0);
     const mediaNotas = sumaNotas / usuario.resenas.length;
     usuario.valoracion = mediaNotas;
@@ -60,6 +75,7 @@ const getValoracion = async (req, res) => {
 
 
 module.exports = {
+    getUsuario,
     getResenas,
     crearResena,
     getValoracion,
