@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Pagination } from 'react-bootstrap';
+import api from '../services/api';
 import api2 from '../services/api2';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import "../styles/ValorarPerfil.css";
 
 const ValorarPerfil = () => {
-    const {emailVendedor} = useParams();
+    const {emailVendedor, idProducto} = useParams();
+    const [producto, setProducto] = useState(null);
+    const [vendedor, setVendedor] = useState('');
+    const [comprador, setComprador] = useState('');
     const [usuario, setUsuario] = useState(null);
     const [valoracion, setValoracion] = useState(0);
     const [resenas, setResenas] = useState([]);
@@ -16,12 +20,22 @@ const ValorarPerfil = () => {
     const [apellido, setApellido] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const resenasPerPage = 5;
+    const navigate = useNavigate();
     
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const usuario = await api2.get(`usuarios/${emailVendedor}`);
                 setUsuario(usuario.data);
+
+                const producto = await api.get(`productos/${idProducto}`);
+                setProducto(producto.data);
+
+                const vendedor = producto.data.emailVendedor;
+                setVendedor(vendedor);
+
+                const comprador = producto.data.emailComprador;
+                setComprador(comprador);
 
                 const nombre = usuario.data.nombre;
                 setNombre(nombre);
@@ -39,6 +53,8 @@ const ValorarPerfil = () => {
                 //const valoracion = await api2.get(`usuarios/valoracion/${emailVendedor}`);
                 const valoracion = usuario.data.valoracion;
                 setValoracion(valoracion);
+
+                
             } catch (error) {
                 console.error('Error fetching productos:', error);
             }
@@ -61,20 +77,18 @@ const ValorarPerfil = () => {
             descripcion,
         });
 
-        const usuario = await api2.get(`usuarios/${emailVendedor}`);
-        if(!usuario){
-          console.error('No hay reseñas');
+        if(vendedor === emailVendedor){
+          await api2.put(`productos/valorar/${idProducto}`,{
+            valoradoPorComprador : true,
+          });
+          
+        } else if(comprador === emailVendedor){
+          await api2.put(`productos/valorar/${idProducto}`,{
+            valoradoPorVendedor : true,
+          });
         }
-        setUsuario(usuario);
 
-        const resenas = usuario.data.resenas;
-        setResenas(resenas);
-
-        const valoracion = usuario.data.valoracion;
-        setValoracion(valoracion);
-    
-        setNota(1);
-        setDescripcion('');
+        navigate(`/perfilOtraPersona/${emailVendedor}`)
     };
 
     const indexOfLastResena = currentPage * resenasPerPage;
@@ -89,13 +103,18 @@ const ValorarPerfil = () => {
       );
     }
 
+
     return (
       <div className="valorar-perfil-container">
         {usuario && (
           <div className="profile-container">
             <div className="profile-info">
-              <p id="nombre-apellido" >{`${nombre} ${apellido}`}</p> 
-              <p id="valoracion">{`${valoracion} ⭐`}</p>   
+              <div className="left-info">
+                <p id="nombre-apellido">{`${nombre} ${apellido}`}</p>
+              </div>
+              <div className="right-info">
+                <p id="valoracion" style={{ whiteSpace: 'nowrap' }}>{`${valoracion} ⭐`}</p>
+              </div>
             </div>
           </div>
         )}

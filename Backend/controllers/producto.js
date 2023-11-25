@@ -2,6 +2,7 @@ const Producto = require("../models/producto");
 const colors = require("picocolors");
 const Puja = require("../models/puja");
 const cloudinary = require("cloudinary");
+const { findOne } = require("../models/usuario");
 
 const getAllProducts = async (req, res) => {
   try {
@@ -25,7 +26,7 @@ const getProduct = async (req, res) => {
       console.log(colors.yellow("No se encontró el producto"));
       return res.status(404).json({ error: "No se encontró el producto" });
     }
-    console.log(colors.blue("Se ha obtenido el producto " + product.titulo + " con id " + id  ));
+    //console.log(colors.blue("Se ha obtenido el producto " + product.titulo + " con id " + id  ));
     res.json(product);
   } catch (error) {
     res.status(500).json({ error: "Error al obtener el producto" });
@@ -278,6 +279,60 @@ const actualizaDesiertas = async () => {
   } catch (error) {
     console.log(colors.red("Error al actualizar las subastas desiertas. " + error.message));
   }}
+
+const getVendidos = async (req, res) => {
+  const email = req.params.email;
+  try {
+    const fecha = new Date().toISOString();
+    const productos = await Producto.find({
+      emailVendedor: email,
+      emailComprador : { $ne: null, $exists: true },
+      //fechaFin : { $lt: fecha},
+      valoradoPorVendedor: false,
+    }).lean();
+    res.json(productos);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener los productos. " + error.message });
+  }
+}
+
+const getComprados = async (req, res) => {
+  const email = req.params.email;
+  try {
+    const productos = await Producto.find({
+      emailComprador: email,
+      emailComprador : { $ne: null, $exists: true },
+      //fechaFin : { $lt: new Date() },
+      valoradoPorComprador: false,
+    })
+    res.json(productos);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener los productos. " + error.message });
+  }
+}
+
+const activateValorarProduct = async (req, res) => {
+  const id = req.params.id;
+  const datosActualizar = req.body;
+
+  try {
+    const product = await Producto.findById(id);
+    if(!product){
+      console.log(colors.yellow("No se encontró el producto para actualizarlo"));
+      return res.status(404).json({ error: "Producto no encontrado" });
+    }else{
+      const producto = await Producto.findByIdAndUpdate(id, datosActualizar, {
+        new: true,
+      });
+      res.status(200).json({ mensaje: "Producto actualizado", producto });
+    }
+  
+  } catch (error) {
+    res.status(500).json({
+      error: "Error al actualizar el producto. Error msg: " + error.message,
+    });
+  }
+};
  
 
 module.exports = {
@@ -294,4 +349,7 @@ module.exports = {
   getProductsBuying,
   getProductsFilter,
   actualizaDesiertas,
+  getVendidos,
+  getComprados,
+  activateValorarProduct,
 };

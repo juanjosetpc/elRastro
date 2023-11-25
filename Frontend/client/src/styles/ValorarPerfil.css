@@ -21,7 +21,32 @@
   #nombre-apellido,
 #valoracion {
   display: inline-block;
-  margin-right: 10px; /* Ajusta el espacio entre el nombre y la valoración según tus preferencias */
+}
+
+.profile-address {
+  margin-top: 10px;
+}
+
+.profile-address p {
+  margin: 5px 0;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-info {
+  text-align: left;
+}
+
+.right-info {
+  text-align: right;
+  
+}
+
+#direccion{
+  font-size: 20px;
 }
 
 #nombre-apellido {

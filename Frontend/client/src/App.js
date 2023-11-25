@@ -8,6 +8,7 @@ import Perfil from './pages/Perfil';
 import ProductDetail from './pages/ProductDetail';
 import Mapa from './mapa/mapa';
 import ValorarPerfil from './pages/ValorarPerfil';
+import PerfilOtraPersona from './pages/PerfilOtraPersona';
 
 // // isAuthenticated es una variable de estado que indica si el usuario está autenticado o no.
 //  Al inicio, se establece en false porque asumimos que el usuario no está autenticado.
@@ -63,8 +64,12 @@ const App = () => {
           element={isAuthenticated ? <ProductDetail propEmail={userEmail} /> : <Navigate to="/login" />}
         />
         <Route 
-          path="/valorarPerfil/:emailVendedor" 
+          path="/valorarPerfil/:emailVendedor/:idProducto" 
           element={isAuthenticated ? <ValorarPerfil propEmail={userEmail}userEmail={userEmail}/> : <Navigate to="/login" />}
+        />
+        <Route 
+          path="/perfilOtraPersona/:emailVendedor" 
+          element={isAuthenticated ? <PerfilOtraPersona propEmail={userEmail}userEmail={userEmail}/> : <Navigate to="/login" />}
         />
         <Route path='/mapa' element={<Mapa/>}> </Route>
       </Routes>

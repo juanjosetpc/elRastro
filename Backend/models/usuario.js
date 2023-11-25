@@ -9,7 +9,7 @@ const usuarioSchema = new mongoose.Schema({
     codigoPostal : Number,
     resenas : [{
         nota : { type: Number },
-        descripcion : { type: String}
+        descripcion : { type: String, maxlength: 300}
     }],
     valoracion : {
         type: Number,
