@@ -12,7 +12,9 @@ import '../src/examples/presentation/presentation.scss';
 
 const createCarouselItemImage = (index, options = {}) => (
     <div key={index}>
-        <img src={`/assets/${index}.jpeg`} />
+        <img src={`/assets/${index}.jpeg`} 
+              // Puedes ajustar estos valores según tus necesidades
+        />
         <p className="legend">Legend {index}</p>
     </div>
 );
