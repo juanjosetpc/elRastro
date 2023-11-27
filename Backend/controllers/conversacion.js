@@ -1,6 +1,6 @@
 const Conversacion = require('../models/conversacion');
 const colors = require('picocolors');
-const Producto = require('.,/models/producto');
+const Producto = require('../models/producto');
 
 const getAllConversations = async (req, res) => {
   try {
