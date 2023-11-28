@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
+import axios from "axios";
+
 
 export const CreateProduct = () => {
   const navigate = useNavigate();
@@ -26,30 +28,36 @@ const handleInputChange = (e) => {
   });
 };
 
-const handleFileChange = (e) => {
+const handleFileChange = async (e) => {
   const files = e.target.files;
   const photosArray = Array.from(files);
 
-  // Convertir las imágenes a base64
-  const promises = photosArray.map((photo) => {
-    return new Promise((resolve) => {
-      const reader = new FileReader();
+  // Cargar imágenes directamente a Cloudinary
+  const uploaders = photosArray.map(async (photo) => {
+    const formData = new FormData();
+    formData.append("file", photo);
+    formData.append("upload_preset", "elRastro");
 
-      reader.onload = (e) => {
-        resolve(e.target.result);
-      };
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/ddfymuj4y/image/upload",
+        formData
+      );
 
-      reader.readAsDataURL(photo);
-    });
+      // Agregar la URL de la imagen al array de fotos en el estado del producto
+      setProduct((prevProduct) => ({
+        ...prevProduct,
+        fotos: [...prevProduct.fotos, response.data.secure_url],
+      }));
+    } catch (error) {
+      console.error("Error al subir la imagen a Cloudinary", error);
+    }
   });
 
-  Promise.all(promises).then((base64Images) => {
-    setProduct({
-      ...product,
-      fotos: base64Images,
-    });
-  });
+  // Esperar a que todas las imágenes se carguen
+  await Promise.all(uploaders);
 };
+
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -88,7 +96,7 @@ const handleSubmit = async (e) => {
 
       <form onSubmit={handleSubmit}>
         <label>
-          Email del vendedor<span style={{ color: 'red' }}> *</span>
+          Email del vendedor<span style={{ fontWeight: 'bold' }}>*</span>
           {' '}
           <input
             type = "email"
@@ -103,7 +111,7 @@ const handleSubmit = async (e) => {
         <br/>
 
         <label>
-         Dirección (calle, codigo postal y ciudad)<span style={{ color: 'red' }}> *</span>
+         Dirección (calle, codigo postal y ciudad)<span style={{ fontWeight: 'bold' }}>*</span>
           {' '}
           <input type="text"
             name="direccion"
@@ -168,6 +176,7 @@ const handleSubmit = async (e) => {
 
       <label>
         Fotos
+        <p style={{ color: 'red' }}><span style={{ fontWeight: 'bold' }}>IMPORTANTE:</span> Las imágenes seleccionadas serán subidas a Cloudinary</p>
         {' '}
         <input
           type="file"
@@ -181,7 +190,7 @@ const handleSubmit = async (e) => {
       <br/>
       <br/>
       
-      <small>Los campos marcados con <span style={{ color: 'red' }}>*</span> son obligatorios</small>
+      <small>Los campos marcados con <span style={{ fontWeight: 'bold' }}>*</span> son obligatorios</small>
       <br/>
       <br/>
 
