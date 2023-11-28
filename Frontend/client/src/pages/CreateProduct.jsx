@@ -135,8 +135,8 @@ const handleSubmit = async (e) => {
   } catch (error) {
     console.error('Error al procesar el formulario', error);
     
-    if(product.enSubasta){
-      alert("No se pueden editar los datos de un producto que está siendo subastado.");
+    if(product.pujaMayor > 0){
+      alert("No se pueden editar los datos de un producto que tiene pujas activas.");
     }else{
       alert(
         'Hubo un error al procesar el formulario. Por favor, inténtalo de nuevo.'

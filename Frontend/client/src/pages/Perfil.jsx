@@ -101,11 +101,12 @@ const Perfil = ({ propEmail }) => {
 
 
   const handleEditar = (productoId) => {
-    // Crear una URL con el ID del producto para redirigir al formulario de edición
-    const url = `/editar-producto/${productoId}`;
-    // Navegar a la URL
-    navigate(url);
+      // Crear una URL con el ID del producto para redirigir al formulario de edición
+      const url = `/editar-producto/${productoId}`;
+      // Navegar a la URL
+      navigate(url);
   };
+  
   
 
   const handlePonerEnSubasta = async (productoId) => {
