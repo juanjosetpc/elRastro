@@ -78,6 +78,8 @@ const App = () => {
         <Route path='/mapa' element={<Mapa direccion="Vialia Centro, Málaga"/>}> </Route>
         <Route path='/conversacion/:comprador/:vendedor/:producto'  element={ isAuthenticated ? <Conversacion userEmail={userEmail} /> : <Navigate to="/login" /> } ></Route>
         <Route path='/chats/:usuario'  element={ isAuthenticated ? <ListaChats /> : <Navigate to="/login" /> } ></Route>
+
+        <Route path="/editar-producto/:productoId" element={<CreateProduct />} />
       </Routes>
     </div>
   );

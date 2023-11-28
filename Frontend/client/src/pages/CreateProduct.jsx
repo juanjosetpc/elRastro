@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import axios from "axios";
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 
 export const CreateProduct = () => {
@@ -19,6 +21,40 @@ export const CreateProduct = () => {
     pujaMayor: 0,
     emailComprador: null,
 });
+
+const { productoId } = useParams();
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      // Obtener los detalles del producto utilizando el ID
+      const response = await api.get(`/productos/${productoId}`);
+      const product = response.data;
+
+      // Llenar el estado del producto con los datos recuperados
+      setProduct({
+        emailVendedor: product.emailVendedor,
+        direccion: product.direccion,
+        titulo: product.titulo,
+        descripcion: product.descripcion,
+        fechaInicio: product.fechaInicio,
+        precioInicio: product.precioInicio,
+        fotos: product.fotos,
+        fechaFin: product.fechaFin,
+        enSubasta: product.enSubasta,
+        pujaMayor: product.pujaMayor,
+        emailComprador: product.emailComprador,
+      });
+    } catch (error) {
+      console.error('Error fetching product details:', error);
+    }
+  };
+
+  // Solo cargar datos del producto si se proporciona un productoId válido
+  if (productoId) {
+    fetchData();
+  }
+}, [productoId]);
 
 const handleInputChange = (e) => {
   const { name, value } = e.target;
@@ -63,35 +99,56 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    
-    if((product.emailVendedor.trim() === '')){
-      alert("Por favor, ingresa el correo electronico.");
+    if (product.emailVendedor.trim() === '') {
+      alert('Por favor, ingresa el correo electronico.');
       return;
-    }else if(product.direccion.trim() === ''){
-      alert("Por favor, introduzca una direccion.");
+    } else if (product.direccion.trim() === '') {
+      alert('Por favor, introduzca una direccion.');
       return;
     }
 
-    // Enviar el producto al backend
-    const response = await api.post('http://localhost:5000/api/v1/productos/', product);
+    if (productoId) {
+      // Actualizar el producto existente
+      const response = await api.put(
+        `http://localhost:5000/api/v1/productos/${productoId}`,
+        product
+      );
 
-    if (response.status === 201) {
-      console.log('Producto creado con éxito:', response.data);
-      alert("Producto creado con exito");
-      navigate("/");
+      if (response.status === 200) {
+        console.log('Producto actualizado con éxito:', response.data);
+        alert('Producto actualizado con éxito');
+        navigate('/');
+      }
+    } else {
+      // Crear un nuevo producto
+      const response = await api.post(
+        'http://localhost:5000/api/v1/productos/',
+        product
+      );
+
+      if (response.status === 201) {
+        console.log('Producto creado con éxito:', response.data);
+        alert('Producto creado con exito');
+        navigate('/');
+      }
     }
-    
-
   } catch (error) {
-    console.error('Error al crear el producto', error);
-    alert('Hubo un error al crear los productos. Por favor, inténtalo de nuevo.');
+    console.error('Error al procesar el formulario', error);
+    
+    if(product.enSubasta){
+      alert("No se pueden editar los datos de un producto que está siendo subastado.");
+    }else{
+      alert(
+        'Hubo un error al procesar el formulario. Por favor, inténtalo de nuevo.'
+      );
+    }
   }
 };
 
 
   return (
     <div>
-      <h2>Crear producto</h2>
+      <h2>{productoId ? 'Editar producto' : 'Crear producto'}</h2>
       <br></br>
 
       <form onSubmit={handleSubmit}>
@@ -194,7 +251,9 @@ const handleSubmit = async (e) => {
       <br/>
       <br/>
 
-      <button type="submit">Crear producto</button>
+      <button type="submit">
+          {productoId ? 'Actualizar datos' : 'Crear producto'}
+        </button>
       </form>
 
 
