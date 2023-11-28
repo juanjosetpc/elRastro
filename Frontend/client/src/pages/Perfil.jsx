@@ -8,8 +8,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import api from '../services/api';
 import api2 from '../services/api2';
 import "../styles/ValorarPerfil.css";
+import { useNavigate } from 'react-router-dom';
+
 
 const Perfil = ({ propEmail }) => {
+  const navigate = useNavigate();
+
   const [usuario, setUsuario] = useState(null);
   const [productosNoEnVenta, setProductosNoEnVenta] = useState([]);
   const [productosEnVenta, setProductosEnVenta] = useState([]);
@@ -26,7 +30,7 @@ const Perfil = ({ propEmail }) => {
   const [operacionExitosa, setOperacionExitosa] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [mensajeToast, setMensajeToast] = useState('');
-  const [redirectEditar, setRedirectEditar] = useState(null);
+
   
 
   useEffect(() => {
@@ -95,10 +99,14 @@ const Perfil = ({ propEmail }) => {
     );
   }
 
-  
+
   const handleEditar = (productoId) => {
-    setRedirectEditar(`/editar-producto/${productoId}`);
+    // Crear una URL con el ID del producto para redirigir al formulario de edición
+    const url = `/editar-producto/${productoId}`;
+    // Navegar a la URL
+    navigate(url);
   };
+  
 
   const handlePonerEnSubasta = async (productoId) => {
     try {
