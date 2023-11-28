@@ -126,8 +126,6 @@ const handleSubmit = async (e) => {
         product
       );
 
-      console.log("Email del vendedo: ", product.emailVendedor);
-
       if (response.status === 201) {
         console.log('Producto creado con éxito:', response.data);
         alert('Producto creado con exito');
@@ -168,7 +166,7 @@ const handleSubmit = async (e) => {
         </label>
 
         <br/><br/>
-        
+
         <label>
          Dirección (calle, codigo postal y ciudad)<span style={{ fontWeight: 'bold' }}>*</span>
           {' '}
