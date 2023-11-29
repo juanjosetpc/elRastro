@@ -4,6 +4,7 @@ import api from '../services/api';
 import axios from "axios";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import "../styles/CreateProduct.css";
 
 
 export const CreateProduct = () => {
@@ -147,7 +148,8 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div>
+    <div className="createProductContainer">
+      <div className="createProductForm">
       <h2>{productoId ? 'Editar producto' : 'Crear producto'}</h2>
       <br></br>
 
@@ -232,9 +234,9 @@ const handleSubmit = async (e) => {
         <br/>
 
       <label>
-        Fotos
-        <p style={{ color: 'red' }}><span style={{ fontWeight: 'bold' }}>IMPORTANTE:</span> Las imágenes seleccionadas serán subidas a Cloudinary</p>
+        Imágenes
         {' '}
+      
         <input
           type="file"
           name="fotos"
@@ -242,21 +244,20 @@ const handleSubmit = async (e) => {
           multiple
           onChange={handleFileChange}
         />
-
+      <br/>
+        <p style={{ color: 'red' }}><span style={{ fontWeight: 'bold' }}>IMPORTANTE:</span> Las imágenes seleccionadas serán subidas a Cloudinary</p>
       </label>
-      <br/>
-      <br/>
-      
+      <br/> 
       <small>Los campos marcados con <span style={{ fontWeight: 'bold' }}>*</span> son obligatorios</small>
+  
       <br/>
       <br/>
 
-      <button type="submit">
+      <button type="submit" className="createProductButton">
           {productoId ? 'Actualizar datos' : 'Crear producto'}
         </button>
       </form>
-
-
+      </div>
     </div>
   );
 };
