@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
+import api2 from '../services/api2';
 import axios from "axios";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import "../styles/CreateProduct.css";
 
 
-export const CreateProduct = () => {
+export const CreateProduct = ({propEmail}) => {
   const navigate = useNavigate();
   const [product, setProduct] = useState({
-    emailVendedor: '',
+    emailVendedor: propEmail,
     direccion: '',
     titulo: '',
     descripcion: '',
@@ -22,6 +23,8 @@ export const CreateProduct = () => {
     emailComprador: null,
 });
 
+const [usuario, setUsuario] = useState(null);
+
 const { productoId } = useParams();
 
 useEffect(() => {
@@ -30,6 +33,9 @@ useEffect(() => {
       // Obtener los detalles del producto utilizando el ID
       const response = await api.get(`/productos/${productoId}`);
       const product = response.data;
+
+      const usuario = await api2.get(`usuarios/${propEmail}`);
+      setUsuario(usuario);
 
       // Llenar el estado del producto con los datos recuperados
       setProduct({
@@ -155,15 +161,8 @@ const handleSubmit = async (e) => {
       <form onSubmit={handleSubmit}>
 
       <label>
-          Email del vendedor<span style={{ fontWeight: 'bold' }}>*</span>
-          {' '}
-          <input
-            type = "email"
-            name= "emailVendedor"
-            value = {product.emailVendedor}
-            onChange={handleInputChange}
-            required
-          />
+          Email del vendedor: {propEmail}
+          
         </label>
 
         <br/><br/>

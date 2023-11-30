@@ -55,7 +55,7 @@ const App = () => {
         <Route
           path="/crear-producto"
           element={
-            isAuthenticated ? <CreateProduct /> : <Navigate to="/login" />
+            isAuthenticated ? <CreateProduct propEmail={userEmail} /> : <Navigate to="/login" />
           }
         />
         <Route
