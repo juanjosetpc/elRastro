@@ -186,6 +186,7 @@ const handleSubmit = async (e) => {
             name= "titulo"
             value = {product.titulo}
             onChange={handleInputChange}
+            required
           />
         </label>
 
@@ -200,6 +201,7 @@ const handleSubmit = async (e) => {
             value={product.descripcion}
            onChange={handleInputChange}
             style={{ marginLeft: '5px', flexGrow: 1 }}  // Ajusta el margen y el crecimiento flex según sea necesario
+            required
          />
         </div>
           </label>
@@ -208,25 +210,27 @@ const handleSubmit = async (e) => {
 
 
         <label>
-          Fecha de fin
+          Fecha de fin <span style={{ fontWeight: 'bold' }}>*</span>
           {' '}
           <input 
             type="date"
             name="fechaFin"
             value={product.fechaFin}
             onChange={handleInputChange}
+            required
           />
         </label>
         <br/>
         <br/>
         <label>
-          Precio de inicio
+          Precio de inicio <span style={{ fontWeight: 'bold' }}>*</span>
           {' '}
           <input 
             type="number"
             name="precioInicio"
             value={product.precioInicio}
             onChange={handleInputChange}
+            required
           />
         </label>
         
