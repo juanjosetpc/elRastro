@@ -102,8 +102,8 @@ const Perfil = ({ propEmail }) => {
   
   const handleEditar = async (productoId) => {
     const prod = await api.get(`/productos/${productoId}`);
-    console.log(prod);
-    if (prod.pujaMayor > 0) {
+    console.log(prod.data.pujaMayor);
+    if (prod.data.pujaMayor === 0) {
       navigate(`/editar-producto/${productoId}`);
     } else {
       setShowToast(true);
