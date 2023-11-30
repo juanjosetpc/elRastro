@@ -129,7 +129,7 @@ const handleSubmit = async (e) => {
       if (response.status === 201) {
         console.log('Producto creado con éxito:', response.data);
         alert('Producto creado con exito');
-        navigate('/');
+        navigate('/perfil');
       }
     }
   } catch (error) {

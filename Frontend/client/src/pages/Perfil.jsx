@@ -99,14 +99,17 @@ const Perfil = ({ propEmail }) => {
     );
   }
 
-
-  const handleEditar = (productoId) => {
-      // Crear una URL con el ID del producto para redirigir al formulario de edición
-      const url = `/editar-producto/${productoId}`;
-      // Navegar a la URL
-      navigate(url);
-  };
   
+  const handleEditar = async (productoId) => {
+    const prod = await api.get(`/productos/${productoId}`);
+    console.log(prod);
+    if (prod.pujaMayor > 0) {
+      navigate(`/editar-producto/${productoId}`);
+    } else {
+      setShowToast(true);
+      setMensajeToast("No puedes editar ya han pujado");
+    }
+  };
   
 
   const handlePonerEnSubasta = async (productoId) => {
@@ -164,7 +167,7 @@ const Perfil = ({ propEmail }) => {
       <div className="row">
         <div className="col-md-3">
           {/* Enlace para revisar chats */}
-          <Link to={`/chats/${propEmail}`}><button class="btn btn-primary">Chats</button></Link>
+          <Link to={`/chats/${propEmail}`}><button className="btn btn-primary">Chats</button></Link>
         </div>
         <div className="col-md-9">
           <ul className="nav nav-tabs">
@@ -280,6 +283,7 @@ const Perfil = ({ propEmail }) => {
                     <th>Título</th>
                     <th>Precio Actual</th>
                     <th>Poner en subasta</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
                 </thead>
@@ -296,9 +300,7 @@ const Perfil = ({ propEmail }) => {
                       </td>
                       <td>
                         <p>
-                          {producto.pujaMayor === 0
-                            ? producto.precioInicio
-                            : producto.pujaMayor}
+                          {producto.precioInicio}
                           €
                         </p>
                       </td>
@@ -308,6 +310,14 @@ const Perfil = ({ propEmail }) => {
                           onClick={() => handlePonerEnSubasta(producto._id)}
                         >
                           Activar
+                        </Button>
+                      </td>
+                      <td>
+                        <Button
+                          variant="warning"
+                          onClick={() => handleEditar(producto._id)}
+                        >
+                          Editar
                         </Button>
                       </td>
                       <td>
@@ -358,7 +368,7 @@ const Perfil = ({ propEmail }) => {
                       </td>
                       <td>
                         <Button
-                          variant="primary"
+                          variant="warning"
                           onClick={() => handleEditar(producto._id)}
                         >
                           Editar
