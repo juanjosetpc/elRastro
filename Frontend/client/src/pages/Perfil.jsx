@@ -96,8 +96,15 @@ const Perfil = ({ propEmail }) => {
   }
 
   
-  const handleEditar = (productoId) => {
-    setRedirectEditar(`/editar-producto/${productoId}`);
+  const handleEditar = async (productoId) => {
+    const prod = await api.get(`/productos/${productoId}`);
+    if(prod.pujaMayor > 0){
+      setRedirectEditar(`/editar-producto/${productoId}`);
+      setOperacionExitosa(true);
+      setShowToast(true);
+    }else{
+      setMensajeToast("No puedes editar ya han pujado");
+    }
   };
 
   const handlePonerEnSubasta = async (productoId) => {
