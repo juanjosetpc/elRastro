@@ -193,14 +193,17 @@ const handleSubmit = async (e) => {
         <br/>
         <br/>
   
-        <label>
-        Descripción    <br/>
-        <textarea
+        <label style={{ display: 'flex', flexDirection: 'column' }}>
+        Descripción
+         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+          <textarea
             name="descripcion"
             value={product.descripcion}
-            onChange={handleInputChange}
-          />
-        </label>
+           onChange={handleInputChange}
+            style={{ marginLeft: '5px', flexGrow: 1 }}  // Ajusta el margen y el crecimiento flex según sea necesario
+         />
+        </div>
+          </label>
         <br/>
         <br/>
 
