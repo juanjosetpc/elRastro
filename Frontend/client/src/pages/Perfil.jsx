@@ -8,8 +8,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import api from '../services/api';
 import api2 from '../services/api2';
 import "../styles/ValorarPerfil.css";
+import { useNavigate } from 'react-router-dom';
+
 
 const Perfil = ({ propEmail }) => {
+  const navigate = useNavigate();
+
   const [usuario, setUsuario] = useState(null);
   const [productosNoEnVenta, setProductosNoEnVenta] = useState([]);
   const [productosEnVenta, setProductosEnVenta] = useState([]);
@@ -26,7 +30,7 @@ const Perfil = ({ propEmail }) => {
   const [operacionExitosa, setOperacionExitosa] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [mensajeToast, setMensajeToast] = useState('');
-  const [redirectEditar, setRedirectEditar] = useState(null);
+
   
 
   useEffect(() => {
@@ -98,14 +102,15 @@ const Perfil = ({ propEmail }) => {
   
   const handleEditar = async (productoId) => {
     const prod = await api.get(`/productos/${productoId}`);
-    if(prod.pujaMayor > 0){
-      setRedirectEditar(`/editar-producto/${productoId}`);
-      setOperacionExitosa(true);
+    console.log(prod);
+    if (prod.pujaMayor > 0) {
+      navigate(`/editar-producto/${productoId}`);
+    } else {
       setShowToast(true);
-    }else{
       setMensajeToast("No puedes editar ya han pujado");
     }
   };
+  
 
   const handlePonerEnSubasta = async (productoId) => {
     try {
@@ -162,7 +167,7 @@ const Perfil = ({ propEmail }) => {
       <div className="row">
         <div className="col-md-3">
           {/* Enlace para revisar chats */}
-          <Link to={`/chats/${propEmail}`}><button class="btn btn-primary">Chats</button></Link>
+          <Link to={`/chats/${propEmail}`}><button className="btn btn-primary">Chats</button></Link>
         </div>
         <div className="col-md-9">
           <ul className="nav nav-tabs">
@@ -278,6 +283,7 @@ const Perfil = ({ propEmail }) => {
                     <th>Título</th>
                     <th>Precio Actual</th>
                     <th>Poner en subasta</th>
+                    <th>Editar</th>
                     <th>Eliminar</th>
                   </tr>
                 </thead>
@@ -294,9 +300,7 @@ const Perfil = ({ propEmail }) => {
                       </td>
                       <td>
                         <p>
-                          {producto.pujaMayor === 0
-                            ? producto.precioInicio
-                            : producto.pujaMayor}
+                          {producto.precioInicio}
                           €
                         </p>
                       </td>
@@ -306,6 +310,14 @@ const Perfil = ({ propEmail }) => {
                           onClick={() => handlePonerEnSubasta(producto._id)}
                         >
                           Activar
+                        </Button>
+                      </td>
+                      <td>
+                        <Button
+                          variant="warning"
+                          onClick={() => handleEditar(producto._id)}
+                        >
+                          Editar
                         </Button>
                       </td>
                       <td>
@@ -356,7 +368,7 @@ const Perfil = ({ propEmail }) => {
                       </td>
                       <td>
                         <Button
-                          variant="primary"
+                          variant="warning"
                           onClick={() => handleEditar(producto._id)}
                         >
                           Editar

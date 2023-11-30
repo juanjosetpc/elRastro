@@ -6,6 +6,6 @@ const conversacionController = require("../../controllers/conversacion");
 router.get("/", conversacionController.getAllConversations); // listar conversaciones
 router.post("/", conversacionController.createConversation); // crear nueva conversacion
 router.put("/:vendedor/:comprador/:producto", conversacionController.updateConversation); // actualizar conversacion
-router.put("/:vendeor/:comprador/:producto", conversacionController.closeConversation);
+router.put("/cerrar", conversacionController.closeConversation);
 
 module.exports = router;

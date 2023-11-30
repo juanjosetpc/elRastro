@@ -11,11 +11,13 @@ const v2Conversaciones = require("./v2/routes/conversacionRoutes");
 const cron = require("node-cron");
 const { actualizaDesiertas, actualizarSubastasExito } = require("./controllers/producto");
 const v2UsuarioRouter = require("./v2/routes/usuarioRoutes2");
+const {closeConversation} = require("./controllers/conversacion");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(cors());
-app.use(express.json());
+//app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
 
 app.use("/api/v1/productos", v1ProductRouter);
 app.use("/api/v2/productos", v2ProductRouter);
@@ -35,6 +37,7 @@ app.listen(PORT, () => {
 //  cron.schedule("*/15 * * * *", async () => {
 //   console.log(colors.orange("Actualizando subastas desiertas, si las hay..."));
 //   await actualizaDesiertas();
+//   await closeConversation();
 // });
 
 const mongoose = require("mongoose");
