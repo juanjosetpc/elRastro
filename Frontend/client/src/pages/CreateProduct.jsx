@@ -14,10 +14,9 @@ export const CreateProduct = () => {
     direccion: '',
     titulo: '',
     descripcion: '',
-    fechaInicio: '',
     precioInicio: 0,
     fotos: [],
-    fechaFin: null,
+    fechaFin: '',
     enSubasta: false,
     pujaMayor: 0,
     emailComprador: null,
@@ -207,12 +206,12 @@ const handleSubmit = async (e) => {
 
 
         <label>
-          Fecha de inicio
+          Fecha de fin
           {' '}
           <input 
             type="date"
-            name="fechaInicio"
-            value={product.fechaInicio}
+            name="fechaFin"
+            value={product.fechaFin}
             onChange={handleInputChange}
           />
         </label>
