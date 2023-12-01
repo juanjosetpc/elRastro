@@ -175,25 +175,15 @@ const handleSubmit = async (e) => {
       <form onSubmit={handleSubmit}>
 
       <label>
-          Email del vendedor: {propEmail}
+          
+         <span style={{ fontWeight: 'bold' }}>Email del vendedor: </span> {propEmail}
           
         </label>
 
         <br/><br/>
 
         <label>
-         Dirección (calle, codigo postal y ciudad)<span style={{ fontWeight: 'bold' }}>*</span>
-          {' '}
-          <input type="text"
-            name="direccion"
-            value={product.direccion}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <br/><br/>
-        <label>
-          Título<span style={{ fontWeight: 'bold' }}>*</span>
+          <span style={{ fontWeight: 'bold' }}>Título *</span><br/>
           {' '}
           <input
             type = "text"
@@ -203,12 +193,10 @@ const handleSubmit = async (e) => {
             required
           />
         </label>
-
-        <br/>
-        <br/>
-  
+        <br/><br/>
         <label style={{ display: 'flex', flexDirection: 'column' }}>
-         Descripción *
+          <span style={{ fontWeight: 'bold' }}>Descripción *</span>
+         
          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
           <textarea
             name="descripcion"
@@ -217,14 +205,28 @@ const handleSubmit = async (e) => {
             style={{ marginLeft: '2px', flexGrow: 1 }}
             required
          />
-        </div>
+          </div>
+        <br/>
+
           </label>
-        <br/>
-        <br/>
+          <label style={{ display: 'flex', flexDirection: 'column' }}>
 
+         <span style={{ fontWeight: 'bold' }}>Dirección (calle, código postal y ciudad) *</span>
+          {' '}
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+          <input type="text"
+            name="direccion"
+            value={product.direccion}
+            onChange={handleInputChange}
+            style={{ marginLeft: '2px', flexGrow: 1 }}
+            required
+          />
 
+            </div>
+        </label>
+        <br/>
         <label>
-          Fecha de fin <span style={{ fontWeight: 'bold' }}>*</span>
+          <span style={{ fontWeight: 'bold' }}>Fecha de fin  *</span><br/>
           {' '}
           <input 
             type="date"
@@ -237,7 +239,7 @@ const handleSubmit = async (e) => {
         <br/>
         <br/>
         <label>
-          Precio de inicio <span style={{ fontWeight: 'bold' }}>*</span>
+         <span style={{ fontWeight: 'bold' }}> Precio de inicio  *</span><br/>
           {' '}
           <input 
             type="number"
@@ -253,7 +255,7 @@ const handleSubmit = async (e) => {
         <br/>
 
       <label>
-        Imágenes
+         <span style={{ fontWeight: 'bold' }}>Imágenes</span><br/>
         {' '}
       
         <input
@@ -263,6 +265,7 @@ const handleSubmit = async (e) => {
           multiple
           onChange={handleFileChange}
         />
+      <br/>
       <br/>
         <p style={{ color: 'red' }}><span style={{ fontWeight: 'bold' }}>IMPORTANTE:</span> Las imágenes seleccionadas serán subidas a Cloudinary</p>
       </label>
