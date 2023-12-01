@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import api2 from '../services/api2';
+// import api2 from '../services/api2';
 import axios from "axios";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -23,43 +23,40 @@ export const CreateProduct = ({propEmail}) => {
     emailComprador: null,
 });
 
-const [usuario, setUsuario] = useState(null);
+// const [usuario, setUsuario] = useState(null);
 
 const { productoId } = useParams();
 
 useEffect(() => {
   const fetchData = async () => {
     try {
-      // Obtener los detalles del producto utilizando el ID
-      const response = await api.get(`/productos/${productoId}`);
-      const product = response.data;
+      if (productoId) {
+        // Obtener los detalles del producto utilizando el ID
+        const response = await api.get(`/productos/${productoId}`);
+        const product = response.data;
 
-      const usuario = await api2.get(`usuarios/${propEmail}`);
-      setUsuario(usuario);
+        // Restablecer el estado del producto con los datos recuperados
+        setProduct({
+          emailVendedor: propEmail,
+          direccion: product.direccion,
+          titulo: product.titulo,
+          descripcion: product.descripcion,
+          fechaInicio: product.fechaInicio,
+          precioInicio: product.precioInicio,
+          fotos: product.fotos,
+          fechaFin: product.fechaFin,
+          enSubasta: product.enSubasta,
+          pujaMayor: product.pujaMayor,
+          emailComprador: product.emailComprador,
+        });
+      }
 
-      // Llenar el estado del producto con los datos recuperados
-      setProduct({
-        emailVendedor: product.emailVendedor,
-        direccion: product.direccion,
-        titulo: product.titulo,
-        descripcion: product.descripcion,
-        fechaInicio: product.fechaInicio,
-        precioInicio: product.precioInicio,
-        fotos: product.fotos,
-        fechaFin: product.fechaFin,
-        enSubasta: product.enSubasta,
-        pujaMayor: product.pujaMayor,
-        emailComprador: product.emailComprador,
-      });
     } catch (error) {
       console.error('Error fetching product details:', error);
     }
   };
 
-  // Solo cargar datos del producto si se proporciona un productoId válido
-  if (productoId) {
-    fetchData();
-  }
+  fetchData();
 }, [productoId]);
 
 const handleInputChange = (e) => {

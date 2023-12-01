@@ -79,7 +79,7 @@ const App = () => {
         <Route path='/conversacion/:comprador/:vendedor/:producto'  element={ isAuthenticated ? <Conversacion userEmail={userEmail} /> : <Navigate to="/login" /> } ></Route>
         <Route path='/chats/:usuario'  element={ isAuthenticated ? <ListaChats /> : <Navigate to="/login" /> } ></Route>
 
-        <Route path="/editar-producto/:productoId" element={<CreateProduct />} />
+        <Route path="/editar-producto/:productoId" element={<CreateProduct propEmail={userEmail} />} />
       </Routes>
     </div>
   );
