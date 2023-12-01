@@ -105,6 +105,20 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
+
+    if (product.precioInicio <= 0) {
+      alert('El precio inicial debe ser mayor que 0.');
+      return;
+    }
+
+    const today = new Date();
+      const selectedEndDate = new Date(product.fechaFin);
+
+      if (selectedEndDate <= today) {
+        alert('La fecha de fin debe ser posterior a la fecha actual.');
+        return;
+      }
+
     if (product.emailVendedor.trim() === '') {
       alert('Por favor, ingresa el correo electronico.');
       return;
@@ -179,7 +193,7 @@ const handleSubmit = async (e) => {
         </label>
         <br/><br/>
         <label>
-          Título
+          Título<span style={{ fontWeight: 'bold' }}>*</span>
           {' '}
           <input
             type = "text"
@@ -194,13 +208,13 @@ const handleSubmit = async (e) => {
         <br/>
   
         <label style={{ display: 'flex', flexDirection: 'column' }}>
-        Descripción
+         Descripción *
          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
           <textarea
             name="descripcion"
             value={product.descripcion}
            onChange={handleInputChange}
-            style={{ marginLeft: '5px', flexGrow: 1 }}  // Ajusta el margen y el crecimiento flex según sea necesario
+            style={{ marginLeft: '2px', flexGrow: 1 }}
             required
          />
         </div>
