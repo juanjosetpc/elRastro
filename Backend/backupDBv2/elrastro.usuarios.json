@@ -1,0 +1,320 @@
+[{
+  "_id": {
+    "$oid": "655fb7a0878d77399f85ceab"
+  },
+  "email": "vendedor1@example.com",
+  "nombre": "Juan",
+  "apellido": "García",
+  "ciudad": "Madrid",
+  "calle": "Gran Vía",
+  "codigoPostal": 28013,
+  "resenas": [
+    {
+      "nota": 4,
+      "descripcion": "Buen servicio, excelente ubicación."
+    },
+    {
+      "nota": 5,
+      "descripcion": "Volvería a comprar aquí."
+    },
+    {
+      "nota": 5,
+      "descripcion": "Muy bueno",
+      "_id": {
+        "$oid": "655fb83bb0604b46a0785ab6"
+      }
+    },
+    {
+      "nota": 2,
+      "descripcion": "fae",
+      "_id": {
+        "$oid": "655fb85db0604b46a0785b1c"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "Tardo mucho en responder a mis mensajes",
+      "_id": {
+        "$oid": "655fb8cfb0604b46a0785b79"
+      }
+    },
+    {
+      "nota": 3,
+      "descripcion": "efsf",
+      "_id": {
+        "$oid": "65607db62dcfb279d5f0d255"
+      }
+    },
+    {
+      "nota": 5,
+      "descripcion": "Perfecto",
+      "_id": {
+        "$oid": "6560843bbdb6f293fc68276a"
+      }
+    },
+    {
+      "nota": 4,
+      "descripcion": "Funciona",
+      "_id": {
+        "$oid": "656084f8bdb6f293fc68277c"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "a",
+      "_id": {
+        "$oid": "65608522bdb6f293fc6827a2"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "s",
+      "_id": {
+        "$oid": "65608541bdb6f293fc6827c2"
+      }
+    },
+    {
+      "nota": 4,
+      "descripcion": "AAA",
+      "_id": {
+        "$oid": "65608573bdb6f293fc6827da"
+      }
+    },
+    {
+      "nota": 3,
+      "descripcion": "Pero sigue funcionando??",
+      "_id": {
+        "$oid": "65609692bdb6f293fc682c02"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "Si ahora pongo aqui un texto muy largo para que se salga de la celda me lo va a corregir bien o hay problemas",
+      "_id": {
+        "$oid": "6560988dbdb6f293fc682c55"
+      }
+    },
+    {
+      "nota": 2,
+      "descripcion": "sddf",
+      "_id": {
+        "$oid": "6560989fbdb6f293fc682c73"
+      }
+    },
+    {
+      "nota": 2,
+      "descripcion": "Comprobacion",
+      "_id": {
+        "$oid": "6561dd1a01043d68b5857050"
+      }
+    },
+    {
+      "nota": 5,
+      "descripcion": "FFFFFF",
+      "_id": {
+        "$oid": "6561e5aadb767feae688c109"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "asf",
+      "_id": {
+        "$oid": "6561e6bcd2ca0c58dddddd52"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "asf",
+      "_id": {
+        "$oid": "6561e6f0c564bf917f065b64"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "gg",
+      "_id": {
+        "$oid": "6561e70dc564bf917f065bad"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "gga",
+      "_id": {
+        "$oid": "6561e72fc564bf917f065bd8"
+      }
+    },
+    {
+      "nota": 5,
+      "descripcion": "Ahora si",
+      "_id": {
+        "$oid": "6561e9a8c564bf917f065c5a"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "sdafsdfadsf",
+      "_id": {
+        "$oid": "6561ea06c564bf917f065ca2"
+      }
+    },
+    {
+      "nota": 3,
+      "descripcion": "rtwty",
+      "_id": {
+        "$oid": "6561f2a636381691175cbada"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "guay",
+      "_id": {
+        "$oid": "65622b1b6601e2036562e920"
+      }
+    }
+  ],
+  "__v": 23,
+  "valoracion": 2.58
+},
+{
+  "_id": {
+    "$oid": "655fb7a0878d77399f85ceac"
+  },
+  "email": "Adan.VerduzcoVillanueva@gmail.com",
+  "nombre": "María",
+  "apellido": "Martínez",
+  "ciudad": "Barcelona",
+  "calle": "Passeig de Gràcia",
+  "codigoPostal": 8007,
+  "resenas": [
+    {
+      "nota": 3,
+      "descripcion": "Buena atención al cliente."
+    },
+    {
+      "nota": 4,
+      "descripcion": "Producto de calidad."
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "655fb7a0878d77399f85cead"
+  },
+  "email": "Diego.ChaconJaramillo17@hotmail.com",
+  "nombre": "Antonio",
+  "apellido": "Fernández",
+  "ciudad": "Sevilla",
+  "calle": "Calle Sierpes",
+  "codigoPostal": 41004,
+  "resenas": [
+    {
+      "nota": 5,
+      "descripcion": "Envío rápido y seguro."
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "655fb7a0878d77399f85ceae"
+  },
+  "email": "vendedor2@example.com",
+  "nombre": "Laura",
+  "apellido": "López",
+  "ciudad": "Valencia",
+  "calle": "Carrer de Colón",
+  "codigoPostal": 46004,
+  "resenas": [
+    {
+      "nota": 4,
+      "descripcion": "Buena relación calidad-precio."
+    },
+    {
+      "nota": 2,
+      "descripcion": "Tardaron en entregar el pedido."
+    },
+    {
+      "nota": 2,
+      "descripcion": "La silla que compre estaba coja.",
+      "_id": {
+        "$oid": "655fb7cb505897ad1a8c443c"
+      }
+    },
+    {
+      "nota": 2,
+      "descripcion": "sdf",
+      "_id": {
+        "$oid": "65607dd52dcfb279d5f0d287"
+      }
+    }
+  ],
+  "__v": 2,
+  "valoracion": 2.5
+},
+{
+  "_id": {
+    "$oid": "655fb7a0878d77399f85ceaf"
+  },
+  "email": "Carlota51@hotmail.com",
+  "nombre": "Pedro",
+  "apellido": "Ramírez",
+  "ciudad": "Bilbao",
+  "calle": "Gran Vía Don Diego López de Haro",
+  "codigoPostal": 48001,
+  "resenas": [
+    {
+      "nota": 3,
+      "descripcion": "Producto llegó con defectos."
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "655fb7a0878d77399f85ceb0"
+  },
+  "email": "Horacio37@gmail.com",
+  "nombre": "Isabel",
+  "apellido": "González",
+  "ciudad": "Alicante",
+  "calle": "Rambla Méndez Núñez",
+  "codigoPostal": 3002,
+  "resenas": [
+    {
+      "nota": 5,
+      "descripcion": "Excelente atención al cliente."
+    },
+    {
+      "nota": 4,
+      "descripcion": "Rápido proceso de envío."
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6561f2cf5725c85d8d2e4891"
+  },
+  "email": "vendedor3@example.com",
+  "nombre": "Alberto",
+  "apellido": "Montoya",
+  "ciudad": "Madrid",
+  "calle": "Gran Vía",
+  "codigoPostal": 28013,
+  "resenas": [
+    {
+      "nota": 4,
+      "descripcion": "Buen servicio, excelente ubicación."
+    },
+    {
+      "nota": 5,
+      "descripcion": "Volvería a comprar aquí."
+    },
+    {
+      "nota": 4,
+      "descripcion": "Espectacular servicio",
+      "_id": {
+        "$oid": "6561f2e95a98aaeceb3264c2"
+      }
+    }
+  ],
+  "__v": 1,
+  "valoracion": 4.33
+}]

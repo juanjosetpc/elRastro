@@ -4,5 +4,4 @@ node_modules
 configCloudinary.txt
 .gitignore
 .dockerignore
-Dockerfile
 compose.yaml

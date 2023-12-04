@@ -1,0 +1,271 @@
+[{
+  "_id": {
+    "$oid": "6560c63bbbb418080a70bf5f"
+  },
+  "vendedor": "Graciela42@hotmail.com",
+  "comprador": "vendedor3@example.com",
+  "abierta": true,
+  "producto": "Moto Roja",
+  "mensajes": [
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "Graciela42@hotmail.com",
+      "fecha": {
+        "$date": "2023-11-24T18:16:02.324Z"
+      },
+      "contenido": "primer mensaje",
+      "_id": {
+        "$oid": "6560e862101fe3c429a4977a"
+      }
+    },
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "Graciela42@hotmail.com",
+      "fecha": {
+        "$date": "2023-11-25T16:13:24.765Z"
+      },
+      "contenido": "fd",
+      "_id": {
+        "$oid": "65621d24809e14efff165eda"
+      }
+    },
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "Graciela42@hotmail.com",
+      "fecha": {
+        "$date": "2023-11-26T10:00:51.995Z"
+      },
+      "contenido": "Como va",
+      "_id": {
+        "$oid": "65631754768b0bef1658e3c6"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6560e871101fe3c429a4978b"
+  },
+  "vendedor": "vendedor1@example.com",
+  "comprador": "vendedor3@example.com",
+  "abierta": true,
+  "producto": "Moto Roja",
+  "mensajes": [
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-11-24T18:16:29.260Z"
+      },
+      "contenido": "me interesa su producto",
+      "_id": {
+        "$oid": "6560e87d101fe3c429a4978f"
+      }
+    },
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-11-24T18:16:47.662Z"
+      },
+      "contenido": "hace envíos a europa\n",
+      "_id": {
+        "$oid": "6560e88f101fe3c429a49792"
+      }
+    },
+    {
+      "emisor": "vendedor1@example.com",
+      "receptor": "vendedor3@example.com",
+      "fecha": {
+        "$date": "2023-11-25T15:55:06.112Z"
+      },
+      "contenido": "si hago\n",
+      "_id": {
+        "$oid": "656218da809e14efff165dd9"
+      }
+    },
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-11-25T17:03:31.197Z"
+      },
+      "contenido": "gracias",
+      "_id": {
+        "$oid": "656228e3632a7b7a7a1acaec"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65620fdb809e14efff165739"
+  },
+  "vendedor": "vendedor1@example.com",
+  "comprador": "vendedor3@example.com",
+  "abierta": false,
+  "producto": "Mesita de noche",
+  "mensajes": [
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-11-25T15:17:08.354Z"
+      },
+      "contenido": "prueba",
+      "_id": {
+        "$oid": "65620ff4809e14efff165799"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65621dbc809e14efff1660e3"
+  },
+  "vendedor": "vendedor2@example.com",
+  "comprador": "vendedor3@example.com",
+  "abierta": true,
+  "producto": "Silla gaming",
+  "mensajes": [
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor2@example.com",
+      "fecha": {
+        "$date": "2023-11-25T16:16:01.776Z"
+      },
+      "contenido": "buenas\n",
+      "_id": {
+        "$oid": "65621dc1809e14efff1660e5"
+      }
+    },
+    {
+      "emisor": "vendedor2@example.com",
+      "receptor": "vendedor3@example.com",
+      "fecha": {
+        "$date": "2023-11-26T09:32:38.377Z"
+      },
+      "contenido": "hola que necesita",
+      "_id": {
+        "$oid": "656310b6fb2cd98b00efc81d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65622640632a7b7a7a1ac6cd"
+  },
+  "vendedor": "dfsdfsdfe2@uma.es",
+  "comprador": "vendedor1@example.com",
+  "abierta": true,
+  "producto": "Abanico",
+  "mensajes": [
+    {
+      "emisor": "vendedor1@example.com",
+      "receptor": "dfsdfsdfe2@uma.es",
+      "fecha": {
+        "$date": "2023-11-25T16:52:39.225Z"
+      },
+      "contenido": "j",
+      "_id": {
+        "$oid": "65622657632a7b7a7a1ac71c"
+      }
+    },
+    {
+      "emisor": "vendedor1@example.com",
+      "receptor": "dfsdfsdfe2@uma.es",
+      "fecha": {
+        "$date": "2023-11-25T17:02:48.571Z"
+      },
+      "contenido": "j",
+      "_id": {
+        "$oid": "656228b8632a7b7a7a1aca57"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65630e74fb2cd98b00efc5cb"
+  },
+  "vendedor": "vendedor1@example.com",
+  "comprador": "vendedor3@example.com",
+  "abierta": true,
+  "producto": "Moto roja",
+  "mensajes": [
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-11-26T09:23:06.361Z"
+      },
+      "contenido": "prueba",
+      "_id": {
+        "$oid": "65630e7afb2cd98b00efc5cd"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65630f40fb2cd98b00efc713"
+  },
+  "vendedor": "vendedor2@example.com",
+  "comprador": "vendedor1@example.com",
+  "abierta": true,
+  "producto": "Silla de Oficina Ergonómica",
+  "mensajes": [
+    {
+      "emisor": "vendedor1@example.com",
+      "receptor": "vendedor2@example.com",
+      "fecha": {
+        "$date": "2023-11-26T09:26:36.412Z"
+      },
+      "contenido": "hola buenas",
+      "_id": {
+        "$oid": "65630f4cfb2cd98b00efc715"
+      }
+    },
+    {
+      "emisor": "vendedor2@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-11-26T09:35:36.078Z"
+      },
+      "contenido": "que necesita?",
+      "_id": {
+        "$oid": "65631168fb2cd98b00efcad8"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65631467fb2cd98b00efcbbd"
+  },
+  "vendedor": "vendedor2@example.com",
+  "comprador": "vendedor1@example.com",
+  "abierta": true,
+  "producto": "Silla gaming",
+  "mensajes": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656317c0768b0bef1658e3d7"
+  },
+  "vendedor": "vendedor2@example.com",
+  "comprador": "vendedor3@example.com",
+  "abierta": true,
+  "producto": "Silla de Oficina Ergonómica",
+  "mensajes": [],
+  "__v": 0
+}]

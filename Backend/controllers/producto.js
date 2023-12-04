@@ -1,7 +1,6 @@
 const Producto = require("../models/producto");
 const colors = require("picocolors");
 const Puja = require("../models/puja");
-const cloudinary = require("cloudinary");
 const { findOne } = require("../models/usuario");
 
 const getAllProducts = async (req, res) => {

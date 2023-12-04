@@ -149,34 +149,6 @@ function deg2rad(deg) {
 }
 
 
-
-const obtenerCoordenadasDeUnaSolaPersona = async (req, res) => {
-  try {
-    const { lugar1 } = req.query; // Obtener los parámetros de las ubicaciones de la URL
-    const apiUrl1 = `https://nominatim.openstreetmap.org/search?q=${lugar1}&format=json&limit=1`;
-
-    // Realizar las solicitudes GET a OpenStreetMap usando Axios para ambas ubicaciones
-    const [response1] = await Promise.all([
-      axios.get(apiUrl1),
-    ]);
-
-    // Obtener las coordenadas (latitud y longitud) de las ubicaciones desde las respuestas
-    const coordenadas1 = response1.data[0];
-
-    // Calcular la distancia entre las ubicaciones (puedes implementar tu propia lógica para calcular la distancia)
-    //const distancia = calcularDistancia(coordenadas1.lat, coordenadas1.lon, coordenadas2.lat, coordenadas2.lon);
-
-    // Enviar las coordenadas y la distancia como respuesta a la solicitud del cliente
-    res.json({
-      lugar1: { latitud: coordenadas1.lat, longitud: coordenadas1.lon },
-    });
-  } catch (error) {
-    // Manejar errores y enviar una respuesta de error al cliente
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Error al obtener coordenadas' });
-  }
-}
-
 const NodeCache = require("node-cache");
 const cache = new NodeCache();
 

@@ -8,6 +8,7 @@ import "../styles/CreateProduct.css";
 
 
 export const CreateProduct = () => {
+  const cloudinary_cloud = process.env.REACT_APP_CLOUDINARY_CLOUD;
   const navigate = useNavigate();
   const [product, setProduct] = useState({
     emailVendedor: '',
@@ -67,6 +68,7 @@ const handleInputChange = (e) => {
 const handleFileChange = async (e) => {
   const files = e.target.files;
   const photosArray = Array.from(files);
+  console.log(cloudinary_cloud);
 
   // Cargar imágenes directamente a Cloudinary
   const uploaders = photosArray.map(async (photo) => {
@@ -76,7 +78,7 @@ const handleFileChange = async (e) => {
 
     try {
       const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/ddfymuj4y/image/upload",
+        `https://api.cloudinary.com/v1_1/${cloudinary_cloud}/image/upload`,
         formData
       );
 

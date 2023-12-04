@@ -4,7 +4,7 @@ import api2 from '../services/api2';
 import '../styles/Conversacion.css'; // Ajusta el nombre y la ruta según sea necesario
 import CryptoJS from 'crypto-js';
 
-const claveSecreta = 'tuClaveSecreta';
+const claveSecreta = process.env.REACT_APP_claveSecreta;
 
 function descifrarValor(valorCifrado, claveSecreta) {
   const cifradoDecodificado = decodeURIComponent(valorCifrado);
