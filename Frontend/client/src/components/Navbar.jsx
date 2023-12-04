@@ -13,6 +13,7 @@ const Navbar = ({ isAuthenticated, userEmail, logout }) => {
       <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
       <BootstrapNavbar.Collapse id="basic-navbar-nav">
         {isAuthenticated ? (
+          <>
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/crear-producto">
               Crear Anuncio
@@ -24,12 +25,16 @@ const Navbar = ({ isAuthenticated, userEmail, logout }) => {
                 style={{ width: "30px", borderRadius: "50%" }}
               />
             </Nav.Link>
-            <Button variant="outline-danger" onClick={logout}>
-              Logout
-            </Button>
           </Nav>
+
+          <div className="ms-auto">
+          <Button variant="outline-danger" onClick={logout}>
+              Cerrar Sesión
+            </Button>
+          </div>
+          </>
         ) : (
-          <Nav className="ml-auto">
+          <Nav className="ms-auto">
             <Button
               variant="outline-success"
               onClick={() => navigate("/login")}

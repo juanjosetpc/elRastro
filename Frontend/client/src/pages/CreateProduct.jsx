@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
+// import api2 from '../services/api2';
 import axios from "axios";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import "../styles/CreateProduct.css";
 
 
-export const CreateProduct = () => {
+export const CreateProduct = ({propEmail}) => {
   const cloudinary_cloud = process.env.REACT_APP_CLOUDINARY_CLOUD;
   const navigate = useNavigate();
   const [product, setProduct] = useState({
-    emailVendedor: '',
+    emailVendedor: propEmail,
     direccion: '',
     titulo: '',
     descripcion: '',
@@ -23,38 +24,40 @@ export const CreateProduct = () => {
     emailComprador: null,
 });
 
+// const [usuario, setUsuario] = useState(null);
+
 const { productoId } = useParams();
 
 useEffect(() => {
   const fetchData = async () => {
     try {
-      // Obtener los detalles del producto utilizando el ID
-      const response = await api.get(`/productos/${productoId}`);
-      const product = response.data;
+      if (productoId) {
+        // Obtener los detalles del producto utilizando el ID
+        const response = await api.get(`/productos/${productoId}`);
+        const product = response.data;
 
-      // Llenar el estado del producto con los datos recuperados
-      setProduct({
-        emailVendedor: product.emailVendedor,
-        direccion: product.direccion,
-        titulo: product.titulo,
-        descripcion: product.descripcion,
-        fechaInicio: product.fechaInicio,
-        precioInicio: product.precioInicio,
-        fotos: product.fotos,
-        fechaFin: product.fechaFin,
-        enSubasta: product.enSubasta,
-        pujaMayor: product.pujaMayor,
-        emailComprador: product.emailComprador,
-      });
+        // Restablecer el estado del producto con los datos recuperados
+        setProduct({
+          emailVendedor: propEmail,
+          direccion: product.direccion,
+          titulo: product.titulo,
+          descripcion: product.descripcion,
+          fechaInicio: product.fechaInicio,
+          precioInicio: product.precioInicio,
+          fotos: product.fotos,
+          fechaFin: product.fechaFin,
+          enSubasta: product.enSubasta,
+          pujaMayor: product.pujaMayor,
+          emailComprador: product.emailComprador,
+        });
+      }
+
     } catch (error) {
       console.error('Error fetching product details:', error);
     }
   };
 
-  // Solo cargar datos del producto si se proporciona un productoId válido
-  if (productoId) {
-    fetchData();
-  }
+  fetchData();
 }, [productoId]);
 
 const handleInputChange = (e) => {
@@ -101,6 +104,20 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
+
+    if (product.precioInicio <= 0) {
+      alert('El precio inicial debe ser mayor que 0.');
+      return;
+    }
+
+    const today = new Date();
+      const selectedEndDate = new Date(product.fechaFin);
+
+      if (selectedEndDate <= today) {
+        alert('La fecha de fin debe ser posterior a la fecha actual.');
+        return;
+      }
+
     if (product.emailVendedor.trim() === '') {
       alert('Por favor, ingresa el correo electronico.');
       return;
@@ -157,79 +174,78 @@ const handleSubmit = async (e) => {
       <form onSubmit={handleSubmit}>
 
       <label>
-          Email del vendedor<span style={{ fontWeight: 'bold' }}>*</span>
-          {' '}
-          <input
-            type = "email"
-            name= "emailVendedor"
-            value = {product.emailVendedor}
-            onChange={handleInputChange}
-            required
-          />
+          
+         <span style={{ fontWeight: 'bold' }}>Email del vendedor: </span> {propEmail}
+          
         </label>
 
         <br/><br/>
 
         <label>
-         Dirección (calle, codigo postal y ciudad)<span style={{ fontWeight: 'bold' }}>*</span>
-          {' '}
-          <input type="text"
-            name="direccion"
-            value={product.direccion}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <br/><br/>
-        <label>
-          Título
+          <span style={{ fontWeight: 'bold' }}>Título *</span><br/>
           {' '}
           <input
             type = "text"
             name= "titulo"
             value = {product.titulo}
             onChange={handleInputChange}
+            required
           />
         </label>
-
-        <br/>
-        <br/>
-  
+        <br/><br/>
         <label style={{ display: 'flex', flexDirection: 'column' }}>
-        Descripción
+          <span style={{ fontWeight: 'bold' }}>Descripción *</span>
+         
          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
           <textarea
             name="descripcion"
             value={product.descripcion}
            onChange={handleInputChange}
-            style={{ marginLeft: '5px', flexGrow: 1 }}  // Ajusta el margen y el crecimiento flex según sea necesario
+            style={{ marginLeft: '2px', flexGrow: 1 }}
+            required
          />
-        </div>
+          </div>
+        <br/>
+
           </label>
-        <br/>
-        <br/>
+          <label style={{ display: 'flex', flexDirection: 'column' }}>
 
+         <span style={{ fontWeight: 'bold' }}>Dirección (calle, código postal y ciudad) *</span>
+          {' '}
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+          <input type="text"
+            name="direccion"
+            value={product.direccion}
+            onChange={handleInputChange}
+            style={{ marginLeft: '2px', flexGrow: 1 }}
+            required
+          />
 
+            </div>
+        </label>
+        <br/>
         <label>
-          Fecha de fin
+          <span style={{ fontWeight: 'bold' }}>Fecha de fin  *</span><br/>
           {' '}
           <input 
             type="date"
             name="fechaFin"
             value={product.fechaFin}
             onChange={handleInputChange}
+            required
           />
         </label>
         <br/>
         <br/>
         <label>
-          Precio de inicio
+         <span style={{ fontWeight: 'bold' }}> Precio de inicio  *</span><br/>
           {' '}
           <input 
             type="number"
             name="precioInicio"
             value={product.precioInicio}
             onChange={handleInputChange}
+            required
           />
         </label>
         
@@ -238,7 +254,7 @@ const handleSubmit = async (e) => {
         <br/>
 
       <label>
-        Imágenes
+         <span style={{ fontWeight: 'bold' }}>Imágenes</span><br/>
         {' '}
       
         <input
@@ -248,6 +264,7 @@ const handleSubmit = async (e) => {
           multiple
           onChange={handleFileChange}
         />
+      <br/>
       <br/>
         <p style={{ color: 'red' }}><span style={{ fontWeight: 'bold' }}>IMPORTANTE:</span> Las imágenes seleccionadas serán subidas a Cloudinary</p>
       </label>
