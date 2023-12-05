@@ -6,7 +6,7 @@ import Login from './pages/Login';
 import CreateProduct from './pages/CreateProduct';
 import Perfil from './pages/Perfil';
 import ProductDetail from './pages/ProductDetail';
-import Mapa from './mapa/mapa';
+
 import Conversacion from './pages/Conversacion';
 import ListaChats from './pages/listaChats';
 //import buscarDireccion from './mapa/MapaApi';
@@ -75,7 +75,7 @@ const App = () => {
           path="/perfilOtraPersona/:emailVendedor" 
           element={isAuthenticated ? <PerfilOtraPersona propEmail={userEmail}/> : <Navigate to="/login" />}
         />
-        <Route path='/mapa' element={<Mapa direccion="Vialia Centro, Málaga"/>}> </Route>
+        
         <Route path='/conversacion/:comprador/:vendedor/:producto'  element={ isAuthenticated ? <Conversacion userEmail={userEmail} /> : <Navigate to="/login" /> } ></Route>
         <Route path='/chats/:usuario'  element={ isAuthenticated ? <ListaChats /> : <Navigate to="/login" /> } ></Route>
 

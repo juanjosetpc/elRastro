@@ -1,587 +1,240 @@
 [{
   "_id": {
-    "$oid": "6558900a5e894f182b38f795"
+    "$oid": "656efe5faa42fdb54846beee"
   },
   "producto": {
-    "$oid": "6547b7e54b545046b26d6ff1"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 215,
-  "emailPujador": "example8@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-18T10:20:58.124Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547bc472ce1b436cb20c7b7"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6fef"
+    "$oid": "656e399b6a92df82ebbcfb0c"
   },
   "emailVendedor": "vendedor1@example.com",
-  "cantidad": 505,
-  "emailPujador": "dfsdfsdfe2@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:01:11.455Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547bcd62ce1b436cb20c7ce"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff3"
-  },
-  "emailVendedor": "vendedor3@example.com",
-  "cantidad": 40,
-  "emailPujador": "dfsdfsdfe2@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:03:34.327Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547bda22ce1b436cb20c7ea"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff1"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 205,
-  "emailPujador": "example@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:06:58.567Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547be452ce1b436cb20c7f8"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff1"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 208,
-  "emailPujador": "example8@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:09:41.810Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6550f26b243203115c28cf58"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff1"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 210,
-  "emailPujador": "example8@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-12T15:42:35.729Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547bc2b2ce1b436cb20c7ab"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6fef"
-  },
-  "emailVendedor": "vendedor1@example.com",
-  "cantidad": 410,
-  "emailPujador": "example@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:00:43.644Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547bd432ce1b436cb20c7d7"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff2"
-  },
-  "emailVendedor": "vendedor3@example.com",
-  "cantidad": 30,
-  "emailPujador": "prueba@example.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:05:23.419Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547bd5c2ce1b436cb20c7dd"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff2"
-  },
-  "emailVendedor": "vendedor3@example.com",
-  "cantidad": 32,
-  "emailPujador": "example2@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:05:48.131Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547bd772ce1b436cb20c7e4"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff1"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 200,
-  "emailPujador": "example2@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:06:15.416Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547bc3b2ce1b436cb20c7b0"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6fef"
-  },
-  "emailVendedor": "vendedor1@example.com",
-  "cantidad": 430,
-  "emailPujador": "example2@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:00:59.048Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6547bcb02ce1b436cb20c7c8"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff3"
-  },
-  "emailVendedor": "vendedor3@example.com",
-  "cantidad": 30,
-  "emailPujador": "example@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-05T16:02:56.164Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "654a066f2bbe630cdac317cf"
-  },
-  "producto": {
-    "$oid": "654a03a6addb03e94356c15d"
-  },
-  "emailVendedor": "dfsdfsdfe2@uma.es",
-  "cantidad": 18,
-  "emailPujador": "example8@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-07T09:42:07.507Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6559fd365b4ff1fe939fcb5c"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6fef"
-  },
-  "emailVendedor": "vendedor1@example.com",
-  "cantidad": 506,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-19T12:19:02.763Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655a60fffecfcb90b1bf28f1"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff3"
-  },
-  "emailVendedor": "vendedor3@example.com",
-  "cantidad": 42,
-  "emailPujador": "example8@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-19T19:24:47.309Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655ba16d799766ac5d096f2e"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff3"
-  },
-  "emailVendedor": "vendedor3@example.com",
-  "cantidad": 50,
-  "emailPujador": "example8@uma.es",
-  "fechaYHora": {
-    "$date": "2023-11-20T18:11:57.359Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655f4258551498fe5aa48f26"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 200,
-  "emailPujador": "6547b7e54b545046b26d6ff4",
-  "fechaYHora": {
-    "$date": "2023-11-23T12:15:20.305Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655f4382551498fe5aa48f32"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 400,
-  "emailPujador": "6547b7e54b545046b26d6ff4",
-  "fechaYHora": {
-    "$date": "2023-11-23T12:20:18.853Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655f4ef94612fab9d5c93b64"
-  },
-  "producto": {
-    "$oid": "654a03a6addb03e94356c15d"
-  },
-  "emailVendedor": "dfsdfsdfe2@uma.es",
-  "cantidad": 3253,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T13:09:13.077Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655f50a74612fab9d5c93b7a"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff2"
-  },
-  "emailVendedor": "vendedor3@example.com",
-  "cantidad": 1000,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T13:16:23.367Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655f50d54612fab9d5c93b85"
-  },
-  "producto": {
-    "$oid": "655a0a6ae97a6b7f3df80944"
-  },
-  "emailVendedor": "vendedor3@example.com",
-  "cantidad": 100,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T13:17:09.437Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655f86590b5859d07690256e"
-  },
-  "producto": {
-    "$oid": "6549f5d4e79a8df3f18b5bc5"
-  },
-  "emailVendedor": "Graciela42@hotmail.com",
   "cantidad": 200,
   "emailPujador": "vendedor3@example.com",
   "fechaYHora": {
-    "$date": "2023-11-23T17:05:29.653Z"
+    "$date": "2023-12-05T10:41:35.677Z"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "655f96d8c540ebca37de92de"
+    "$oid": "656f096ebea06c75a69631c1"
   },
   "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
+    "$oid": "656f0865bea06c75a69630ff"
   },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 555,
-  "emailPujador": "vendedor3@example.com",
+  "emailVendedor": "vendedor3@example.com",
+  "cantidad": 180,
+  "emailPujador": "vendedor1@example.com",
   "fechaYHora": {
-    "$date": "2023-11-23T18:15:52.578Z"
+    "$date": "2023-12-05T11:28:46.320Z"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "655f96eac540ebca37de9427"
+    "$oid": "656f0afabea06c75a6963237"
   },
   "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 666,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T18:16:10.778Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655f9acec540ebca37df046f"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 777,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T18:32:46.908Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655f9be7c540ebca37df2687"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 888,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T18:37:27.832Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655f9d2cc540ebca37df4df1"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 999,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T18:42:52.471Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655fa08bc540ebca37dfb0a7"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 1000,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T18:57:15.000Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655fa56dc540ebca37e03500"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6fee"
+    "$oid": "656f0acfbea06c75a69631c9"
   },
   "emailVendedor": "vendedor1@example.com",
-  "cantidad": 70000,
+  "cantidad": 10,
   "emailPujador": "vendedor3@example.com",
   "fechaYHora": {
-    "$date": "2023-11-23T19:18:05.284Z"
+    "$date": "2023-12-05T11:35:22.684Z"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "655fa831c540ebca37e089cf"
+    "$oid": "656f0c2abea06c75a6963343"
   },
   "producto": {
-    "$oid": "6547b7e54b545046b26d6fee"
+    "$oid": "656f0865bea06c75a69630ff"
   },
-  "emailVendedor": "vendedor1@example.com",
-  "cantidad": 800000,
-  "emailPujador": "vendedor3@example.com",
+  "emailVendedor": "vendedor3@example.com",
+  "cantidad": 190,
+  "emailPujador": "vendedor2@example.com",
   "fechaYHora": {
-    "$date": "2023-11-23T19:29:53.138Z"
+    "$date": "2023-12-05T11:40:26.660Z"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "655fa84ec540ebca37e08b89"
+    "$oid": "656f0c42bea06c75a6963350"
   },
   "producto": {
-    "$oid": "6547b7e54b545046b26d6fee"
-  },
-  "emailVendedor": "vendedor1@example.com",
-  "cantidad": 999999,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T19:30:22.773Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655fc307c13e58c0b95d0004"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff1"
+    "$oid": "656f0c1bbea06c75a696330b"
   },
   "emailVendedor": "vendedor2@example.com",
-  "cantidad": 500,
-  "emailPujador": "vendedor3@example.com",
+  "cantidad": 25,
+  "emailPujador": "vendedor1@example.com",
   "fechaYHora": {
-    "$date": "2023-11-23T21:24:23.244Z"
+    "$date": "2023-12-05T11:40:50.376Z"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "655fc326c13e58c0b95d000c"
+    "$oid": "656f76ebaa5e6ee294f5dba2"
   },
   "producto": {
-    "$oid": "6547b7e54b545046b26d6ff1"
+    "$oid": "656f0931bea06c75a6963143"
   },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 501,
-  "emailPujador": "vendedor3@example.com",
+  "emailVendedor": "vendedor3@example.com",
+  "cantidad": 300,
+  "emailPujador": "vendedor1@example.com",
   "fechaYHora": {
-    "$date": "2023-11-23T21:24:54.152Z"
+    "$date": "2023-12-05T19:15:55.677Z"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "655fc452c13e58c0b95d0012"
+    "$oid": "656f77ddaa5e6ee294f5dc5d"
   },
   "producto": {
-    "$oid": "6547b7e54b545046b26d6ff1"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 503,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T21:29:54.201Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655fc45ec13e58c0b95d001d"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 1001,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T21:30:06.425Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "655fc554c13e58c0b95d002a"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff4"
-  },
-  "emailVendedor": "vendedor2@example.com",
-  "cantidad": 1002,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-23T21:34:12.543Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "656078de9a8caf44bcef4a2f"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6fef"
-  },
-  "emailVendedor": "vendedor1@example.com",
-  "cantidad": {
-    "$numberLong": "10000000000000000"
-  },
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-24T10:20:14.816Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "656079579a8caf44bcef4a3c"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6fee"
-  },
-  "emailVendedor": "vendedor1@example.com",
-  "cantidad": 1000000,
-  "emailPujador": "vendedor3@example.com",
-  "fechaYHora": {
-    "$date": "2023-11-24T10:22:15.159Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6561ca7f8271ed09c8affaba"
-  },
-  "producto": {
-    "$oid": "6547b7e54b545046b26d6ff0"
+    "$oid": "656f77b2aa5e6ee294f5dbb2"
   },
   "emailVendedor": "vendedor1@example.com",
   "cantidad": 150,
+  "emailPujador": "vendedor2@example.com",
+  "fechaYHora": {
+    "$date": "2023-12-05T19:19:57.826Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f905671cb1f30db054769"
+  },
+  "producto": {
+    "$oid": "656f2da10b5ef72c95ee6556"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "cantidad": 50,
   "emailPujador": "vendedor3@example.com",
   "fechaYHora": {
-    "$date": "2023-11-25T10:20:47.033Z"
+    "$date": "2023-12-05T21:04:22.427Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f906671cb1f30db054784"
+  },
+  "producto": {
+    "$oid": "656f8c7771cb1f30db054550"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "cantidad": 90,
+  "emailPujador": "vendedor3@example.com",
+  "fechaYHora": {
+    "$date": "2023-12-05T21:04:38.571Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f907f71cb1f30db05479b"
+  },
+  "producto": {
+    "$oid": "656f8d9771cb1f30db0545c2"
+  },
+  "emailVendedor": "vendedor2@example.com",
+  "cantidad": 4,
+  "emailPujador": "vendedor3@example.com",
+  "fechaYHora": {
+    "$date": "2023-12-05T21:05:03.650Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f93a78cb0b2c87a5da5d0"
+  },
+  "producto": {
+    "$oid": "656f8d1f71cb1f30db054589"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "cantidad": 16,
+  "emailPujador": "vendedor2@example.com",
+  "fechaYHora": {
+    "$date": "2023-12-05T21:18:31.597Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f93af8cb0b2c87a5da5db"
+  },
+  "producto": {
+    "$oid": "656f8d1f71cb1f30db054589"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "cantidad": 18,
+  "emailPujador": "vendedor3@example.com",
+  "fechaYHora": {
+    "$date": "2023-12-05T21:18:39.057Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f93ba8cb0b2c87a5da5e6"
+  },
+  "producto": {
+    "$oid": "656f8d1f71cb1f30db054589"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "cantidad": 20,
+  "emailPujador": "vendedor2@example.com",
+  "fechaYHora": {
+    "$date": "2023-12-05T21:18:50.531Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f93c38cb0b2c87a5da5f1"
+  },
+  "producto": {
+    "$oid": "656f8d1f71cb1f30db054589"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "cantidad": 21,
+  "emailPujador": "vendedor2@example.com",
+  "fechaYHora": {
+    "$date": "2023-12-05T21:18:59.774Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f93c98cb0b2c87a5da5f9"
+  },
+  "producto": {
+    "$oid": "656f8d1f71cb1f30db054589"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "cantidad": 22,
+  "emailPujador": "vendedor2@example.com",
+  "fechaYHora": {
+    "$date": "2023-12-05T21:19:05.782Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f93ce8cb0b2c87a5da5ff"
+  },
+  "producto": {
+    "$oid": "656f8d1f71cb1f30db054589"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "cantidad": 25,
+  "emailPujador": "vendedor2@example.com",
+  "fechaYHora": {
+    "$date": "2023-12-05T21:19:10.932Z"
   },
   "__v": 0
 }]

@@ -13,7 +13,8 @@ const usuarioSchema = new mongoose.Schema({
     }],
     valoracion : {
         type: Number,
-        set: (v) => parseFloat(v.toFixed(2))
+        set: (v) => parseFloat(v.toFixed(2)),
+        default: 0
     },
 });
 
