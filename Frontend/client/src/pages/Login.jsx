@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../services/api';
+import api2 from '../services/api2';
+
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -14,17 +15,17 @@ const Login = ({ onLogin }) => {
       }
 
       // Realiza la solicitud al backend para obtener los productos del usuario
-      const response = await api.get(`/productos/ofertados/${email}`);
+      const usuario = await api2.get(`/usuarios/${email}`);
 
       // Verifica si el usuario tiene productos
-      if (response.data.length > 0) {
+      if (usuario) {
         // Llama a la función onLogin para pasar el correo electrónico
         onLogin(email);
 
         // Navega a la página de inicio después del inicio de sesión
         navigate('/');
       } else {
-        alert('Este usuario no tiene productos.');
+        alert('Este usuario no existe.');
       }
     } catch (error) {
       console.error('Error en la solicitud de productos:', error);

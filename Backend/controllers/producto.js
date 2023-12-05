@@ -274,6 +274,7 @@ const getProductsFilter = async (req, res) => {
 const actualizaDesiertas = async () => {
   try {
     const productos = await Producto.find({ enSubasta: true, fechaFin: { $lt: new Date() }, pujaMayor: 0 });
+    console.log("Elementos a actualizar: " + productos);
     for (const producto of productos) {
       producto.fechaFin = new Date(producto.fechaFin.getTime() + producto.fechaFin.getTime() - producto.fechaInicio.getTime());
       producto.fechaInicio = new Date();
@@ -306,7 +307,6 @@ const getComprados = async (req, res) => {
   try {
     const productos = await Producto.find({
       emailComprador: email,
-      emailComprador : { $ne: null, $exists: true },
       //fechaFin : { $lt: new Date() },
       valoradoPorComprador: false,
     })

@@ -86,6 +86,7 @@ const ProductDetail = ({ propEmail }) => {
           {/* Renderiza los detalles del producto aquí utilizando el estado producto */}
           <h1>{producto.titulo}</h1>
           <h3>{producto.emailVendedor}</h3>
+          <h3>{producto.descripcion}</h3>
           <br/>
           <br/>
           <br/>
