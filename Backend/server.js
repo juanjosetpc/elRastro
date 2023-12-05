@@ -37,7 +37,7 @@ app.listen(PORT, () => {
   try {
     console.log(colors.cyan("Actualizando subastas desiertas, si las hay..."));
     await actualizaDesiertas();
-    await closeConversation();
+    //await closeConversation();
     await actualizarSubastasExito();
     
   } catch (error) {

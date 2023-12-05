@@ -9,7 +9,7 @@ import ProductDetail from './pages/ProductDetail';
 import Mapa from './mapa/mapa';
 import Conversacion from './pages/Conversacion';
 import ListaChats from './pages/listaChats';
-import buscarDireccion from './mapa/MapaApi';
+//import buscarDireccion from './mapa/MapaApi';
 import ValorarPerfil from './pages/ValorarPerfil';
 import PerfilOtraPersona from './pages/PerfilOtraPersona';
 
