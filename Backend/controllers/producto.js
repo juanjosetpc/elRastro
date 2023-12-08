@@ -215,7 +215,7 @@ const getProductsBuying = async (req, res) => {
   const email = req.params.email;
   try {
     const idsProductos = await Puja.distinct("producto", { emailPujador: email });
-    const productosPujados = await Producto.find({ _id: { $in: idsProductos } });
+    const productosPujados = await Producto.find({ _id: { $in: idsProductos }, enSubasta: true });
     
     res.json(productosPujados);
     
