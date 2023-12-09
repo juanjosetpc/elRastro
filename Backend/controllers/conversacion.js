@@ -77,24 +77,21 @@ const updateConversation = async (req, res) => {
   }
 };
 
-const closeConversation = async (req, res) => {
+const closeConversation = async () => {
   try {
     // Obtener todas las conversaciones abiertas
-    const conversacionesAbiertas = await Conversacion.find({ abierto: true });
-
-    // Obtener la fecha y hora actual
-    const ahora = new Date();
-
+    const conversacionesAbiertas = await Conversacion.find({ abierta: true });    
     // Iterar sobre cada conversación y cerrarla si el tiempo de puja ha terminado
     for (const conversacion of conversacionesAbiertas) {
       // Buscar el producto asociado a la conversación por su título
-      const producto = await Producto.findOne({ titulo: conversacion.producto });
-
-      if (producto && producto.fechaFinalizacion && producto.fechaFinalizacion < ahora) {
+      
+      const producto = await Producto.findOne({ titulo: conversacion.producto, fechaFin: { $lte: new Date() } });
+      
+      if (producto) {
         // Actualizar la conversación a cerrada
         await Conversacion.findByIdAndUpdate(
           conversacion._id,
-          { abierto: false },
+          { abierta: false },
           { new: true }
         );
 
@@ -102,10 +99,9 @@ const closeConversation = async (req, res) => {
       }
     }
 
-    res.status(200).json({ mensaje: 'Conversaciones cerradas' });
+    console.log('Conversaciones cerradas');
   } catch (error) {
-    console.error(colors.red('Error al cerrar las conversaciones. Error msg: ' + error.message));
-    res.status(500).json({ error: 'Error al cerrar las conversaciones' });
+    console.log(colors.red("Error al cerrar conversaciones. " + error.message));
   }
 };
 
