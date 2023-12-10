@@ -1,0 +1,181 @@
+[{
+  "_id": {
+    "$oid": "6574753ed044cf08817c91b0"
+  },
+  "vendedor": "vendedor1@example.com",
+  "comprador": "vendedor3@example.com",
+  "abierta": true,
+  "producto": "Mesa",
+  "mensajes": [
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:10:37.283Z"
+      },
+      "contenido": "¿ Es de roble europeo ?",
+      "_id": {
+        "$oid": "6574755dd044cf08817c91b2"
+      }
+    },
+    {
+      "emisor": "vendedor1@example.com",
+      "receptor": "vendedor3@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:12:33.864Z"
+      },
+      "contenido": "Sí",
+      "_id": {
+        "$oid": "657475d1d044cf08817c9232"
+      }
+    },
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:17:08.392Z"
+      },
+      "contenido": "Perfecto",
+      "_id": {
+        "$oid": "657476e4d044cf08817c93ba"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65747566d044cf08817c91bb"
+  },
+  "vendedor": "vendedor1@example.com",
+  "comprador": "vendedor3@example.com",
+  "abierta": true,
+  "producto": "Camiseta negra",
+  "mensajes": [
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:11:05.303Z"
+      },
+      "contenido": "¿ Es de lana ?",
+      "_id": {
+        "$oid": "65747579d044cf08817c91c1"
+      }
+    },
+    {
+      "emisor": "vendedor1@example.com",
+      "receptor": "vendedor3@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:12:49.633Z"
+      },
+      "contenido": "Sí",
+      "_id": {
+        "$oid": "657475e1d044cf08817c928a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65747581d044cf08817c91ca"
+  },
+  "vendedor": "vendedor1@example.com",
+  "comprador": "vendedor3@example.com",
+  "abierta": true,
+  "producto": "Silla gamer",
+  "mensajes": [
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:11:37.342Z"
+      },
+      "contenido": "¿ Cuántos años ha sido utilizada ?",
+      "_id": {
+        "$oid": "65747599d044cf08817c91cc"
+      }
+    },
+    {
+      "emisor": "vendedor1@example.com",
+      "receptor": "vendedor3@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:12:41.884Z"
+      },
+      "contenido": "2",
+      "_id": {
+        "$oid": "657475d9d044cf08817c925e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "657475e8d044cf08817c9294"
+  },
+  "vendedor": "vendedor3@example.com",
+  "comprador": "vendedor1@example.com",
+  "abierta": true,
+  "producto": "Moto",
+  "mensajes": [
+    {
+      "emisor": "vendedor1@example.com",
+      "receptor": "vendedor3@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:13:21.990Z"
+      },
+      "contenido": "¿ Año de fabricación ?",
+      "_id": {
+        "$oid": "65747602d044cf08817c929a"
+      }
+    },
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:15:36.861Z"
+      },
+      "contenido": "2016",
+      "_id": {
+        "$oid": "65747688d044cf08817c9359"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65747616d044cf08817c92a3"
+  },
+  "vendedor": "vendedor3@example.com",
+  "comprador": "vendedor1@example.com",
+  "abierta": true,
+  "producto": "iPhone X",
+  "mensajes": [
+    {
+      "emisor": "vendedor1@example.com",
+      "receptor": "vendedor3@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:14:01.734Z"
+      },
+      "contenido": "¿ Cantidad de RAM ?",
+      "_id": {
+        "$oid": "65747629d044cf08817c92a9"
+      }
+    },
+    {
+      "emisor": "vendedor3@example.com",
+      "receptor": "vendedor1@example.com",
+      "fecha": {
+        "$date": "2023-12-09T14:16:36.835Z"
+      },
+      "contenido": "4 GB",
+      "_id": {
+        "$oid": "657476c4d044cf08817c9387"
+      }
+    }
+  ],
+  "__v": 0
+}]

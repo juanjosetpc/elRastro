@@ -1,0 +1,311 @@
+[{
+  "_id": {
+    "$oid": "656f07b9bea06c75a69630e8"
+  },
+  "emailVendedor": "vendedor3@example.com",
+  "direccion": "Calle Aben Canes,13002, Ciudad Real",
+  "titulo": "Moto",
+  "descripcion": "Moto de 50.000 km en muy buen estado, sin roces, de color amarillo",
+  "fechaInicio": {
+    "$date": "2023-12-05T20:37:18.280Z"
+  },
+  "fechaFin": {
+    "$date": "2023-12-20T00:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 1500,
+  "fotos": [
+    "https://res.cloudinary.com/ddfymuj4y/image/upload/v1701775288/elRastro/aldfzgj9e5bsiqhc9k1w.jpg"
+  ],
+  "emailComprador": null,
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f0865bea06c75a69630ff"
+  },
+  "emailVendedor": "vendedor3@example.com",
+  "direccion": "Calle Cogujada, 29007, Málaga",
+  "titulo": "iPhone X",
+  "descripcion": "Vendo mi móvil antiguo porque me he comprado uno nuevo, no tiene roces y es de color blanco.",
+  "fechaInicio": {
+    "$date": "2023-12-05T11:24:26.959Z"
+  },
+  "fechaFin": {
+    "$date": "2024-01-19T00:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 190,
+  "precioInicio": 175,
+  "fotos": [
+    "https://res.cloudinary.com/ddfymuj4y/image/upload/v1701775460/elRastro/mkmsrg7wwkhd3qrgcej7.jpg",
+    "https://res.cloudinary.com/ddfymuj4y/image/upload/v1701775460/elRastro/xygrk417emewump8fzcs.jpg"
+  ],
+  "emailComprador": null,
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f0acfbea06c75a69631c9"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Actor Arturo Lledo, 03008, Alicante",
+  "titulo": "Joyas",
+  "descripcion": "Estas cosas me las regalo mi ex y lo acabamos de dejar y no quiero nada suyo, las vendo baratas para olvidarme de él.",
+  "fechaInicio": {
+    "$date": "2023-12-05T11:34:55.583Z"
+  },
+  "fechaFin": {
+    "$date": "2023-12-05T12:02:00.000Z"
+  },
+  "enSubasta": false,
+  "pujaMayor": 10,
+  "precioInicio": 8,
+  "fotos": [
+    "https://res.cloudinary.com/ddfymuj4y/image/upload/v1701776070/elRastro/yyucmt97i6n8a3go57oa.jpg",
+    "https://res.cloudinary.com/ddfymuj4y/image/upload/v1701776072/elRastro/zjmxhstmsv3sa1jqdapt.jpg"
+  ],
+  "emailComprador": "vendedor3@example.com",
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f0c1bbea06c75a696330b"
+  },
+  "emailVendedor": "vendedor2@example.com",
+  "direccion": "Calle Alhambra, 50022, Zaragoza",
+  "titulo": "Canasta",
+  "descripcion": "Vendo canasta de baloncesto porque ya no la utilizo y me ocupa mucho espacio.",
+  "fechaInicio": {
+    "$date": "2023-12-05T11:40:15.139Z"
+  },
+  "fechaFin": {
+    "$date": "2023-12-05T11:51:00.000Z"
+  },
+  "enSubasta": false,
+  "pujaMayor": 25,
+  "precioInicio": 15,
+  "fotos": [],
+  "emailComprador": "vendedor1@example.com",
+  "valoradoPorComprador": true,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f2da10b5ef72c95ee6556"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Larios 3, 29005,Malaga",
+  "titulo": "Mesa",
+  "descripcion": "Mesa de madera de roble",
+  "fechaInicio": {
+    "$date": "2023-12-05T14:03:15.903Z"
+  },
+  "fechaFin": {
+    "$date": "2023-12-12T00:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 50,
+  "precioInicio": 45,
+  "fotos": [],
+  "emailComprador": null,
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f0931bea06c75a6963143"
+  },
+  "emailVendedor": "vendedor3@example.com",
+  "direccion": "Calle Comandante, 29005, Málaga",
+  "titulo": "Bicicleta",
+  "descripcion": "Vendo bicicleta en buen estado con poco uso.",
+  "fechaInicio": {
+    "$date": "2023-12-05T19:10:00.966Z"
+  },
+  "fechaFin": {
+    "$date": "2023-12-05T19:17:00.435Z"
+  },
+  "enSubasta": false,
+  "pujaMayor": 300,
+  "precioInicio": 56.7,
+  "fotos": [],
+  "emailComprador": "vendedor1@example.com",
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f77b2aa5e6ee294f5dbb2"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Larios 3, 29005,Malaga",
+  "titulo": "Probar",
+  "descripcion": "A",
+  "fechaInicio": {
+    "$date": "2023-12-05T19:19:22.230Z"
+  },
+  "fechaFin": {
+    "$date": "2023-12-05T19:21:00.000Z"
+  },
+  "enSubasta": false,
+  "pujaMayor": 150,
+  "precioInicio": 10,
+  "fotos": [],
+  "emailComprador": "vendedor2@example.com",
+  "valoradoPorComprador": true,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f89f271cb1f30db054461"
+  },
+  "emailVendedor": "vendedor3@example.com",
+  "direccion": "Calle Larios 15, 29005,Malaga",
+  "titulo": "Máquina de escribir",
+  "descripcion": "Vendo una máquina de escribir para rememorar viejos tiempos y poder escribir tus historias y contárselas a los mas pequeños.",
+  "fechaInicio": {
+    "$date": "2023-12-05T20:37:11.148Z"
+  },
+  "fechaFin": {
+    "$date": "2024-01-16T00:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 25,
+  "fotos": [
+    "https://res.cloudinary.com/ddfymuj4y/image/upload/v1701808624/elRastro/jiknsmsxtlliqkfnifze.jpg"
+  ],
+  "emailComprador": null,
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f8c7771cb1f30db054550"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Reconquista, 50001, Zaragoza",
+  "titulo": "Juego de mesas y sillas",
+  "descripcion": "Vendo 4 sillas de madera con su correspondiente mesa en perfecto estado, nos mudamos.",
+  "fechaInicio": {
+    "$date": "2023-12-05T20:47:55.592Z"
+  },
+  "fechaFin": {
+    "$date": "2024-01-29T00:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 90,
+  "precioInicio": 85,
+  "fotos": [],
+  "emailComprador": null,
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f8d1f71cb1f30db054589"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Abalos, 28043, Madrid",
+  "titulo": "Camiseta negra",
+  "descripcion": "Vendo una camiseta negra XL de la marca PULL&BEAR porque me va grande y no la puedo devolver porque he perdido el ticket",
+  "fechaInicio": {
+    "$date": "2023-12-05T20:50:42.877Z"
+  },
+  "fechaFin": {
+    "$date": "2024-02-06T00:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 25,
+  "precioInicio": 15,
+  "fotos": [],
+  "emailComprador": null,
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f8d9771cb1f30db0545c2"
+  },
+  "emailVendedor": "vendedor2@example.com",
+  "direccion": "Calle Agustin Calvo, 28043, Madrid",
+  "titulo": "Camiseta blanca",
+  "descripcion": "Camiseta blanca que me regalaron pero no me gusta y no tengo el ticket regalo.",
+  "fechaInicio": {
+    "$date": "2023-12-05T20:52:42.000Z"
+  },
+  "fechaFin": {
+    "$date": "2024-02-05T00:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 4,
+  "precioInicio": 3,
+  "fotos": [],
+  "emailComprador": null,
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f8fdb71cb1f30db0546b9"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Larios 3, 29005,Malaga",
+  "titulo": "Silla gamer",
+  "descripcion": "Vendo silla gamer porque mi madre me ha comprado otra nueva",
+  "fechaInicio": {
+    "$date": "2023-12-05T21:02:22.946Z"
+  },
+  "fechaFin": {
+    "$date": "2024-01-23T00:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 80,
+  "fotos": [
+    "https://res.cloudinary.com/ddfymuj4y/image/upload/v1701810136/elRastro/frhdlm1be7ngerjsugql.jpg"
+  ],
+  "emailComprador": null,
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "656f923f8cb0b2c87a5da492"
+  },
+  "emailVendedor": "vendedor1@example.com",
+  "direccion": "Calle Agustin Calvo, 28043, Madrid",
+  "titulo": "Balón futbol",
+  "descripcion": "Para el cumpleaños de mi hijo le han regalado 4 balones y no los quiero por casa",
+  "fechaInicio": {
+    "$date": "2023-12-05T21:14:09.976Z"
+  },
+  "fechaFin": {
+    "$date": "2023-12-07T00:00:00.000Z"
+  },
+  "enSubasta": true,
+  "pujaMayor": 0,
+  "precioInicio": 10,
+  "fotos": [],
+  "emailComprador": null,
+  "valoradoPorComprador": false,
+  "valoradoPorVendedor": false,
+  "__v": 0
+}]

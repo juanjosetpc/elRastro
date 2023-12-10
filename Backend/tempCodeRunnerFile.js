@@ -1,3 +1,1 @@
-mongoose.once('open', () => {
-  console.log('Conectado a la base de datos MongoDB');
-});
+mongoose.connect(process.env.MONGO_URI);

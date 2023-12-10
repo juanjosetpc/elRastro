@@ -1,0 +1,9 @@
+La ruta del mapa la he dejado puesta para quien se encargue del mapa para que  no se pierda y sepa que está ahi.
+Luego se quitará ese enlace del navbar.
+
+He dejado algunos comentarios en ciertos sitios para explicar algunas cosas concretas de react que he ido aprendiendo sobre la marcha
+aunque de momento no hay nada demasiado complejo.
+
+Al AuthContext no le presteis mucha atención, la protección de las rutes, el login y el logout quería hacerlo con eso que creo que es lo más correcto.
+Pero no he conseguido hacerlo bien del todo y que aparte no quede muy complejo de entender para cuando lo mireis ya que tenemos nivel nulo de react
+y poco tiempo. Asique centraros en usar los hooks precisos y no monteis mucha parafernalia sino es necesario. 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import api from '../services/api';
+import "..styles/ProductList.css";
 
 const ProductList = () => {
   //Aqui lo que se hace es almacenar en productos el estado actual. Inicialmente []
@@ -17,12 +18,8 @@ useEffect(() => {
     try {
       const { data } = await api.get('/productos');
 
-      // Verifica si 'data' es un array antes de usar 'map'
-      if (Array.isArray(data)) {
-        setProductos(data);
-      } else {
-        console.error('Los datos de productos no son un array:', data);
-      }
+      setProductos(data);
+     
     } catch (error) {
       console.error('Error fetching productos:', error);
     }
@@ -36,12 +33,13 @@ useEffect(() => {
   //Si tuviera dependencias, el efecto se ejecutaría cada vez que una de esas dependencias cambie.
 
   return (
-    <div>
-      <ul>
+    <div className='products'>
+      <div className='product-grid'>
+
         {productos.map((producto) => (
-          <ProductCard key={producto.id} producto={producto} />
-        ))}
-      </ul>
+          <ProductCard key={producto._id} producto={producto} />
+          ))}
+          </div>
     </div>
   );
 };

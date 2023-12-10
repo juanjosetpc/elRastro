@@ -1,3 +1,7 @@
 node_modules
 .idea
 .env
+configCloudinary.txt
+.gitignore
+.dockerignore
+compose.yaml

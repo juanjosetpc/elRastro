@@ -1,0 +1,118 @@
+[{
+  "_id": {
+    "$oid": "655fb7a0878d77399f85ceab"
+  },
+  "email": "vendedor1@example.com",
+  "nombre": "Juan",
+  "apellido": "García",
+  "ciudad": "Madrid",
+  "calle": "Gran Vía",
+  "codigoPostal": 28013,
+  "resenas": [
+    {
+      "nota": 4,
+      "descripcion": "Buen servicio, excelente ubicación."
+    },
+    {
+      "nota": 5,
+      "descripcion": "Volvería a comprar aquí."
+    },
+    {
+      "nota": 5,
+      "descripcion": "Muy bueno",
+      "_id": {
+        "$oid": "655fb83bb0604b46a0785ab6"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "Tardo mucho en responder a mis mensajes",
+      "_id": {
+        "$oid": "655fb8cfb0604b46a0785b79"
+      }
+    },
+    {
+      "nota": 5,
+      "descripcion": "Perfecto",
+      "_id": {
+        "$oid": "6560843bbdb6f293fc68276a"
+      }
+    },
+    {
+      "nota": 1,
+      "descripcion": "guay",
+      "_id": {
+        "$oid": "65622b1b6601e2036562e920"
+      }
+    }
+  ],
+  "__v": 24,
+  "valoracion": 2.68
+},
+{
+  "_id": {
+    "$oid": "655fb7a0878d77399f85ceae"
+  },
+  "email": "vendedor2@example.com",
+  "nombre": "Laura",
+  "apellido": "López",
+  "ciudad": "Valencia",
+  "calle": "Carrer de Colón",
+  "codigoPostal": 46004,
+  "resenas": [
+    {
+      "nota": 4,
+      "descripcion": "Buena relación calidad-precio."
+    },
+    {
+      "nota": 2,
+      "descripcion": "Tardaron en entregar el pedido."
+    },
+    {
+      "nota": 2,
+      "descripcion": "La silla que compre estaba coja.",
+      "_id": {
+        "$oid": "655fb7cb505897ad1a8c443c"
+      }
+    },
+    {
+      "nota": 4,
+      "descripcion": "Muy bien todo el proceso",
+      "_id": {
+        "$oid": "656f122e6ae1a56ab9ea8088"
+      }
+    }
+  ],
+  "__v": 3,
+  "valoracion": 2.8
+},
+{
+  "_id": {
+    "$oid": "6561f2cf5725c85d8d2e4891"
+  },
+  "email": "vendedor3@example.com",
+  "nombre": "Alberto",
+  "apellido": "Montoya",
+  "ciudad": "Madrid",
+  "calle": "Gran Vía",
+  "codigoPostal": 28013,
+  "resenas": [
+    {
+      "nota": 4,
+      "descripcion": "Buen servicio, excelente ubicación."
+    },
+    {
+      "nota": 5,
+      "descripcion": "Volvería a comprar aquí."
+    },
+    {
+      "nota": 4,
+      "descripcion": "Espectacular servicio",
+      "_id": {
+        "$oid": "6561f2e95a98aaeceb3264c2"
+      }
+    }
+  ],
+  "__v": 1,
+  "valoracion": 4.33
+}]

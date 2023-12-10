@@ -1,0 +1,56 @@
+.conversacion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Esto asegura que el contenedor ocupe toda la altura de la pantalla */
+  }
+  
+ 
+  .mensaje {
+    margin-bottom: 10px;
+  }
+
+  .mensaje-izquierda {
+    background-color: #aaf; /* Color para mensajes a la izquierda */
+    text-align: left;
+  }
+  
+  .mensaje-derecha {
+    background-color: #afa; /* Color para mensajes a la derecha */
+    text-align: right;
+  }
+  
+  .input-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .textarea-estilizada {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: auto;
+    transition: border-color 0.3s ease;
+    max-height: 200px;
+    min-height: 80px;
+  }
+  
+  .textarea-estilizada:hover {
+    border-color: #888;
+  }
+  
+  .boton-enviar {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
