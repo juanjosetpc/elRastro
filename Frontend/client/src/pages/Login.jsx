@@ -1,50 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api2 from '../services/api2';
-
+import auth from '../services/auth';
+import {jwtDecode} from 'jwt-decode';
 
 const Login = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
-  const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      if (email.trim() === '') {
-        alert('Por favor, ingresa tu correo electrónico.');
-        return;
+    const navigate = useNavigate();
+
+    async function handleCallbackRespones(res) {
+      console.log("Encoded JWT ID token: " + res.credential);
+      var user = jwtDecode(res.credential);
+      console.log(user);
+      localStorage.setItem("token", res.credential); // Guarda el token en localStorage
+      onLogin(user, res.credential);
+
+      try {
+        const response = await auth.post("/logged", { token: res.credential });
+        if(response.status === 200){
+            navigate("/");
+        }
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error al enviar el token al backend", error);
       }
-
-      // Realiza la solicitud al backend para obtener los productos del usuario
-      const usuario = await api2.get(`/usuarios/${email}`);
-
-      // Verifica si el usuario tiene productos
-      if (usuario) {
-        // Llama a la función onLogin para pasar el correo electrónico
-        onLogin(email);
-
-        // Navega a la página de inicio después del inicio de sesión
-        navigate('/');
-      } else {
-        alert('Este usuario no existe.');
-      }
-    } catch (error) {
-      console.error('Error en la solicitud de productos:', error);
-      alert('Hubo un error al obtener los productos. Por favor, inténtalo de nuevo.');
     }
-  };
+
+  useEffect(() => {
+    /*global google*/
+    google.accounts.id.initialize({
+      client_id: process.env.REACT_APP_CLIENT_ID,
+      callback: handleCallbackRespones,
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("sigInDiv"),
+      { theme: "outline", size: "large" }
+    );
+  }, []);
 
   return (
-    <div>
-      <h2>Iniciar Sesión</h2>
-      <label htmlFor="email">Correo Electrónico:</label>
-      <input
-        type="email"
-        id="email"
-        placeholder="Ingresa tu correo electrónico"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <button onClick={handleLogin}>Iniciar Sesión</button>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <div id="sigInDiv"></div>
     </div>
   );
 };

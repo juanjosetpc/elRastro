@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar as BootstrapNavbar, Nav, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = ({ isAuthenticated, userEmail, logout }) => {
+const Navbar = ({ userEmail, logout }) => {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ const Navbar = ({ isAuthenticated, userEmail, logout }) => {
       </BootstrapNavbar.Brand>
       <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
       <BootstrapNavbar.Collapse id="basic-navbar-nav">
-        {isAuthenticated ? (
+        {userEmail ? (
           <>
           <Nav className="ml-auto">
             <Nav.Link as={Link} to="/crear-producto">
