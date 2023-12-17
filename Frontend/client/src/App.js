@@ -68,8 +68,6 @@ const App = () => {
   return (
     <div>
       <Navbar
-        // isAuthenticated={isAuthenticated}
-        // userEmail={userEmail}
         userEmail={user}
         logout={handleLogout}
       />

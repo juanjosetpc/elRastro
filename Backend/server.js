@@ -8,6 +8,7 @@ const v1ExternosRouter = require("./v1/routes/externosRoutes");
 const v2ProductRouter = require("./v2/routes/productRoutes2");
 const v2ExternosRouter = require("./v2/routes/externosRoutes2");
 const v2Conversaciones = require("./v2/routes/conversacionRoutes");
+const authRouter = require("./v2/routes/authRoutes");
 const cron = require("node-cron");
 const { actualizaDesiertas, actualizarSubastasExito } = require("./controllers/producto");
 const v2UsuarioRouter = require("./v2/routes/usuarioRoutes2");
@@ -15,7 +16,11 @@ const {closeConversation} = require("./controllers/conversacion");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(cors());
+app.use(cors({
+  origin: process.env.BASE_URL, 
+  credentials: true,
+}));
+
 app.use(express.json({ limit: '50mb' }));
 
 app.use("/api/v1/productos", v1ProductRouter);
@@ -25,6 +30,7 @@ app.use("/api/v1/externos", v1ExternosRouter);
 app.use("/api/v2/externos", v2ExternosRouter);
 app.use("/api/v2/usuarios", v2UsuarioRouter);
 app.use("/api/v2/conversaciones", v2Conversaciones);
+app.use("/auth", authRouter);
 
 app.listen(PORT, () => {
   console.log(colors.bgGreen(`Server is running on port ${PORT}`));
@@ -33,17 +39,17 @@ app.listen(PORT, () => {
 
 // Actualiza las subastas desiertas y finaliza y notifica a los usuarios de las subastas terminadas con exito.
  //Se ejecuta cada 15 min
- cron.schedule("*/15 * * * *", async () => {
-  try {
-    console.log(colors.cyan("Actualizando subastas desiertas, si las hay..."));
-    await actualizaDesiertas();
-    await closeConversation();
-    await actualizarSubastasExito();
+//  cron.schedule("*/15 * * * *", async () => {
+//   try {
+//     console.log(colors.cyan("Actualizando subastas desiertas, si las hay..."));
+//     await actualizaDesiertas();
+//     await closeConversation();
+//     await actualizarSubastasExito();
     
-  } catch (error) {
-    console.error('Error en la función cron:', error);
-  }
-});
+//   } catch (error) {
+//     console.error('Error en la función cron:', error);
+//   }
+// });
 
 
 const mongoose = require("mongoose");

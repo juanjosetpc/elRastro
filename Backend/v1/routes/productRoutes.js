@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-
+const authMiddleware = require("../../middleware/authMiddleware");
 const productoController = require("../../controllers/producto");
 
+router.use(authMiddleware); 
 //Querys simples sobre productos
 router.get("/ensubasta", productoController.getProductsByDescription); //Producto en subasta a partir de (parte de ) su descripción
 router.get("/ofertados/:email", productoController.getProductsByUserDescByDate); //Obtener productos ofertados por un usuario descendente por fecha de inicio

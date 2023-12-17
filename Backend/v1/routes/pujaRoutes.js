@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const authMiddleware = require("../../middleware/authMiddleware");
 
 const pujaController = require("../../controllers/puja");
+
+router.use(authMiddleware);
 
 router.get("/pujasEnOrdenAlfabeticoDelPujador/",pujaController.getpujasEnOrdenAlfabeticoDelUsuario);
 
