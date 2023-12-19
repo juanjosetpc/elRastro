@@ -33,7 +33,10 @@ useEffect(() => {
     try {
       if (productoId) {
         // Obtener los detalles del producto utilizando el ID
-        const response = await api.get(`/productos/${productoId}`);
+        const response = await api.get(`/productos/${productoId}`, {  headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`}
+        });
         const product = response.data;
 
         // Restablecer el estado del producto con los datos recuperados
@@ -129,8 +132,12 @@ const handleSubmit = async (e) => {
     if (productoId) {
       // Actualizar el producto existente
       const response = await api.put(
-        `http://localhost:5000/api/v1/productos/${productoId}`,
-        product
+        `/productos/${productoId}`,
+        product,
+        {  headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`}
+        }
       );
 
       if (response.status === 200) {
@@ -141,8 +148,12 @@ const handleSubmit = async (e) => {
     } else {
       // Crear un nuevo producto
       const response = await api.post(
-        'http://localhost:5000/api/v1/productos/',
-        product
+        '/productos',
+        product,{
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }},
       );
 
       if (response.status === 201) {
@@ -228,7 +239,7 @@ const handleSubmit = async (e) => {
           <span style={{ fontWeight: 'bold' }}>Fecha de fin  *</span><br/>
           {' '}
           <input 
-            type="date"
+            type="datetime-local"
             name="fechaFin"
             value={product.fechaFin}
             onChange={handleInputChange}

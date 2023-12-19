@@ -38,18 +38,18 @@ app.listen(PORT, () => {
 
 
 // Actualiza las subastas desiertas y finaliza y notifica a los usuarios de las subastas terminadas con exito.
- //Se ejecuta cada 15 min
-//  cron.schedule("*/15 * * * *", async () => {
-//   try {
-//     console.log(colors.cyan("Actualizando subastas desiertas, si las hay..."));
-//     await actualizaDesiertas();
-//     await closeConversation();
-//     await actualizarSubastasExito();
+//  Se ejecuta cada 15 min
+ cron.schedule("*/15 * * * *", async () => {
+  try {
+    console.log(colors.cyan("Actualizando subastas desiertas, si las hay..."));
+    await actualizaDesiertas();
+    await closeConversation();
+    await actualizarSubastasExito();
     
-//   } catch (error) {
-//     console.error('Error en la función cron:', error);
-//   }
-// });
+  } catch (error) {
+    console.error('Error en la función cron:', error);
+  }
+});
 
 
 const mongoose = require("mongoose");

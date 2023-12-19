@@ -36,24 +36,42 @@ const Perfil = ({ propEmail }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const usuario = await api2.get(`usuarios/${propEmail}`);
+        const usuario = await api2.get(`usuarios/${propEmail}`, {  headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`}
+        });
         setUsuario(usuario);
         // Obtener productos del usuario que no están en venta
-        const productosNoEnVenta = await api2.get(`productos/ofertados/${propEmail}?activo=false`);
+        const productosNoEnVenta = await api2.get(`productos/ofertados/${propEmail}?activo=false`, {  headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`}
+        });
         setProductosNoEnVenta(productosNoEnVenta.data);
 
         // Obtener productos del usuario que están en venta
-        const productosEnVenta = await api2.get(`/productos/ofertados/${propEmail}?activo=true`);
+        const productosEnVenta = await api2.get(`/productos/ofertados/${propEmail}?activo=true`, {  headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`}
+        });
         setProductosEnVenta(productosEnVenta.data);
 
         // Obtener productos por los cuales el usuario está pujando
-        const productosPujando = await api2.get(`/productos/comprando/${propEmail}`);
+        const productosPujando = await api2.get(`/productos/comprando/${propEmail}`, {  headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`}
+        });
         setProductosPujando(productosPujando.data);
 
-        const productosVendidos = await api2.get(`/productos/vendidos/${propEmail}`);
+        const productosVendidos = await api2.get(`/productos/vendidos/${propEmail}`, {  headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`}
+        });
         setProductosVendidos(productosVendidos.data);
         
-        const productosComprados = await api2.get(`/productos/comprados/${propEmail}`);
+        const productosComprados = await api2.get(`/productos/comprados/${propEmail}`, {  headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`}
+        });
         setProductosComprados(productosComprados.data);
 
         const nombre = usuario.data.nombre;
@@ -101,7 +119,10 @@ const Perfil = ({ propEmail }) => {
 
   
   const handleEditar = async (productoId) => {
-    const prod = await api.get(`/productos/${productoId}`);
+    const prod = await api.get(`/productos/${productoId}`, {  headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("token")}`}
+    });
     console.log(prod.data.pujaMayor);
     if (prod.data.pujaMayor === 0) {
       navigate(`/editar-producto/${productoId}`);
@@ -114,7 +135,10 @@ const Perfil = ({ propEmail }) => {
 
   const handlePonerEnSubasta = async (productoId) => {
     try {
-      const response = await api2.put(`/productos/activar/${productoId}`);
+      const response = await api2.put(`/productos/activar/${productoId}`, {  headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`}
+      });
       setOperacionExitosa(true); 
       setShowToast(true);
     } catch (error) {
@@ -124,7 +148,10 @@ const Perfil = ({ propEmail }) => {
 
   const handleEliminar = async (productoId) => {
     try {
-      const response = await api.delete(`/productos/${productoId}`);
+      const response = await api.delete(`/productos/${productoId}`, {  headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`}
+      });
       if(response.status === 204){
         setOperacionExitosa(true);
         setShowToast(true);        

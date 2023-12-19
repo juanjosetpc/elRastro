@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../services/api';
+import api2 from '../services/api2.js';
 import { Carousel } from 'react-responsive-carousel'; // Asegúrate de tener esta línea de importación
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import BotonPujar from '../components/BotonPujar.jsx';
 import Mapa from '../components/Mapa.jsx';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 
  import CryptoJS from 'crypto-js';
 
@@ -20,16 +24,39 @@ const ProductDetail = ({ propEmail }) => {
   const [pujaRealizada, setPujaRealizada] = useState(false);
   const [tiempoRestante, setTiempoRestante] = useState(null);
   const [pujaMayor,setPujaMayor]=useState(null);
+  const [ubicacion, setUbicacion] = useState({lon:0, lat:0});
+  const [huellaCarbono, setHuellaCarbono] = useState(0.0);
 
 
   useEffect(() => {
 
+   navigator.geolocation.getCurrentPosition(
+    function(position){
+      setUbicacion({
+        lon: position.coords.longitude,
+        lat: position.coords.latitude,
+      })
+    },
+    function(error){
+      console.log(error);
+    },
+    {enableHighAccuracy: true}
+   );
+
     const fetchProductDetails = async () => {
       try {
-        const response = await api.get(`/productos/${id}`);
-        setProducto(response.data);
-        calcularTiempoRestante(response.data.fechaFin);
-        setPujaMayor(response.data.pujaMayor);
+       
+
+        if (ubicacion.lon !== undefined && ubicacion.lat !== undefined){
+          const response = await api.get(`/productos/${id}`);
+          setProducto(response.data);
+          calcularTiempoRestante(response.data.fechaFin);
+          setPujaMayor(response.data.pujaMayor);
+
+          //Descomentar antes de entregar para no fundir la api de huella de carbono
+          // const responseCarbono = await api2.get(`/externos/huella-carbono?latCurr=${ubicacion.lat}&lonCurr=${ubicacion.lon}&lugar=${response.data.direccion}`);
+          // setHuellaCarbono(responseCarbono.data.precio_euros);
+        }
       } catch (error) {
         console.error('Error fetching product details:', error);
       }
@@ -135,6 +162,7 @@ const ProductDetail = ({ propEmail }) => {
             <h2>Precios</h2>
             <p>Precio de inicio: {producto.precioInicio}</p>
             <p>Precio actual de la puja : {producto.pujaMayor}</p>
+            <p>Coste asociado por huella de carbono :  <FontAwesomeIcon icon={faLeaf} /> {huellaCarbono}</p>
             {producto.emailVendedor === propEmail ? (<p></p>) : (
               <div className="botonPuja">
                 <BotonPujar producto={producto} emailPujador={propEmail} onPujaRealizada={handlePujaRealizada} />                 </div>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {MapContainer, TileLayer, Marker } from "react-leaflet";
 import { PunteroMapa } from "./PunteroMapa";
-import axios from "axios";
 import api2 from "../services/api2";
 import "leaflet/dist/leaflet.css";
 
@@ -12,7 +11,15 @@ const Mapa = ({ direccion }) => {
   useEffect(() => {
     const obtenerCoordenadas = async () => {
       try {
-        const response = await api2.get(`/externos/geocache?direccion=${direccion}`);
+        const response = await api2.get(
+          `/externos/geocache?direccion=${direccion}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`, 
+            },
+          }
+        );
         const results = response.data;
 
         setCoordinates(results.posicion);

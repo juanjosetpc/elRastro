@@ -28,7 +28,7 @@ const ListaChats = () => {
         // Filtra las conversaciones donde el usuario es emisor o receptor
         const filteredConversations = data.filter(
           (conversation) =>
-            (conversation.vendedor == usuario || conversation.comprador == usuario) 
+            (conversation.vendedor === usuario || conversation.comprador === usuario) 
         );
 
         setConversations(filteredConversations);

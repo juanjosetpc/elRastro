@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Popup from 'reactjs-popup';
+import api from '../services/api'
 import '../styles/BotonPujar.css'; // Importa el archivo CSS
 
 const BotonPujar = ({ producto, emailPujador, onPujaRealizada }) => {
@@ -18,11 +18,14 @@ const BotonPujar = ({ producto, emailPujador, onPujaRealizada }) => {
       }, 2000);
 
       // Realizar la llamada a la API
-      const response = await axios.post(`http://localhost:5000/api/v1/pujas/`, {
+      const response = await api.post(`/pujas/`, {
         producto: producto._id,
         cantidad: precio,
         emailPujador: emailPujador
-      });
+      },{ headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+      },});
 
       // Llamar a la función proporcionada para indicar que la puja ha sido realizada
       onPujaRealizada();

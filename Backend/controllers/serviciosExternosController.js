@@ -1,6 +1,55 @@
 const axios = require("axios");
 const colors = require("picocolors");
 
+
+const calculaCarbonoDadosLosLugares = async (req, res) => {
+    try {
+      //Lugar uno viene ya en lat y lon, coge la posicion del navegador
+      const { latCurr, lonCurr, lugar } = req.query; 
+
+      const encodedLugar = encodeURIComponent(lugar);
+      const apiUrl2 = `https://nominatim.openstreetmap.org/search?q=${encodedLugar}&format=json&limit=1`;
+  
+      const response2 = await axios.get(apiUrl2);
+      
+      const coordenadas2 = response2.data[0];
+      const distancia = calcularDistancia(latCurr, lonCurr, coordenadas2.lat, coordenadas2.lon);
+
+      const apiCarbono = 'https://www.carboninterface.com/api/v1/estimates';
+      const apiKey = process.env.API_KEY_CARBONO; 
+  
+      const postData = {
+        type: 'vehicle',
+        distance_unit: 'km',
+        distance_value: distancia,
+        vehicle_model_id: '7268a9b7-17e8-4c8d-acca-57059252afe9'
+      };
+      
+      if(distancia > 0){
+        // Realizar una solicitud POST a la API de Carbon Interface usando Axios
+        const response = await axios.post(apiCarbono, postData, {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        // Extraer el campo 'carbon_kg' de la respuesta y enviar solo ese valor como respuesta
+        const carbon = response.data?.data?.attributes?.carbon_kg || 0;
+
+        // Estimo 0.08149 por kilo de CO2 liberado
+        const precio = 0.08149 * carbon;
+        res.json({ carbon_kg: carbon, precio_euros: precio });
+      }
+
+    } catch (error) {
+      // Manejar errores y enviar una respuesta de error al cliente
+      console.error('Error:', error);
+      res.status(500).json({ error: 'Error al intentar obtener el coste de huella de carbono entre posición y lugar' });
+    }
+  };
+
+
 const calcularHuellaCarbono = async (req, res) => {
   try {
     const { distance_value } = req.params; // Obtener el parámetro de distancia_value de la URL
@@ -181,4 +230,4 @@ const geocache = async (req, res) => {
   }
 }
 
-module.exports = { obtenerCoordenadas, calcularHuellaCarbono, cambioDivisa, geocache };
+module.exports = { obtenerCoordenadas, calcularHuellaCarbono, cambioDivisa, geocache, calculaCarbonoDadosLosLugares };

@@ -268,25 +268,6 @@ const getProductsFilter = async (req, res) => {
 };
 
 
-//Control periódico de las subastas que han terminado sin pujas y se consideran desiertas.
-// En ese caso, se iniciará automáticamente una nueva subasta, con la misma duración, y con un precio salida un 10%
-// inferior al inicial
-const actualizaDesiertas = async () => {
-  try {
-    const productos = await Producto.find({ enSubasta: true, fechaFin: { $lte: new Date() }, pujaMayor: 0 });
-    console.log("Elementos a actualizar: " + productos);
-    const ahora = new Date();
-    for (const producto of productos) {
-      producto.fechaFin = new Date(ahora.getTime() + producto.fechaFin.getTime() - producto.fechaInicio.getTime());
-      producto.fechaInicio = new Date();
-      producto.precioInicio = producto.precioInicio * 0.9;
-      await producto.save();
-    }
-    
-  } catch (error) {
-    console.log(colors.red("Error al actualizar las subastas desiertas. " + error.message));
-  }}
-
 const getVendidos = async (req, res) => {
   const email = req.params.email;
   try {
@@ -339,8 +320,44 @@ const activateValorarProduct = async (req, res) => {
 };
  
 
+//Control periódico de las subastas que han terminado sin pujas y se consideran desiertas.
+// En ese caso, se iniciará automáticamente una nueva subasta, con la misma duración, y con un precio salida un 10%
+// inferior al inicial
+const actualizaDesiertas = async () => {
+  try {
+    const productos = await Producto.find({ enSubasta: true, fechaFin: { $lte: new Date() }, pujaMayor: 0 });
+    console.log("Elementos a actualizar: " + productos);
+    const ahora = new Date();
+    for (const producto of productos) {
+      producto.fechaFin = new Date(ahora.getTime() + producto.fechaFin.getTime() - producto.fechaInicio.getTime());
+      producto.fechaInicio = new Date();
+      producto.precioInicio = producto.precioInicio * 0.9;
+      await producto.save();
+    }
+    
+  } catch (error) {
+    console.log(colors.red("Error al actualizar las subastas desiertas. " + error.message));
+  }}
 
-  //Control periódico de las subastas que han terminado con un comprador y se actualizan los datos.
+
+const transporter = require('../config/mailer');
+
+const enviarCorreo = async (destinatario, asunto, cuerpo) => {
+  const mensaje = {
+    to: destinatario,
+    subject: asunto,
+    text: cuerpo,
+  };
+
+  try {
+    const info = await transporter.sendMail(mensaje);
+    console.log('Correo enviado:', info.response);
+  } catch (error) {
+    console.error('Error al enviar el correo:', error);
+  }
+};
+
+//Control periódico de las subastas que han terminado con un comprador y se actualizan los datos.
 const actualizarSubastasExito = async () => {
   try {
     const subastas = await Producto.find({ enSubasta: true, fechaFin: { $lte: new Date() } });
@@ -354,12 +371,11 @@ const actualizarSubastasExito = async () => {
         subasta.emailComprador = ganador;
         await subasta.save();
 
-        // Enviar correos electrónicos a vendedor y ganador lo miramos bien para la siguiente entrega.
-        // const mensajeVendedor = `La subasta para el producto "${subasta.titulo}" ha finalizado. El ganador es ${ganador}.`;
-        // await enviarCorreo(vendedor,"Notificación de Subasta",mensajeVendedor);
+        const mensajeVendedor = `La subasta para el producto "${subasta.titulo}" ha finalizado. El ganador es ${ganador}. Desde su perfil puede valorar al comprador.`;
+        await enviarCorreo(vendedor,"Le han comprado un producto",mensajeVendedor);
 
-        // const mensajeGanador = `¡Felicidades! Ganaste la subasta para el producto "${subasta.titulo}". Contacta al vendedor para completar la transacción.`;
-        // await enviarCorreo(ganador,"¡Felicidades! Ganaste la Subasta",mensajeGanador);
+        const mensajeGanador = `¡Felicidades! Ganaste la subasta para el producto "${subasta.titulo}". En tu perfil encontrarás un enlace para pagar el producto.`;
+        await enviarCorreo(ganador,"¡Felicidades! Ganaste la Subasta",mensajeGanador);
       }
     }
   } catch (error) {

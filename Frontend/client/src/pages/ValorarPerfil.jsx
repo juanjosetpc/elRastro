@@ -25,10 +25,16 @@ const ValorarPerfil = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const usuario = await api2.get(`usuarios/${emailVendedor}`);
+                const usuario = await api2.get(`usuarios/${emailVendedor}`, {  headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${localStorage.getItem("token")}`}
+                });
                 setUsuario(usuario.data);
 
-                const producto = await api.get(`productos/${idProducto}`);
+                const producto = await api.get(`productos/${idProducto}`, {  headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${localStorage.getItem("token")}`}
+                });
                 setProducto(producto.data);
 
                 const vendedor = producto.data.emailVendedor;
@@ -75,16 +81,25 @@ const ValorarPerfil = () => {
             emailVendedor,
             nota,
             descripcion,
+        }, {  headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`}
         });
 
         if(vendedor === emailVendedor){
           await api2.put(`productos/valorar/${idProducto}`,{
             valoradoPorComprador : true,
+          }, {  headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem("token")}`}
           });
           
         } else if(comprador === emailVendedor){
           await api2.put(`productos/valorar/${idProducto}`,{
             valoradoPorVendedor : true,
+          }, {  headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem("token")}`}
           });
         }
 

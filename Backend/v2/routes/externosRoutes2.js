@@ -7,5 +7,7 @@ const authMiddleware = require("../../middleware/authMiddleware");
 router.use(authMiddleware);
 
 router.get("/geocache",serviciosExternosController.geocache);
+router.get("/huella-carbono",serviciosExternosController.calculaCarbonoDadosLosLugares);
+
 
 module.exports = router;
