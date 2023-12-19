@@ -18,7 +18,10 @@ const PerfilOtraPersona = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const usuario = await api2.get(`usuarios/${emailVendedor}`);
+                const usuario = await api2.get(`usuarios/${emailVendedor}`, {  headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${localStorage.getItem("token")}`}
+                });
                 setUsuario(usuario.data);
 
                 const nombre = usuario.data.nombre;

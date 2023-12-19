@@ -48,13 +48,16 @@ const ProductDetail = ({ propEmail }) => {
        
 
         if (ubicacion.lon !== undefined && ubicacion.lat !== undefined){
-          const response = await api.get(`/productos/${id}`);
+          const response = await api.get(`/productos/${id}`, {  headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem("token")}`}
+          });
           setProducto(response.data);
           calcularTiempoRestante(response.data.fechaFin);
           setPujaMayor(response.data.pujaMayor);
 
           //Descomentar antes de entregar para no fundir la api de huella de carbono
-          // const responseCarbono = await api2.get(`/externos/huella-carbono?latCurr=${ubicacion.lat}&lonCurr=${ubicacion.lon}&lugar=${response.data.direccion}`);
+          // const responseCarbono = await api2.get(`/externos/huella-carbono?latCurr=${ubicacion.lat}&lonCurr=${ubicacion.lon}&lugar=${response.data.direccion}`, {  headers: {'Content-Type': 'application/json','Authorization': `Bearer ${localStorage.getItem("token")}`}});
           // setHuellaCarbono(responseCarbono.data.precio_euros);
         }
       } catch (error) {
