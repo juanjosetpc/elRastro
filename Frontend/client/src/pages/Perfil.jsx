@@ -458,7 +458,12 @@ const Perfil = ({ propEmail }) => {
                   {productosComprados.map((producto) => (
                     <tr key={producto._id}>
                       <td>
-                        <p>{producto.titulo}</p>
+                        <p><Link
+                          to={`/product/${producto._id}`}
+                          key={producto._id}
+                        >
+                          {producto.titulo}
+                        </Link></p>
                       </td>
                       <td><Link to={`/valorarPerfil/${producto.emailVendedor}/${producto._id}`}>
                         <button>Valorar</button>
