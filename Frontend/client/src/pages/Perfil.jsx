@@ -135,10 +135,13 @@ const Perfil = ({ propEmail }) => {
 
   const handlePonerEnSubasta = async (productoId) => {
     try {
-      const response = await api2.put(`/productos/activar/${productoId}`, {  headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem("token")}`}
+      const response = await api2.put(`/productos/activar/${productoId}`, {} , {  
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`
+        }
       });
+      
       setOperacionExitosa(true); 
       setShowToast(true);
     } catch (error) {
