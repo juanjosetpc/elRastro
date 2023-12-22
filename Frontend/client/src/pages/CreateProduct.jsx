@@ -48,7 +48,7 @@ useEffect(() => {
           fechaInicio: product.fechaInicio,
           precioInicio: product.precioInicio,
           fotos: product.fotos,
-          fechaFin: product.fechaFin,
+          fechaFin: product.fechaFin.slice(0, -5),
           enSubasta: product.enSubasta,
           pujaMayor: product.pujaMayor,
           emailComprador: product.emailComprador,

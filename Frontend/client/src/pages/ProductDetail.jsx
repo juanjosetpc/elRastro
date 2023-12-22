@@ -81,6 +81,10 @@ const ProductDetail = ({ propEmail }) => {
     calcularTiempoRestante(producto && producto.fechaFin);
   };
 
+  const handlePagarExitoso = () => {
+  }
+  
+
   const calcularTiempoRestante = (fechaFinISO) => {
     if (!fechaFinISO) {
       setTiempoRestante(null);
@@ -174,12 +178,13 @@ const ProductDetail = ({ propEmail }) => {
                           purchase_units: [
                             {
                               amount: {
-                                value: producto.pujaMayor, // Precio actual de la puja
+                                value: producto.pujaMayor + huellaCarbono, // Precio actual de la puja
                               },
                             },
                           ],
                         });
                       }}
+                      //onApprove={handlePagarExitoso}
                     />
                   </PayPalScriptProvider>
                 )}

@@ -473,12 +473,12 @@ const Perfil = ({ propEmail }) => {
           )}
           {activeTab === "comprados" && (
             <div>
-              <h2>Productos comprados sin valorar</h2>
+              <h2>Productos comprados</h2>
               <Table responsive bordered hover variant="dark">
                 <thead>
                   <tr>
                     <th>Título</th>
-                    <th>Valorar vendedor</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -492,9 +492,20 @@ const Perfil = ({ propEmail }) => {
                           {producto.titulo}
                         </Link></p>
                       </td>
-                      <td><Link to={`/valorarPerfil/${producto.emailVendedor}/${producto._id}`}>
-                        <button>Valorar</button>
-                      </Link></td>
+                      <td>{producto.pagado ? (
+                        <Link to={`/valorarPerfil/${producto.emailVendedor}/${producto._id}`}>
+                          <button>Valorar</button>
+                        </Link>
+                      ) : (
+
+                        <Link
+                          to={`/product/${producto._id}`}
+                          key={producto._id}
+                        >
+                          <button>Pagar</button>
+                        </Link>
+                      )}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
