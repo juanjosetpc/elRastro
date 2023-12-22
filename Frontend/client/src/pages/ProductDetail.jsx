@@ -81,7 +81,17 @@ const ProductDetail = ({ propEmail }) => {
     calcularTiempoRestante(producto && producto.fechaFin);
   };
 
-  const handlePagarExitoso = () => {
+  const handlePagarExitoso = async (productoId) => {
+    try {
+      const response = await api2.put(`/productos/pagar/${productoId}`, {} , {  
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`
+        }
+      });
+    } catch (error) {
+      console.error('Error al pagar el producto:', error);
+    }
   }
   
 
@@ -169,7 +179,7 @@ const ProductDetail = ({ propEmail }) => {
                   <BotonPujar producto={producto} emailPujador={propEmail} onPujaRealizada={handlePujaRealizada} />
                 )}
 
-                {tiempoRestante === 'Tiempo expirado' && !pujaRealizada && (
+                {tiempoRestante === 'Tiempo expirado' && !pujaRealizada && !producto.pagado && producto.emailComprador && (
                   <PayPalScriptProvider options={{ 'client-id': clientID }}>
                     <PayPalButtons
                       style={{ layout: 'horizontal' }}
@@ -184,7 +194,7 @@ const ProductDetail = ({ propEmail }) => {
                           ],
                         });
                       }}
-                      //onApprove={handlePagarExitoso}
+                      onApprove={(data, actions) => handlePagarExitoso(producto._id)}
                     />
                   </PayPalScriptProvider>
                 )}

@@ -181,6 +181,25 @@ const getProductsOfSeller = async (req, res) => {
     const productos = await Producto.find({
       emailVendedor: email,
       enSubasta: activo,
+      fechaFin: null,
+      //fechaFin: { $gt: new Date() },
+    });
+    res.json(productos);
+  } catch (error) {
+    res.status(500).json({
+      error:
+        "Error al obtener los productos. Mensaje de error: " + error.message,
+    });
+  }
+}
+
+const getProductsSelling = async (req, res) => {
+  const email = req.params.email;
+  const activo = req.query.activo;
+  try {
+    const productos = await Producto.find({
+      emailVendedor: email,
+      enSubasta: activo,
       fechaFin: { $gt: new Date() },
     });
     res.json(productos);
@@ -207,6 +226,24 @@ const activateProduct = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       error: "Error al activar el producto. Mensaje de error: " + error.message,
+    });
+  }
+}
+
+const payProduct = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const producto = await Producto.findById(id);
+    if (!producto) {
+      console.log(colors.yellow("No se encontró el producto para activarlo"));
+      return res.status(404).json({ error: "Producto no encontrado" });
+    }
+    producto.pagado = true;
+    await producto.save();
+    res.status(200).json({ mensaje: "Producto pagado", producto });
+  } catch (error) {
+    res.status(500).json({
+      error: "Error al pagar el producto. Mensaje de error: " + error.message,
     });
   }
 }
@@ -276,6 +313,7 @@ const getVendidos = async (req, res) => {
       emailVendedor: email,
       emailComprador : { $ne: null, $exists: true },
       valoradoPorVendedor: false,
+      pagado: true,
     }).lean();
     res.json(productos);
   } catch (error) {
@@ -396,6 +434,7 @@ module.exports = {
   getProduct,
   addfoto,
   getProductsOfSeller,
+  getProductsSelling,
   activateProduct,
   getProductsBuying,
   getProductsFilter,
@@ -403,5 +442,6 @@ module.exports = {
   actualizarSubastasExito,
   getVendidos,
   getComprados,
-  activateValorarProduct
+  activateValorarProduct,
+  payProduct
 };

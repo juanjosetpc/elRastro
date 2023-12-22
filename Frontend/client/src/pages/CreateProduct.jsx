@@ -235,19 +235,7 @@ const handleSubmit = async (e) => {
             </div>
         </label>
         <br/>
-        <label>
-          <span style={{ fontWeight: 'bold' }}>Fecha de fin  *</span><br/>
-          {' '}
-          <input 
-            type="datetime-local"
-            name="fechaFin"
-            value={product.fechaFin}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <br/>
-        <br/>
+        
         <label>
          <span style={{ fontWeight: 'bold' }}> Precio de inicio  *</span><br/>
           {' '}
