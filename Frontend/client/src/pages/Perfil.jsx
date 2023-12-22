@@ -468,9 +468,17 @@ const Perfil = ({ propEmail }) => {
                       <td>
                         <p>{producto.titulo}</p>
                       </td>
-                      <td><Link to={`/valorarPerfil/${producto.emailComprador}/${producto._id}`}>
-                        <button>Valorar</button>
-                      </Link></td>
+                      <td>
+                      <Button
+                          variant="primary"
+                          onClick={() => {
+                            //handlePonerEnSubasta(producto._id);
+                            navigate(`/valorarPerfil/${producto.emailComprador}/${producto._id}`);
+                          }}
+                        >
+                          Valorar
+                        </Button>
+                        </td>
                     </tr>
                   ))}
                 </tbody>
@@ -517,7 +525,7 @@ const Perfil = ({ propEmail }) => {
                             navigate(`/product/${producto._id}`);
                           }}
                         >
-                          Valorar
+                          Pagar
                         </Button>
                         
                       )}

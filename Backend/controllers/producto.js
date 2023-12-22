@@ -182,7 +182,6 @@ const getProductsOfSeller = async (req, res) => {
       emailVendedor: email,
       enSubasta: activo,
       fechaFin: null,
-      //fechaFin: { $gt: new Date() },
     });
     res.json(productos);
   } catch (error) {
