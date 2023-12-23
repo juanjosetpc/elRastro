@@ -36,8 +36,10 @@ const Home = ({propEmail}) => {
         endpoint += `?${queryParams.join("&")}`;
       }
 
+      console.log(endpoint);
       const { data } = await api2.get(endpoint);
       setProductos(data);
+
       
       if(searchDescr || searchVendedor){
         const direccionesArray = data.map((producto) => producto.direccion);

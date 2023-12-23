@@ -4,7 +4,7 @@ import '../styles/Card.css'
 
 
 const ProductCard = ({ producto }) => {
-  const { titulo, fotos, precioInicio, fechaFin } = producto;
+  const { titulo, fotos, precioInicio, fechaFin, pujaMayor } = producto;
 
   return (
     <div className="card">
@@ -13,7 +13,7 @@ const ProductCard = ({ producto }) => {
         <img className="card-img" src={fotos[0]} alt={titulo} />
       </div>
       <div className="card-bottom">
-        <p className="price">Precio: {precioInicio}€</p>
+        <p className="price">Precio: {pujaMayor > 0 ? pujaMayor : precioInicio}€</p>
         <p className="close-date">Fecha fin: {formatFecha(fechaFin)}</p>
       </div>
     </div>
