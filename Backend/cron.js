@@ -4,18 +4,17 @@
 const { actualizaDesiertas, actualizarSubastasExito } = require("./controllers/producto");
 const {closeConversation} = require("./controllers/conversacion");
 
-async function myScheduledFunction() {
+
+export default async function handler(req, res) {
+
   try {
     console.log("Ejecutando funciones periodicas...");
 
     await actualizaDesiertas();
     await closeConversation();
     await actualizarSubastasExito();
-
-    console.log("Se han completado las actualizaciones.");
+    res.status(200).end('Se han completado las actualizaciones.');
   } catch (error) {
     console.error("Error ejecutando las actualizaciones periodicas:", error);
   }
 }
-
-module.exports = myScheduledFunction;

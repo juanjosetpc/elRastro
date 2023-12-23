@@ -1,11 +1,9 @@
 {
   "version": 2,
   "builds": [{ "src": "server.js", "use": "@vercel/node" }],
-  "functions": {
-    "myScheduledFunction": {
-      "handler": "scheduledFunctionsVercel.myScheduledFunction",
-      "schedule": "*/10 * * * *"
-    }
-  },
+    "crons": [{
+      "path": "/cron",
+      "schedule": "0 10 * * *"
+    }],
   "routes": [{ "src": "^(.*)$", "dest": "server.js" }]
 }
