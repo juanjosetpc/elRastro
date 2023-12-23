@@ -25,29 +25,6 @@ const App = () => {
   const [user, setUser] = useState('');
   const [token, setToken] = useState(localStorage.getItem("token"));
   
-  // const [isAuthenticated, setIsAuthenticated] = React.useState( localStorage.getItem('isAuthenticated') === 'true');
-  // const [userEmail, setUserEmail] = React.useState(localStorage.getItem('userEmail') || '');
-
-  // const handleLogin = (email) => {
-  //   setIsAuthenticated(true);
-  //   setUserEmail(email);
-  //   localStorage.setItem('isAuthenticated', 'true');
-  //   localStorage.setItem('userEmail', email);
-  // };
-
-// // handleLogout es una función que se llama cuando se quiere realizar la acción de cerrar sesión.
-// // En este ejemplo, simplemente cambia el estado de autenticación a false usando setIsAuthenticated(false).
-// // Esta función puede contener la lógica real de cierre de sesión, como la eliminación de tokens de autenticación,
-// // la limpieza de la sesión, o cualquier otra acción necesaria cuando un usuario cierra sesión.
-
-  // const handleLogout = () => {
-  //   setIsAuthenticated(false);
-  //   setUserEmail('');
-  //   navigate('/');
-  //   localStorage.removeItem('isAuthenticated');
-  //   localStorage.removeItem('userEmail');
-  // };
-
   useEffect(() => { 
     if (token) {
       const storedUser = jwtDecode(token);
