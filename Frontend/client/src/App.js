@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import CreateProduct from './pages/CreateProduct';
 import Perfil from './pages/Perfil';
 import ProductDetail from './pages/ProductDetail';
+import ActivateProduct from './pages/ActivateProduct';
 
 import Conversacion from './pages/Conversacion';
 import ListaChats from './pages/listaChats';
@@ -101,6 +102,7 @@ const App = () => {
         <Route path='/chats/:usuario'  element={ token ? <ListaChats /> : <Navigate to="/login" /> } ></Route>
 
         <Route path="/editar-producto/:productoId" element={<CreateProduct propEmail={user.email} />} />
+        <Route path="/activar-producto/:productoId" element={<ActivateProduct propEmail={user.email} />} />
       </Routes>
     </div>
   );

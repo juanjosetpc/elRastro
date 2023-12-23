@@ -12,7 +12,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Perfil = ({ propEmail }) => {
-  const navigate = useNavigate();
 
   const [usuario, setUsuario] = useState(null);
   const [productosNoEnVenta, setProductosNoEnVenta] = useState([]);
@@ -30,6 +29,7 @@ const Perfil = ({ propEmail }) => {
   const [operacionExitosa, setOperacionExitosa] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [mensajeToast, setMensajeToast] = useState('');
+  const navigate = useNavigate();
 
   
 
@@ -49,7 +49,7 @@ const Perfil = ({ propEmail }) => {
         setProductosNoEnVenta(productosNoEnVenta.data);
 
         // Obtener productos del usuario que están en venta
-        const productosEnVenta = await api2.get(`/productos/ofertados/${propEmail}?activo=true`, {  headers: {
+        const productosEnVenta = await api2.get(`/productos/vendiendo/${propEmail}?activo=true`, {  headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem("token")}`}
         });
@@ -133,7 +133,7 @@ const Perfil = ({ propEmail }) => {
   };
   
 
-  const handlePonerEnSubasta = async (productoId) => {
+  /*const handlePonerEnSubasta = async (productoId) => {
     try {
       const response = await api2.put(`/productos/activar/${productoId}`, {} , {  
         headers: {
@@ -147,7 +147,7 @@ const Perfil = ({ propEmail }) => {
     } catch (error) {
       console.error('Error al activar el producto:', error);
     }
-  };
+  };*/
 
   const handleEliminar = async (productoId) => {
     try {
@@ -337,7 +337,10 @@ const Perfil = ({ propEmail }) => {
                       <td>
                         <Button
                           variant="primary"
-                          onClick={() => handlePonerEnSubasta(producto._id)}
+                          onClick={() => {
+                            //handlePonerEnSubasta(producto._id);
+                            navigate(`/activar-producto/${producto._id}`);
+                          }}
                         >
                           Activar
                         </Button>
@@ -451,7 +454,7 @@ const Perfil = ({ propEmail }) => {
           )}
           {activeTab === "vendidos" && (
             <div>
-              <h2>Productos vendidos sin valorar</h2>
+              <h2>Productos vendidos</h2>
               <Table responsive bordered hover variant="dark">
                 <thead>
                   <tr>
@@ -465,9 +468,17 @@ const Perfil = ({ propEmail }) => {
                       <td>
                         <p>{producto.titulo}</p>
                       </td>
-                      <td><Link to={`/valorarPerfil/${producto.emailComprador}/${producto._id}`}>
-                        <button>Valorar</button>
-                      </Link></td>
+                      <td>
+                      <Button
+                          variant="primary"
+                          onClick={() => {
+                            //handlePonerEnSubasta(producto._id);
+                            navigate(`/valorarPerfil/${producto.emailComprador}/${producto._id}`);
+                          }}
+                        >
+                          Valorar
+                        </Button>
+                        </td>
                     </tr>
                   ))}
                 </tbody>
@@ -476,12 +487,12 @@ const Perfil = ({ propEmail }) => {
           )}
           {activeTab === "comprados" && (
             <div>
-              <h2>Productos comprados sin valorar</h2>
+              <h2>Productos comprados</h2>
               <Table responsive bordered hover variant="dark">
                 <thead>
                   <tr>
                     <th>Título</th>
-                    <th>Valorar vendedor</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -495,9 +506,30 @@ const Perfil = ({ propEmail }) => {
                           {producto.titulo}
                         </Link></p>
                       </td>
-                      <td><Link to={`/valorarPerfil/${producto.emailVendedor}/${producto._id}`}>
-                        <button>Valorar</button>
-                      </Link></td>
+                      <td>{producto.pagado ? (
+                        
+                        <Button
+                          variant="primary"
+                          onClick={() => {
+                            //handlePonerEnSubasta(producto._id);
+                            navigate(`/valorarPerfil/${producto.emailVendedor}/${producto._id}`);
+                          }}
+                        >
+                          Valorar
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="primary"
+                          onClick={() => {
+                            //handlePonerEnSubasta(producto._id);
+                            navigate(`/product/${producto._id}`);
+                          }}
+                        >
+                          Pagar
+                        </Button>
+                        
+                      )}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
