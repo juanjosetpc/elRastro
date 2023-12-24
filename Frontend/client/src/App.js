@@ -41,6 +41,7 @@ const App = () => {
       localStorage.removeItem('token');
       setUser('');
       setToken('');
+      navigate('/login');
     };
 
   return (

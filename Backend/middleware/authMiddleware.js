@@ -3,7 +3,6 @@ const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const authMiddleware = async (req, res, next) => {
   const token = req.header('Authorization');
-  console.log(req.headers);
 
   if (!token) {
     return res.status(401).json({ success: false, error: 'Token no proporcionado' });
@@ -21,7 +20,7 @@ const authMiddleware = async (req, res, next) => {
 
     req.user = payload;
 
-    next(); // Llama al siguiente middleware o ruta
+    next();
   } catch (error) {
     res.status(401).json({ success: false, error: 'Token no válido' });
   }
