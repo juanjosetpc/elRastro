@@ -1,5 +1,3 @@
-// ListaChats.js
-
 import React, {useEffect, useState} from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
@@ -22,7 +20,10 @@ const ListaChats = () => {
   useEffect(() => {
     const fetchConversations = async () => {
       try {
-        const response = await api2.get('/conversaciones');
+        const response = await api2.get('/conversaciones',{ headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }});
         const data = response.data; // Check the structure of the response
         
         // Filtra las conversaciones donde el usuario es emisor o receptor

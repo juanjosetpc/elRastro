@@ -5,7 +5,10 @@ import axios from 'axios';
 //Por ejemplo api.get('/productos') para obtener todos los usuarios
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL+"/api/v1"
+  baseURL: process.env.REACT_APP_BASE_URL+"/api/v1", headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem("token")}`,
+  }
 });
 
 

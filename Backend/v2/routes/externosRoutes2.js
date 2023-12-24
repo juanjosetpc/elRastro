@@ -4,10 +4,8 @@ const serviciosExternosController = require("../../controllers/serviciosExternos
 
 const authMiddleware = require("../../middleware/authMiddleware");
 
-router.use(authMiddleware);
-
 router.get("/geocache",serviciosExternosController.geocache);
-router.get("/huella-carbono",serviciosExternosController.calculaCarbonoDadosLosLugares);
+router.get("/huella-carbono", authMiddleware , serviciosExternosController.calculaCarbonoDadosLosLugares);
 
 
 module.exports = router;

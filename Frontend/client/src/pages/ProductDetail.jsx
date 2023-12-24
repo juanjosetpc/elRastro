@@ -50,10 +50,10 @@ const ProductDetail = ({ propEmail }) => {
        
 
         if (ubicacion.lon !== undefined && ubicacion.lat !== undefined){
-          const response = await api.get(`/productos/${id}`, {  headers: {
+          const response = await api.get(`/productos/${id}`, {headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem("token")}`}
-          });
+            'Authorization': `Bearer ${localStorage.getItem("token")}`,
+          }});
           setProducto(response.data);
           calcularTiempoRestante(response.data.fechaFin);
           setPujaMayor(response.data.pujaMayor);
@@ -83,12 +83,10 @@ const ProductDetail = ({ propEmail }) => {
 
   const handlePagarExitoso = async (productoId) => {
     try {
-      const response = await api2.put(`/productos/pagar/${productoId}`, {} , {  
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem("token")}`
-        }
-      });
+      const response = await api2.put(`/productos/pagar/${productoId}`, {},{ headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+      }});
     } catch (error) {
       console.error('Error al pagar el producto:', error);
     }

@@ -18,10 +18,10 @@ const PerfilOtraPersona = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const usuario = await api2.get(`usuarios/${emailVendedor}`, {  headers: {
+                const usuario = await api2.get(`usuarios/${emailVendedor}`,{ headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${localStorage.getItem("token")}`}
-                });
+                  'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                }});
                 setUsuario(usuario.data);
 
                 const nombre = usuario.data.nombre;
@@ -30,14 +30,12 @@ const PerfilOtraPersona = () => {
                 const apellido = usuario.data.apellido;
                 setApellido(apellido);
 
-                //const resenas = await api2.get(`usuarios/resena/${emailVendedor}`);
                 const resenas = usuario.data.resenas;
                 if(!resenas){
                     console.error('No hay reseñas');
                 }
                 setResenas(resenas);
 
-                //const valoracion = await api2.get(`usuarios/valoracion/${emailVendedor}`);
                 const valoracion = usuario.data.valoracion;
                 setValoracion(valoracion);
             } catch (error) {

@@ -12,13 +12,7 @@ const Mapa = ({ direccion }) => {
     const obtenerCoordenadas = async () => {
       try {
         const response = await api2.get(
-          `/externos/geocache?direccion=${direccion}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`, 
-            },
-          }
+          `/externos/geocache?direccion=${direccion}`
         );
         const results = response.data;
 

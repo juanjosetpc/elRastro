@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-// import api2 from '../services/api2';
 import axios from "axios";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -24,7 +23,6 @@ export const CreateProduct = ({propEmail}) => {
     emailComprador: null,
 });
 
-// const [usuario, setUsuario] = useState(null);
 
 const { productoId } = useParams();
 
@@ -33,10 +31,10 @@ useEffect(() => {
     try {
       if (productoId) {
         // Obtener los detalles del producto utilizando el ID
-        const response = await api.get(`/productos/${productoId}`, {  headers: {
+        const response = await api.get(`/productos/${productoId}`,{ headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem("token")}`}
-        });
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }});
         const product = response.data;
 
         // Restablecer el estado del producto con los datos recuperados
@@ -131,14 +129,10 @@ const handleSubmit = async (e) => {
 
     if (productoId) {
       // Actualizar el producto existente
-      const response = await api.put(
-        `/productos/${productoId}`,
-        product,
-        {  headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem("token")}`}
-        }
-      );
+      const response = await api.put(`/productos/${productoId}`, product,{ headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+      }});
 
       if (response.status === 200) {
         console.log('Producto actualizado con éxito:', response.data);
@@ -147,14 +141,10 @@ const handleSubmit = async (e) => {
       }
     } else {
       // Crear un nuevo producto
-      const response = await api.post(
-        '/productos',
-        product,{
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem("token")}`,
-        }},
-      );
+      const response = await api.post("/productos", product,{ headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+      }});
 
       if (response.status === 201) {
         console.log('Producto creado con éxito:', response.data);

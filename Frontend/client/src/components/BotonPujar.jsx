@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Popup from 'reactjs-popup';
 import api from '../services/api'
 import '../styles/BotonPujar.css'; // Importa el archivo CSS
 
@@ -25,7 +24,7 @@ const BotonPujar = ({ producto, emailPujador, onPujaRealizada }) => {
       },{ headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem("token")}`,
-      },});
+      }});
 
       // Llamar a la función proporcionada para indicar que la puja ha sido realizada
       onPujaRealizada();

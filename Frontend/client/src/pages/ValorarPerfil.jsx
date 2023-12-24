@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Pagination } from 'react-bootstrap';
 import api from '../services/api';
 import api2 from '../services/api2';
-import { useParams, useNavigate, Navigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import "../styles/ValorarPerfil.css";
 
 const ValorarPerfil = () => {
@@ -25,16 +25,16 @@ const ValorarPerfil = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const usuario = await api2.get(`usuarios/${emailVendedor}`, {  headers: {
+                const usuario = await api2.get(`usuarios/${emailVendedor}`,{ headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${localStorage.getItem("token")}`}
-                });
+                  'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                }});
                 setUsuario(usuario.data);
 
-                const producto = await api.get(`productos/${idProducto}`, {  headers: {
+                const producto = await api.get(`productos/${idProducto}`,{ headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${localStorage.getItem("token")}`}
-                });
+                  'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                }});
                 setProducto(producto.data);
 
                 const vendedor = producto.data.emailVendedor;
@@ -49,14 +49,12 @@ const ValorarPerfil = () => {
                 const apellido = usuario.data.apellido;
                 setApellido(apellido);
 
-                //const resenas = await api2.get(`usuarios/resena/${emailVendedor}`);
                 const resenas = usuario.data.resenas;
                 if(!resenas){
                     console.error('No hay reseñas');
                 }
                 setResenas(resenas);
 
-                //const valoracion = await api2.get(`usuarios/valoracion/${emailVendedor}`);
                 const valoracion = usuario.data.valoracion;
                 setValoracion(valoracion);
 
@@ -81,26 +79,26 @@ const ValorarPerfil = () => {
             emailVendedor,
             nota,
             descripcion,
-        }, {  headers: {
+        },{ headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem("token")}`}
-        });
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }});
 
         if(vendedor === emailVendedor){
           await api2.put(`productos/valorar/${idProducto}`,{
             valoradoPorComprador : true,
-          }, {  headers: {
+          },{ headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem("token")}`}
-          });
+            'Authorization': `Bearer ${localStorage.getItem("token")}`,
+          }});
           
         } else if(comprador === emailVendedor){
           await api2.put(`productos/valorar/${idProducto}`,{
             valoradoPorVendedor : true,
-          }, {  headers: {
+          },{ headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem("token")}`}
-          });
+            'Authorization': `Bearer ${localStorage.getItem("token")}`,
+          }});
         }
 
         navigate(`/perfilOtraPersona/${emailVendedor}`)

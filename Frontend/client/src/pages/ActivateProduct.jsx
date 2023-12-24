@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import api2 from '../services/api2';
-import axios from "axios";
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import "../styles/CreateProduct.css";
 
 
 export const ActivateProduct = ({propEmail}) => {
-  const cloudinary_cloud = process.env.REACT_APP_CLOUDINARY_CLOUD;
   const navigate = useNavigate();
   const [product, setProduct] = useState({
     emailVendedor: propEmail,
@@ -24,7 +22,6 @@ export const ActivateProduct = ({propEmail}) => {
     emailComprador: null,
 });
 
-// const [usuario, setUsuario] = useState(null);
 
 const { productoId } = useParams();
 
@@ -33,10 +30,10 @@ useEffect(() => {
     try {
       if (productoId) {
         // Obtener los detalles del producto utilizando el ID
-        const response = await api.get(`/productos/${productoId}`, {  headers: {
+        const response = await api.get(`/productos/${productoId}` ,{ headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem("token")}`}
-        });
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }});
         const product = response.data;
 
         // Restablecer el estado del producto con los datos recuperados
@@ -89,20 +86,16 @@ const handleSubmit = async (e) => {
       // Actualizar el producto existente
       const response = await api.put(
         `/productos/${productoId}`,
-        product,
-        {  headers: {
+        product,{ headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem("token")}`}
-        }
-      );
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }});
 
       try {
-        const response = await api2.put(`/productos/activar/${productoId}`, {} , {  
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem("token")}`
-          }
-        });
+        const response = await api2.put(`/productos/activar/${productoId}`, {},{ headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+        }});
         
       } catch (error) {
         console.error('Error al activar el producto:', error);

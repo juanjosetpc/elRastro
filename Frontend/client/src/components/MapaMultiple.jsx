@@ -15,10 +15,7 @@ const MapaMultiple = ({ direcciones, filtrarMapa }) => {
 
         for (const direccion of direcciones) {
 
-          const response = await api2.get(`/externos/geocache?direccion=${direccion}`, {  headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem("token")}`}
-          });
+          const response = await api2.get(`/externos/geocache?direccion=${direccion}`);
           const result = response.data;
           nuevosMarkers.push(result.posicion);
         }

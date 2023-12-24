@@ -35,7 +35,10 @@ const Conversacion = ({userEmail}) => {
             comprador: compradorDescifrado,
             vendedor: vendedorDescifrado,
             producto: producto
-          });
+          },{ headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem("token")}`,
+          }});
           const data = response.data; // Check the structure of the response
           
             setConversations(data.conversacionExistente);
@@ -72,7 +75,10 @@ const Conversacion = ({userEmail}) => {
         receptor: receptor, // Puedes obtener el receptor desde algún lugar
         fecha: Date.now(),
         contenido: nuevoMensaje,
-      });
+      },{ headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+      }});
 
       // Actualizar la lista de mensajes en el estado
       setConversations(response.data.conversacion)
