@@ -57,10 +57,9 @@ const ProductDetail = ({ propEmail }) => {
           setProducto(response.data);
           calcularTiempoRestante(response.data.fechaFin);
           setPujaMayor(response.data.pujaMayor);
-
-          //Descomentar antes de entregar para no fundir la api de huella de carbono
-          // const responseCarbono = await api2.get(`/externos/huella-carbono?latCurr=${ubicacion.lat}&lonCurr=${ubicacion.lon}&lugar=${response.data.direccion}`, {  headers: {'Content-Type': 'application/json','Authorization': `Bearer ${localStorage.getItem("token")}`}});
-          // setHuellaCarbono(responseCarbono.data.precio_euros);
+          
+          const responseCarbono = await api2.get(`/externos/huella-carbono?latCurr=${ubicacion.lat}&lonCurr=${ubicacion.lon}&lugar=${response.data.direccion}`, {  headers: {'Content-Type': 'application/json','Authorization': `Bearer ${localStorage.getItem("token")}`}});
+          setHuellaCarbono(responseCarbono.data.precio_euros);
         }
       } catch (error) {
         console.error('Error fetching product details:', error);
